@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public Rigidbody rBody;
+    public float moveSpeed;
+    void Start()
+    {
 
-	// Use this for initialization
-	void Start ()
+    }
+
+    void Update()
     {
-		
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-        transform.Translate(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
-	}
+        rBody.AddForce(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * moveSpeed);
+    }
 }
