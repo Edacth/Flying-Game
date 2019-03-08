@@ -127,6 +127,8 @@ MonoBehaviour:
   rBody: {fileID: 54152456093802566}
   gameAnchor: {fileID: 0}
   axisInput: {x: 0, y: 0}
-  moveSpeed: 150
+  defaultPos: {x: 0, y: 0, z: 0}
+  rotLerp: 0.05
+  moveSpeed: 1000
   xBoundary: 15
   yBoundary: 8
