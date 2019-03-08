@@ -5,7 +5,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody rBody;
+    public Transform gameAnchor;
+    public Vector2 axisInput;
+    public bool testingOnPC;
     public float moveSpeed;
+    public float xBoundary;
+    public float yBoundary;
     void Start()
     {
         Input.gyro.enabled = true;
