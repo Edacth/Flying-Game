@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     public float xBoundary;
     public float yBoundary;
+    public Transform[] floatingUI;
     void Awake()
     {
         Input.gyro.enabled = true;
@@ -27,13 +28,10 @@ public class PlayerController : MonoBehaviour
         rBody.AddForce(transform.forward * moveSpeed);
         rBody.rotation = Quaternion.Lerp(rBody.rotation, Quaternion.Euler(Input.gyro.rotationRateUnbiased * 10), rotLerp);
         //transform.position = new Vector3(Mathf.Clamp(transform.position.x, -xBoundary, xBoundary), Mathf.Clamp(transform.position.y, -yBoundary, yBoundary), transform.position.z);
+        for (int i = 0; i < floatingUI.Length - 1; i++) floatingUI[i].forward = Camera.main.transform.forward;
     }
     public void SetCalibration()
     {
         transform.position = Vector3.zero;
-    }
-    private static Quaternion GyroRotation(Quaternion q)
-    {
-        return new Quaternion(q.x, q.y, -q.z, -q.w);
     }
 }
