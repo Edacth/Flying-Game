@@ -14,5 +14,6 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         rBody.AddForce(new Vector3(Input.acceleration.x, Input.acceleration.y, 0) * moveSpeed);
+        rBody.AddForce(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * moveSpeed);
     }
 }
