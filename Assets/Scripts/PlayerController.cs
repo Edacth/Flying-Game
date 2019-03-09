@@ -17,23 +17,24 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         Input.gyro.enabled = true;
-        SetCalibration();
     }
 
     void Start()
     {
-
+        SetCalibration();
     }
 
     void FixedUpdate()
     {
         //rBody.AddForce(transform.forward * moveSpeed);
         //rBody.rotation = Quaternion.Lerp(rBody.rotation, Quaternion.Euler(Input.gyro.rotationRateUnbiased * 10), rotLerp);
-        Vector3 newForward = Input.gyro.attitude * Vector3.forward;
-        Vector3 difference = newForward - origin;
-        transform.rotation = Quaternion.Euler(new Vector3(-(Mathf.Rad2Deg * difference.y), (Mathf.Rad2Deg * difference.x), 0));
+        //Vector3 newForward = Input.gyro.attitude * Vector3.forward;
+        //Vector3 difference = new Vector3(newForward.x - origin.x, newForward.y - origin.y, 0);
+        //Vector3 difference = new Vector3(origin.x - newForward.x, origin.y - newForward.y, 0);
+        transform.Rotate(Input.gyro.rotationRateUnbiased);
+        //transform.rotation = Quaternion.Euler(new Vector3(-(Mathf.Rad2Deg * difference.y), (Mathf.Rad2Deg * difference.x), 0));
         rBody.AddForce(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * moveSpeed);
-        //rBody.AddForce(transform.forward * moveSpeed);
+        rBody.AddForce(transform.forward * moveSpeed);
         //transform.eulerAngles = new Vector3(difference.x , difference.y, transform.eulerAngles.z);
         //transform.position = new Vector3(Mathf.Clamp(transform.position.x, -xBoundary, xBoundary), Mathf.Clamp(transform.position.y, -yBoundary, yBoundary), transform.position.z);
         for (int i = 0; i < floatingUI.Length - 1; i++) floatingUI[i].forward = Camera.main.transform.forward;
@@ -41,6 +42,7 @@ public class PlayerController : MonoBehaviour
     public void SetCalibration()
     {
         origin = Input.gyro.attitude * Vector3.forward; //Phone's forward
+        transform.rotation = Quaternion.identity;
         //transform.position = Vector3.zero;
     }
 }
