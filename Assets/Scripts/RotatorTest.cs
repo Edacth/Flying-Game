@@ -15,7 +15,8 @@ public class RotatorTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gyroText.text = Input.gyro.attitude.eulerAngles.ToString();
-        arrow.transform.rotation = Input.gyro.attitude;
+        Vector3 rot = new Vector3(Input.gyro.gravity.y, Input.gyro.gravity.x, 0) * 45;
+        gyroText.text = (rot).ToString();
+        arrow.transform.eulerAngles = rot;
     }
 }
