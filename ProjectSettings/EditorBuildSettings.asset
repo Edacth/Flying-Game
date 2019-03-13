@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/RotatorTest.unity
+    guid: b5d9283a68e29ad459a2dda3ea6615e8
+  - enabled: 1
     path: Assets/Scenes/JonathanScene.unity
     guid: 164abd3e5be534d4c8926bf39270bda4
   - enabled: 0
