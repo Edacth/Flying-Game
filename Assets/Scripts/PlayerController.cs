@@ -51,7 +51,8 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, -xBoundary, xBoundary), Mathf.Clamp(transform.position.y, -yBoundary, yBoundary), transform.position.z);
 
             //UI
-            for (int i = 0; i < floatingUI.Length - 1; i++) floatingUI[i].forward = Camera.main.transform.forward;
+            for (int i = 0; i < floatingUI.Length - 1; i++)
+                floatingUI[i].forward = Camera.main.transform.forward;
         
             if (Time.time - invincTime > invincDuration)
                 invinc = false;
