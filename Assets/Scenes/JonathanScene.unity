@@ -119,11 +119,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1636716948}
   m_Script: {fileID: 11500000, guid: eb059fa9edf7e164890abdef7e078ad1, type: 3}
---- !u!23 &144844307 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 23504358655699934, guid: d420ec956eb4f3a419dfe179813f0dd4,
-    type: 2}
-  m_PrefabInternal: {fileID: 1636716948}
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,27 +381,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 65738746772169512, guid: d420ec956eb4f3a419dfe179813f0dd4,
+    - target: {fileID: 114044069021571094, guid: d420ec956eb4f3a419dfe179813f0dd4,
         type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
+      propertyPath: dead
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114044069021571094, guid: d420ec956eb4f3a419dfe179813f0dd4,
-        type: 2}
-      propertyPath: invincDuration
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114044069021571094, guid: d420ec956eb4f3a419dfe179813f0dd4,
-        type: 2}
-      propertyPath: mr
-      value: 
-      objectReference: {fileID: 144844307}
-    - target: {fileID: 114044069021571094, guid: d420ec956eb4f3a419dfe179813f0dd4,
-        type: 2}
-      propertyPath: explosion
-      value: 
-      objectReference: {fileID: 1135525406134708, guid: 6093b51ac987cf2429b2267f096600f6,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d420ec956eb4f3a419dfe179813f0dd4, type: 2}
   m_IsPrefabAsset: 0
