@@ -23,8 +23,9 @@ GameObject:
   - component: {fileID: 23075098919136944}
   - component: {fileID: 136026870002529888}
   - component: {fileID: 114600776158197804}
+  - component: {fileID: 54237112179165610}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: missile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -85,6 +86,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1861259394864150}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &54237112179165610
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1861259394864150}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &114600776158197804
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -97,8 +113,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetVec: {x: 0, y: 0, z: 1}
+  target: {fileID: 4255404316938394, guid: d420ec956eb4f3a419dfe179813f0dd4, type: 2}
+  acceleration: 100
   startDelay: 0.3
-  missileSpeed: 10
 --- !u!136 &136026870002529888
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -106,7 +123,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1861259394864150}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5000001
   m_Height: 2
