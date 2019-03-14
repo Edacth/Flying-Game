@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour {
     public static GameManager instance = null; //Instance of this script
     public GameObject environmentSection; 
     public int numOfSections;
+    public float percievedElevation;
     List<ESectionController> ESectionPool = new List<ESectionController>();
 
     private void Awake()
@@ -21,13 +22,16 @@ public class GameManager : MonoBehaviour {
     void Start () {
         for (int i = 0; i < numOfSections; i++)
         {
-            Vector3 pos = new Vector3(0, -5, 40 * i + 40);
+            Vector3 pos = new Vector3(0, percievedElevation, 40 * i + 40);
             GameObject section = Instantiate(environmentSection, pos, Quaternion.identity);
             ESectionPool.Add(section.GetComponent<ESectionController>());
 
             ESectionPool[i].GenerateTower();
         }
-	}
+
+        //Seed the random
+        Random.InitState(System.DateTime.Now.Millisecond);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -44,7 +48,8 @@ public class GameManager : MonoBehaviour {
         {
             if (ESectionPool[i].transform.position.z < -80)
             {
-                ESectionPool[i].transform.position = new Vector3(0, -5, ESectionPool[i].transform.position.z + 40 * numOfSections);
+                ESectionPool[i].transform.position = new Vector3(0, percievedElevation, ESectionPool[i].transform.position.z + 40 * numOfSections);
+                ESectionPool[i].GenerateTower();
             }
             
         }
