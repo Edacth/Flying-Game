@@ -6,9 +6,13 @@ public class PlayerShoot : MonoBehaviour
 {
 
     public Transform firePoint;
+    public Transform missilePoint;
     public GameObject bullet;
-    public GameObject[] bullets = new GameObject[100];
+    public GameObject[] bullets = new GameObject[50];
+    public GameObject missile;
+    public GameObject[] missiles = new GameObject[20];
 
+    public float bulletSpeed;
     public float timeToFire;
     float timeStamp;
 
@@ -16,16 +20,20 @@ public class PlayerShoot : MonoBehaviour
 	void Awake ()
     {
         timeStamp = Time.time;
-		for(int i = 0; i < bullets.Length - 1; i++)
+		for (int i = 0; i < bullets.Length; ++i)
         {
             bullets[i] = Instantiate(bullet) as GameObject;
+        }
+        for (int i = 0; i < missiles.Length; ++i)
+        {
+            missiles[i] = Instantiate(missile) as GameObject;
         }
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.touchCount > 0)
+        if (Input.touchCount == 1)
         {
             Touch touch = Input.GetTouch(0);
 
@@ -38,6 +46,14 @@ public class PlayerShoot : MonoBehaviour
                 }
 
             }
+        } else if (Input.touchCount > 1)
+        {
+            Touch touch = Input.GetTouch(1);
+
+            if (touch.phase == TouchPhase.Began)
+            {
+                fireMissile();
+            }
         }
 	}
 
@@ -45,12 +61,28 @@ public class PlayerShoot : MonoBehaviour
     {
         foreach (GameObject bul in bullets)
         {
-            if (bul.activeSelf == false)
+            if (!bul.activeSelf)
             {
                 bul.SetActive(true);
                 bul.transform.position = new Vector3(firePoint.position.x, firePoint.position.y, firePoint.position.z);
                 bul.transform.rotation = firePoint.rotation;
-                bul.GetComponent<Rigidbody>().AddForce(bul.transform.forward * 30, ForceMode.Impulse);
+                bul.GetComponent<Rigidbody>().AddForce(bul.transform.forward * bulletSpeed, ForceMode.Impulse);
+                break;
+            }
+        }
+    }
+
+    void fireMissile()
+    {
+        foreach (GameObject msl in missiles)
+        {
+            if (!msl.activeSelf)
+            {
+                msl.SetActive(true);
+                msl.transform.position = new Vector3(missilePoint.position.x, missilePoint.position.y, firePoint.position.z);
+                msl.transform.rotation = Quaternion.Euler(missilePoint.rotation.x + 90, missilePoint.rotation.y, missilePoint.rotation.z);
+                Vector3 launchDirection = new Vector3(msl.transform.right.x, msl.transform.right.y - 0.5f, msl.transform.right.z) * 5;
+                msl.GetComponent<Rigidbody>().AddForce(launchDirection, ForceMode.Impulse);
                 break;
             }
         }
