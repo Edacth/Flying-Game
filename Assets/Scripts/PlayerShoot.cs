@@ -9,7 +9,7 @@ public class PlayerShoot : MonoBehaviour
     public GameObject bullet;
     public GameObject[] bullets = new GameObject[100];
 
-    public float fireRate;
+    public float timeToFire;
     float timeStamp;
 
 	// Use this for initialization
@@ -31,7 +31,7 @@ public class PlayerShoot : MonoBehaviour
 
             if (touch.phase == TouchPhase.Stationary)
             {
-                if (Time.time - timeStamp > fireRate)
+                if (Time.time - timeStamp > timeToFire)
                 {
                     fireBullet();
                     timeStamp = Time.time;
