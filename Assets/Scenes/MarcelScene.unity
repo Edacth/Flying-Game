@@ -529,6 +529,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  fireRate: 0.1
 --- !u!4 &1178273853 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4255404316938394, guid: d420ec956eb4f3a419dfe179813f0dd4,

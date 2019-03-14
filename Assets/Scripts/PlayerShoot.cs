@@ -9,12 +9,13 @@ public class PlayerShoot : MonoBehaviour
     public GameObject bullet;
     public GameObject[] bullets = new GameObject[100];
 
+    public float fireRate;
     float timeStamp;
-    float fireRate;
 
 	// Use this for initialization
 	void Awake ()
     {
+        timeStamp = Time.time;
 		for(int i = 0; i < bullets.Length - 1; i++)
         {
             bullets[i] = Instantiate(bullet) as GameObject;
@@ -30,10 +31,10 @@ public class PlayerShoot : MonoBehaviour
 
             if (touch.phase == TouchPhase.Stationary)
             {
-                if (Time.time - timeStamp < fireRate)
+                if (Time.time - timeStamp > fireRate)
                 {
-                    timeStamp = Time.time;
                     fireBullet();
+                    timeStamp = Time.time;
                 }
 
             }
