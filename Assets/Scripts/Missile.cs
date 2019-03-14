@@ -6,13 +6,21 @@ public class Missile : MonoBehaviour
 {
     Rigidbody rBody;
 
-    public Vector3 targetVec;
-    public Transform target;
+    public Vector3 start, mid, end;
     public float acceleration;
     public float startDelay;
 
     float timer = 0;
     float delayTimer = 0;
+    [SerializeField]
+    float elapsed = 0;
+    bool falling;
+
+    void OnEnable()
+    {
+        falling = true;
+        elapsed = 0;
+    }
 
     // Use this for initialization
     void Start ()
@@ -30,10 +38,18 @@ public class Missile : MonoBehaviour
             gameObject.SetActive(false);
             timer = 0;
             delayTimer = 0;
+
         }
         if (delayTimer >= startDelay)
         {
-            rBody.AddForce(targetVec * acceleration, ForceMode.Force);
+            if (falling)
+            {
+                falling = false;
+                calculatePoints();
+                elapsed = 0;
+            }
+            elapsed += Time.deltaTime;
+            transform.position = quadBezier(start, mid, end, elapsed);
         } else
         {
             delayTimer += Time.deltaTime;
@@ -43,5 +59,19 @@ public class Missile : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         
+    }
+
+    Vector3 quadBezier(Vector3 a, Vector3 b, Vector3 c,  float t)
+    {
+        Vector3 x = Vector3.Lerp(a, b, t);
+        Vector3 y = Vector3.Lerp(b, c, t);
+        return Vector3.Lerp(x, y, t);
+    }
+
+    void calculatePoints()
+    {
+        start = transform.position;
+        end = GameObject.FindGameObjectWithTag("Enemy").transform.position;
+        mid = transform.forward;
     }
 }
