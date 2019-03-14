@@ -6,17 +6,20 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    public int damage;
+    public PlayerController playerController;
+    public float gunAmmo;
+    public float missileAmmo;
     public RawImage jetOutline;
     public TextMeshProUGUI damageText;
-    Color UIColor;
+    private Color UIColor;
     public Color UIStartColor;
     public Color UIEndColor;
-
+    
     void Update()
     {
-        UIColor = Color.Lerp(UIStartColor, UIEndColor, (float)damage / 100);
-        damageText.text = "DAMAGE " + damage + "%";
+        UIColor = Color.Lerp(UIStartColor, UIEndColor, (float)playerController.damage / 100);
+        damageText.fontSharedMaterial.SetColor(ShaderUtilities.ID_GlowColor, UIColor);
+        damageText.text = "DAMAGE " + playerController.damage + "%";
         damageText.color = jetOutline.color = UIColor;
     }
 }

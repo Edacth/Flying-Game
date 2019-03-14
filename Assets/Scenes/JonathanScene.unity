@@ -113,6 +113,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &144844304 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114044069021571094, guid: d420ec956eb4f3a419dfe179813f0dd4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1636716948}
+  m_Script: {fileID: 11500000, guid: eb059fa9edf7e164890abdef7e078ad1, type: 3}
+--- !u!23 &144844307 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 23504358655699934, guid: d420ec956eb4f3a419dfe179813f0dd4,
+    type: 2}
+  m_PrefabInternal: {fileID: 1636716948}
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,12 +190,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!114 &173251230 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114409190214976868, guid: 2cfb71ed160452147bdbc8a6543d49b5,
-    type: 2}
-  m_PrefabInternal: {fileID: 1786302199}
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
 --- !u!1 &724912858
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,34 +260,6 @@ Transform:
   m_LocalScale: {x: 20, y: 1, z: 20}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1613045011
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1613045012}
-  m_Layer: 0
-  m_Name: GameAnchor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1613045012
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1613045011}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1636716948
@@ -324,31 +301,27 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114044069021571094, guid: d420ec956eb4f3a419dfe179813f0dd4,
+    - target: {fileID: 65738746772169512, guid: d420ec956eb4f3a419dfe179813f0dd4,
         type: 2}
-      propertyPath: gameAnchor
-      value: 
-      objectReference: {fileID: 1613045012}
-    - target: {fileID: 114044069021571094, guid: d420ec956eb4f3a419dfe179813f0dd4,
-        type: 2}
-      propertyPath: inputText
-      value: 
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114044069021571094, guid: d420ec956eb4f3a419dfe179813f0dd4,
         type: 2}
-      propertyPath: originText
-      value: 
+      propertyPath: invincDuration
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 114044069021571094, guid: d420ec956eb4f3a419dfe179813f0dd4,
         type: 2}
-      propertyPath: outputText
+      propertyPath: mr
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 144844307}
     - target: {fileID: 114044069021571094, guid: d420ec956eb4f3a419dfe179813f0dd4,
         type: 2}
-      propertyPath: moveSpeed
-      value: 75
-      objectReference: {fileID: 0}
+      propertyPath: explosion
+      value: 
+      objectReference: {fileID: 1135525406134708, guid: 6093b51ac987cf2429b2267f096600f6,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d420ec956eb4f3a419dfe179813f0dd4, type: 2}
   m_IsPrefabAsset: 0
@@ -391,6 +364,31 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114562024369172504, guid: 2cfb71ed160452147bdbc8a6543d49b5,
+        type: 2}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 144844304}
+    - target: {fileID: 114255358316816286, guid: 2cfb71ed160452147bdbc8a6543d49b5,
+        type: 2}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114255358316816286, guid: 2cfb71ed160452147bdbc8a6543d49b5,
+        type: 2}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114471122996034178, guid: 2cfb71ed160452147bdbc8a6543d49b5,
+        type: 2}
+      propertyPath: m_havePropertiesChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114471122996034178, guid: 2cfb71ed160452147bdbc8a6543d49b5,
+        type: 2}
+      propertyPath: m_isInputParsingRequired
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114409190214976868, guid: 2cfb71ed160452147bdbc8a6543d49b5,
         type: 2}
       propertyPath: m_havePropertiesChanged
@@ -401,52 +399,11 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114562024369172504, guid: 2cfb71ed160452147bdbc8a6543d49b5,
-        type: 2}
-      propertyPath: damageText
-      value: 
-      objectReference: {fileID: 173251230}
     - target: {fileID: 224289554753699762, guid: 2cfb71ed160452147bdbc8a6543d49b5,
         type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114562024369172504, guid: 2cfb71ed160452147bdbc8a6543d49b5,
-        type: 2}
-      propertyPath: jetOutline
-      value: 
-      objectReference: {fileID: 1890974722}
-    - target: {fileID: 114562024369172504, guid: 2cfb71ed160452147bdbc8a6543d49b5,
-        type: 2}
-      propertyPath: UIStartColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114562024369172504, guid: 2cfb71ed160452147bdbc8a6543d49b5,
-        type: 2}
-      propertyPath: UIStartColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114562024369172504, guid: 2cfb71ed160452147bdbc8a6543d49b5,
-        type: 2}
-      propertyPath: UIEndColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114562024369172504, guid: 2cfb71ed160452147bdbc8a6543d49b5,
-        type: 2}
-      propertyPath: UIEndColor.g
-      value: 0.5529412
-      objectReference: {fileID: 0}
-    - target: {fileID: 114562024369172504, guid: 2cfb71ed160452147bdbc8a6543d49b5,
-        type: 2}
-      propertyPath: UIEndColor.a
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cfb71ed160452147bdbc8a6543d49b5, type: 2}
   m_IsPrefabAsset: 0
---- !u!114 &1890974722 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114612812185523594, guid: 2cfb71ed160452147bdbc8a6543d49b5,
-    type: 2}
-  m_PrefabInternal: {fileID: 1786302199}
-  m_Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
