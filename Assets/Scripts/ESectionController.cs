@@ -17,7 +17,7 @@ public class ESectionController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        transform.Translate(0f, 0f, -0.35f);
+        
 	}
 
     public void GenerateTower()
