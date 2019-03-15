@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour {
     public float sectionSpeed;
     public float sectionLength;
     public float percievedElevation;
+    public float zFadePoint;
 
     List<ESectionController> ESectionPool = new List<ESectionController>();
 
@@ -61,7 +62,7 @@ public class GameManager : MonoBehaviour {
             //Translate the sections along
             ESectionPool[i].transform.Translate(0f, 0f, sectionSpeed);
 
-            if (ESectionPool[i].transform.position.z < 40)
+            if (ESectionPool[i].transform.position.z < zFadePoint)
             {
 
                 recursiveTransparency(ESectionPool[i].gameObject);

@@ -6,6 +6,7 @@ public class ITransparancy : MonoBehaviour {
 
     public Color opaque;
     public Color transparent;
+    public float fadeIncrement;
 
     Renderer myRenderer;
     float t;
@@ -27,7 +28,7 @@ public class ITransparancy : MonoBehaviour {
     {
         while (goal >= t)
         {
-            t += 0.0005f;
+            t += fadeIncrement;
 
             float interp = (0 * (1 - t) + 1 * t);
             myRenderer.material.color = Color.Lerp(opaque, transparent, interp);
@@ -36,7 +37,7 @@ public class ITransparancy : MonoBehaviour {
 
         while (goal <= t)
         {
-            t -= 0.0005f;
+            t -= fadeIncrement;
 
             float interp = (0 * (1 - t) + 1 * t);
             //Debug.Log(interp.ToString());

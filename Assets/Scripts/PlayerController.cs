@@ -7,9 +7,11 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Gameplay Variables")]
     public int damage;
+
     public bool invinc;
     public float invincDuration;
     private float invincTime;
+
     public bool dead;
 
     [Header("Physics/Input")]
@@ -23,8 +25,7 @@ public class PlayerController : MonoBehaviour
     public float yBoundary;
     public Vector3 origin;
 
-    [Header("UI")]
-    public Transform[] floatingUI;
+    [Header("Misc")]
     public GameObject explosion;
 
     void Awake()
@@ -49,10 +50,6 @@ public class PlayerController : MonoBehaviour
             rBody.AddForce(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * moveSpeed);
             rBody.AddForce(transform.forward * moveSpeed);
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, -xBoundary, xBoundary), Mathf.Clamp(transform.position.y, -yBoundary, yBoundary), transform.position.z);
-
-            //UI
-            for (int i = 0; i < floatingUI.Length - 1; i++)
-                floatingUI[i].forward = Camera.main.transform.forward;
         
             if (Time.time - invincTime > invincDuration)
                 invinc = false;
@@ -82,7 +79,7 @@ public class PlayerController : MonoBehaviour
         if (!invinc)
         {
             if (other.gameObject.tag == "Building")
-                TakeDamage(20);
+                TakeDamage(10);
         }
     }
     private void TakeDamage (int amount)

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class bezierTest : MonoBehaviour
 {
-
     public GameObject myDude;
 
     public Transform start, mid, end;
@@ -19,8 +18,9 @@ public class bezierTest : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
             timer = 0;
-        myDude.transform.position = quadBezier(start.position, mid.position, end.position, timer);
         timer += Time.deltaTime;
+        myDude.transform.position = quadBezier(start.position, mid.position, end.position, timer);
+        myDude.transform.LookAt(quadBezier(start.position, mid.position, end.position, timer + Time.deltaTime));
     }
     Vector3 quadBezier(Vector3 a, Vector3 b, Vector3 c, float t)
     {

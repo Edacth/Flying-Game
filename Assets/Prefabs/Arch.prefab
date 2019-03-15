@@ -313,6 +313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   opaque: {r: 0.6023496, g: 0.7802919, b: 0.9056604, a: 1}
   transparent: {r: 0.6023496, g: 0.7802919, b: 0.9056604, a: 0}
+  fadeIncrement: 0.002
 --- !u!114 &114263448151712728
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -326,6 +327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   opaque: {r: 0.6023496, g: 0.7802919, b: 0.9056604, a: 1}
   transparent: {r: 0.6023496, g: 0.7802919, b: 0.9056604, a: 0}
+  fadeIncrement: 0.002
 --- !u!114 &114722539915128800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -339,3 +341,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   opaque: {r: 0.6023496, g: 0.7802919, b: 0.9056604, a: 1}
   transparent: {r: 0.6023496, g: 0.7802919, b: 0.9056604, a: 0}
+  fadeIncrement: 0.002

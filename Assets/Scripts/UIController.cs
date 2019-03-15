@@ -6,14 +6,24 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    public PlayerController playerController;
-    public float gunAmmo;
-    public float missileAmmo;
+    [Header("Assets")]
     public RawImage jetOutline;
-    public TextMeshProUGUI damageText;
+    
     private Color UIColor;
     public Color UIStartColor;
     public Color UIEndColor;
+    
+    [Header("References")]
+    public PlayerController playerController;
+    public RectTransform gunScaler;
+    public RectTransform missileScaler;
+    public TextMeshProUGUI damageText;
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI highScoreText;
+    public float gunAmmo;
+    public float missileAmmo;
+    public int score;
+    public int highScore;
     
     void Update()
     {
@@ -21,5 +31,9 @@ public class UIController : MonoBehaviour
         damageText.fontSharedMaterial.SetColor(ShaderUtilities.ID_GlowColor, UIColor);
         damageText.text = "DAMAGE " + playerController.damage + "%";
         damageText.color = jetOutline.color = UIColor;
+        gunScaler.localScale = new Vector3(gunScaler.localScale.x, gunAmmo / 100);
+        missileScaler.localScale = new Vector3(missileScaler.localScale.x, missileAmmo / 100);
+        scoreText.text = score.ToString();
+        highScoreText.text = highScore.ToString();
     }
 }
