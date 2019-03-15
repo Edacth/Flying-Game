@@ -5,10 +5,11 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
 
     float timer = 0;
+    bool hit;
 
     void OnEnable()
     {
-
+        hit = false;
     }
 
     // Use this for initialization
@@ -21,11 +22,19 @@ public class Bullet : MonoBehaviour {
 	void Update ()
     {
         timer += Time.deltaTime;
-        if (timer >= 1 && gameObject.activeSelf)
+        if (timer >= 1 || hit)
         {
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             gameObject.SetActive(false);
             timer = 0;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            hit = true;
         }
     }
 }
