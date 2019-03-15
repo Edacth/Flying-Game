@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour {
     public float sectionLength;
     public float percievedElevation;
     public float zFadePoint;
+    public int score;
+    public int highScore;
 
     List<ESectionController> ESectionPool = new List<ESectionController>();
 
@@ -47,7 +49,12 @@ public class GameManager : MonoBehaviour {
         Random.InitState(System.DateTime.Now.Millisecond);
     }
 	
-	void Update () {
+	void Update ()
+    {
+        if(score >= highScore)
+        {
+            highScore = score;
+        }
 
         if (Input.GetKeyDown(KeyCode.Z))
         {

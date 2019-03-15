@@ -15,6 +15,7 @@ public class UIController : MonoBehaviour
     
     [Header("References")]
     public PlayerController playerController;
+    public GameManager GM;
     public RectTransform gunScaler;
     public RectTransform missileScaler;
     public TextMeshProUGUI damageText;
@@ -22,8 +23,6 @@ public class UIController : MonoBehaviour
     public TextMeshProUGUI highScoreText;
     public float gunAmmo;
     public float missileAmmo;
-    public int score;
-    public int highScore;
     
     void Update()
     {
@@ -33,7 +32,7 @@ public class UIController : MonoBehaviour
         damageText.color = jetOutline.color = UIColor;
         gunScaler.localScale = new Vector3(gunScaler.localScale.x, gunAmmo / 100);
         missileScaler.localScale = new Vector3(missileScaler.localScale.x, missileAmmo / 100);
-        scoreText.text = score.ToString();
-        highScoreText.text = highScore.ToString();
+        scoreText.text = GM.score.ToString();
+        highScoreText.text = GM.highScore.ToString();
     }
 }

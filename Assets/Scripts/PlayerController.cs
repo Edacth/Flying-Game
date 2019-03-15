@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour
     public float xBoundary;
     public float yBoundary;
     public Vector3 origin;
+    public GameManager GM;
+    private float scoreTimer;
+    public float scoreInterval;
 
     [Header("Misc")]
     public GameObject explosion;
@@ -37,9 +40,11 @@ public class PlayerController : MonoBehaviour
     {
         SetCalibration();
     }
+    
 
     void FixedUpdate()
     {
+        
         if (!dead)
         {
             //Physics/Movement
@@ -67,6 +72,18 @@ public class PlayerController : MonoBehaviour
         {
             damage = 100;
             dead = true;
+        }
+    }
+    private void Update()
+    {
+        if (!dead)
+        {
+            scoreTimer += Time.deltaTime;
+            if (scoreTimer >= scoreInterval)
+            {
+                scoreTimer = 0;
+                GM.score++;
+            }
         }
     }
     public void SetCalibration()
