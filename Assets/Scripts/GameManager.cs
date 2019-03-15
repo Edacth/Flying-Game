@@ -60,10 +60,10 @@ public class GameManager : MonoBehaviour {
         for (int i = 0; i < numOfSections; i++)
         {
             //Translate the sections along
-            ESectionPool[i].transform.Translate(0f, 0f, sectionSpeed);
+            ESectionPool[i].transform.Translate(0f, 0f, sectionSpeed * Time.deltaTime);
 
             if (ESectionPool[i].transform.position.z < zFadePoint)
-            {
+            { 
 
                 recursiveTransparency(ESectionPool[i].gameObject);
             }

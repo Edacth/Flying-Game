@@ -85,10 +85,13 @@ public class PlayerController : MonoBehaviour
     private void TakeDamage (int amount)
     {
         damage += amount;
-        if (damage >= 100)
+        if (damage >= 100 && dead == false)
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
             dead = true;
+
+            
+
         }
         else
         {
