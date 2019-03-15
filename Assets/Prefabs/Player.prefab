@@ -375,6 +375,8 @@ MonoBehaviour:
   xBoundary: 15
   yBoundary: 8
   origin: {x: 0, y: 0, z: 0}
+  GM: {fileID: 0}
+  scoreInterval: 1
   explosion: {fileID: 1135525406134708, guid: 6093b51ac987cf2429b2267f096600f6, type: 2}
 --- !u!114 &114579394389613776
 MonoBehaviour:
@@ -418,6 +420,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  GM: {fileID: 0}
+  gunCost: 0
+  missileCost: 0
   bulletSpeed: 150
   timeToFire: 0.05
 --- !u!198 &198803056749438544

@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         SetCalibration();
+        GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
     
 

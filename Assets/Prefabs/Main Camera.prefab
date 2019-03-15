@@ -1228,15 +1228,12 @@ MonoBehaviour:
   UIStartColor: {r: 0, g: 1, b: 0, a: 0.5882353}
   UIEndColor: {r: 1, g: 0.39937478, b: 0, a: 0.5882353}
   playerController: {fileID: 0}
+  GM: {fileID: 0}
   gunScaler: {fileID: 224149130730290572}
   missileScaler: {fileID: 224897100340294916}
   damageText: {fileID: 114341629799666540}
   scoreText: {fileID: 114310267834552340}
   highScoreText: {fileID: 114471122996034178}
-  gunAmmo: 50
-  missileAmmo: 50
-  score: 0
-  highScore: 0
 --- !u!114 &114599512958667820
 MonoBehaviour:
   m_ObjectHideFlags: 1
