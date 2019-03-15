@@ -33,9 +33,14 @@ public class PlayerShoot : MonoBehaviour
             missiles[i] = Instantiate(missile) as GameObject;
         }
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    private void Start()
+    {
+        GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+    }
+
+    // Update is called once per frame
+    void Update ()
     {
         if (Input.touchCount == 1)
         {

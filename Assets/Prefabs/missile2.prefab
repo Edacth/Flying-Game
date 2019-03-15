@@ -178,6 +178,7 @@ MonoBehaviour:
   speed: 75
   startDelay: 0.3
   elapsed: 0
+  damage: 10
   lifetime: 2
 --- !u!136 &136098045503297528
 CapsuleCollider:

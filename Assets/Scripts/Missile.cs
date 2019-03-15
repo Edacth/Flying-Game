@@ -15,6 +15,7 @@ public class Missile : MonoBehaviour
     float delayTimer = 0;
     [SerializeField]
     float elapsed = 0;
+    public int damage = 0;
     public float lifetime;
     bool falling;
     bool enemiesExist = false;
@@ -38,7 +39,7 @@ public class Missile : MonoBehaviour
 	void Update ()
     {
         timer += Time.deltaTime;
-        if (timer >= lifetime && gameObject.activeSelf)
+        if (timer >= lifetime || hit)
         {
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             gameObject.SetActive(false);
@@ -79,6 +80,7 @@ public class Missile : MonoBehaviour
         if (other.tag == "Enemy")
         {
             hit = true;
+            other.GetComponent<Enemy>().takeDamage(damage);
         }
     }
 

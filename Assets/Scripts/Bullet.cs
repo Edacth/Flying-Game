@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
 
     float timer = 0;
+    public int damage = 0;
     bool hit;
 
     void OnEnable()
@@ -35,6 +36,7 @@ public class Bullet : MonoBehaviour {
         if (other.tag == "Enemy")
         {
             hit = true;
+            other.GetComponent<Enemy>().takeDamage(damage);
         }
     }
 }

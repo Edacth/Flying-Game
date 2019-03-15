@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    float health;
+    public float health;
     GameObject Player;
 
 	// Use this for initialization
@@ -21,4 +21,9 @@ public class Enemy : MonoBehaviour
             gameObject.SetActive(false);
         }
 	}
+
+    public void takeDamage(int amount)
+    {
+        health -= amount;
+    }
 }
