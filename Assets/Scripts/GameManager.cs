@@ -5,11 +5,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
     public static GameManager instance = null; //Instance of this script
-    public GameObject environmentSection; 
+    public GameObject environmentSection;
+    public Material transparentMaterial;
     public int numOfSections;
     public float sectionSpeed;
     public float sectionLength;
     public float percievedElevation;
+
     List<ESectionController> ESectionPool = new List<ESectionController>();
 
     private void Awake()
@@ -21,7 +23,8 @@ public class GameManager : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
     }
 
-    void Start () {
+    void Start ()
+    {
         for (int i = 0; i < numOfSections; i++)
         {
             Vector3 pos = new Vector3(0, percievedElevation, sectionLength * i + 80);
@@ -58,13 +61,34 @@ public class GameManager : MonoBehaviour {
             //Translate the sections along
             ESectionPool[i].transform.Translate(0f, 0f, sectionSpeed);
 
-            //Move sections back if they have passed the player
-            if (ESectionPool[i].transform.position.z < -80)
+            if (ESectionPool[i].transform.position.z < 40)
+            {
+
+                recursiveTransparency(ESectionPool[i].gameObject);
+            }
+
+                //Move sections back if they have passed the player
+                if (ESectionPool[i].transform.position.z < -80)
             {
                 ESectionPool[i].transform.position = new Vector3(0, percievedElevation, ESectionPool[i].transform.position.z + sectionLength * numOfSections);
                 ESectionPool[i].GenerateTower();
             }
             
+        }
+    }
+
+    void recursiveTransparency(GameObject _object)
+    {
+        ITransparancy objectTransScript = _object.GetComponent<ITransparancy>();
+        if (objectTransScript != null && _object.tag == "Building")
+        {
+            //objectRenderer.material = transparentMaterial;
+            objectTransScript.Fade(0.2f);
+        }
+        
+        for (int j = 0; j < _object.transform.childCount; j++)
+        {
+            recursiveTransparency(_object.transform.GetChild(j).gameObject);
         }
     }
 }

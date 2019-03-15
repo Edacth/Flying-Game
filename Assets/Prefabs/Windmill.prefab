@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33443417248580910}
   - component: {fileID: 23176563887333130}
   - component: {fileID: 65737451378134594}
+  - component: {fileID: 114716849146398128}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Building
@@ -41,6 +42,7 @@ GameObject:
   - component: {fileID: 23300618477858886}
   - component: {fileID: 65626017727330854}
   - component: {fileID: 114212524436076938}
+  - component: {fileID: 114511237872962146}
   m_Layer: 0
   m_Name: Blades
   m_TagString: Building
@@ -223,3 +225,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3af13328e7b5d2642be752c5f19b6d93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114511237872962146
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1631951234540718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9650e085efdf28d419a45722e8d966c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  opaque: {r: 0.6023496, g: 0.7802919, b: 0.9056604, a: 1}
+  transparent: {r: 0.6023496, g: 0.7802919, b: 0.9056604, a: 0}
+--- !u!114 &114716849146398128
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1628763185410790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9650e085efdf28d419a45722e8d966c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  opaque: {r: 0.6023496, g: 0.7802919, b: 0.9056604, a: 1}
+  transparent: {r: 0.6023496, g: 0.7802919, b: 0.9056604, a: 0}
