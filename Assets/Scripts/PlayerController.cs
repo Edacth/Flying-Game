@@ -7,9 +7,11 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Gameplay Variables")]
     public int damage;
+
     public bool invinc;
     public float invincDuration;
     private float invincTime;
+
     public bool dead;
 
     [Header("Physics/Input")]
@@ -22,9 +24,11 @@ public class PlayerController : MonoBehaviour
     public float xBoundary;
     public float yBoundary;
     public Vector3 origin;
+    public GameManager GM;
+    private float scoreTimer;
+    public float scoreInterval;
 
-    [Header("UI")]
-    public Transform[] floatingUI;
+    [Header("Misc")]
     public GameObject explosion;
 
     void Awake()
@@ -36,9 +40,11 @@ public class PlayerController : MonoBehaviour
     {
         SetCalibration();
     }
+    
 
     void FixedUpdate()
     {
+        
         if (!dead)
         {
             //Physics/Movement
@@ -49,10 +55,6 @@ public class PlayerController : MonoBehaviour
             rBody.AddForce(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * moveSpeed);
             rBody.AddForce(transform.forward * moveSpeed);
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, -xBoundary, xBoundary), Mathf.Clamp(transform.position.y, -yBoundary, yBoundary), transform.position.z);
-
-            //UI
-            for (int i = 0; i < floatingUI.Length - 1; i++)
-                floatingUI[i].forward = Camera.main.transform.forward;
         
             if (Time.time - invincTime > invincDuration)
                 invinc = false;
@@ -72,6 +74,18 @@ public class PlayerController : MonoBehaviour
             dead = true;
         }
     }
+    private void Update()
+    {
+        if (!dead)
+        {
+            scoreTimer += Time.deltaTime;
+            if (scoreTimer >= scoreInterval)
+            {
+                scoreTimer = 0;
+                GM.score++;
+            }
+        }
+    }
     public void SetCalibration()
     {
         origin = Input.gyro.gravity.normalized; //Phone's forward
@@ -82,16 +96,19 @@ public class PlayerController : MonoBehaviour
         if (!invinc)
         {
             if (other.gameObject.tag == "Building")
-                TakeDamage(20);
+                TakeDamage(10);
         }
     }
     private void TakeDamage (int amount)
     {
         damage += amount;
-        if (damage >= 100)
+        if (damage >= 100 && dead == false)
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
             dead = true;
+
+            
+
         }
         else
         {

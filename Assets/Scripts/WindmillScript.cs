@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WindmillScript : MonoBehaviour {
 
+    public float rotSpeed;
+
     GameObject blades;
 
 
@@ -13,6 +15,6 @@ public class WindmillScript : MonoBehaviour {
 	
 
 	void Update () {
-        blades.transform.Rotate(0, 0, 1.5f);
+        blades.transform.Rotate(0, 0, rotSpeed * Time.deltaTime);
 	}
 }
