@@ -112,10 +112,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd712b90be54379469c5fa0ba915468b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetVec: {x: 0, y: 0, z: 1}
-  target: {fileID: 4255404316938394, guid: d420ec956eb4f3a419dfe179813f0dd4, type: 2}
-  acceleration: 100
+  target: {fileID: 0}
+  start: {x: 0, y: 0, z: 0}
+  mid: {x: 0, y: 0, z: 0}
+  end: {x: 0, y: 0, z: 0}
+  speed: 75
   startDelay: 0.3
+  initialRot: {x: 0, y: 0, z: 0, w: 0}
+  rot: {x: 0, y: 0, z: 0, w: 0}
+  elapsed: 0
 --- !u!136 &136026870002529888
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -78,10 +78,10 @@ public class PlayerShoot : MonoBehaviour
         {
             if (!msl.activeSelf)
             {
-                msl.SetActive(true);
                 msl.transform.position = new Vector3(missilePoint.position.x, missilePoint.position.y, firePoint.position.z);
                 msl.transform.rotation = Quaternion.Euler(missilePoint.rotation.x + 90, missilePoint.rotation.y, missilePoint.rotation.z);
-                Vector3 launchDirection = new Vector3(msl.transform.right.x, msl.transform.right.y - 0.5f, msl.transform.right.z) * 5;
+                msl.SetActive(true);
+                Vector3 launchDirection = new Vector3(0, msl.transform.forward.y, msl.transform.right.z) * 5;
                 msl.GetComponent<Rigidbody>().AddForce(launchDirection, ForceMode.Impulse);
                 break;
             }
