@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public struct WeightedEntry
+[System.Serializable]
+public class WeightedEntry
 {
     public WeightedEntry(int _item, int _weight)
     {
@@ -10,11 +11,11 @@ public struct WeightedEntry
         weight = _weight;
     }
 
-    public int item { get; set; }
-    public int weight { get; set; }
+    public int item;
+    public int weight;
+
 }
 public static class WeightedRandom {
-
 
 	public static int WeightedSelect(WeightedEntry[] entries)
     {

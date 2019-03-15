@@ -916,7 +916,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   environmentSection: {fileID: 1027898251405006, guid: afba31f949bb3d144823fadceeddf617,
     type: 2}
-  numOfSections: 3
+  numOfSections: 10
   sectionSpeed: -0.35
   sectionLength: 60
   percievedElevation: -15
@@ -1573,7 +1573,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 41.879, y: -30.000002, z: 0}
 --- !u!1 &1858824599
 GameObject:
@@ -1687,7 +1687,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4255404316938394, guid: d420ec956eb4f3a419dfe179813f0dd4, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114044069021571094, guid: d420ec956eb4f3a419dfe179813f0dd4,
         type: 2}

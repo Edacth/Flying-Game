@@ -139,3 +139,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tower: {fileID: 1211149600310582, guid: 08629af81d11d52409c816f7ec85386f, type: 2}
   arch: {fileID: 1762155215455366, guid: 45530730344b3a049baa525b20bb3e75, type: 2}
+  windmill: {fileID: 1740871540107088, guid: cb3f297cb07e597409011eef757f31d7, type: 2}
+  genOptions:
+  - item: 0
+    weight: 9
+  - item: 1
+    weight: 3
+  - item: 2
+    weight: 1

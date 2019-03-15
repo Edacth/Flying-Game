@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ESectionController : MonoBehaviour {
-    enum Structure { Tower, Arch};
+    enum Structure { Tower, Arch, Windmill};
     Vector3 pos;
     
     public GameObject tower;
     public GameObject arch;
+    public GameObject windmill;
+    public WeightedEntry[] genOptions;
 
     void Start () {
         
@@ -24,16 +26,14 @@ public class ESectionController : MonoBehaviour {
     {
         for (int i = 0; i < gameObject.transform.childCount; i++)
         {
-            if (gameObject.transform.GetChild(i).name == "Tower(Clone)" || gameObject.transform.GetChild(i).name == "Arch(Clone)")
+            if (gameObject.transform.GetChild(i).tag == "Building")
             {
                 Destroy(gameObject.transform.GetChild(i).gameObject);
             }
         }
         pos = gameObject.transform.position;
 
-        
-        WeightedEntry test = new WeightedEntry(1, 1);
-        WeightedEntry[] genOptions = new WeightedEntry[] { new WeightedEntry(0, 10), new WeightedEntry(1, 3) };
+         //genOptions = new WeightedEntry[] { new WeightedEntry(0, 0), new WeightedEntry(1, 0), new WeightedEntry(2, 3) };
         int structureType = WeightedRandom.WeightedSelect(genOptions);
         Vector3 structurePos;
         if (structureType == (int)Structure.Tower)
@@ -45,6 +45,11 @@ public class ESectionController : MonoBehaviour {
         {
             structurePos = new Vector3(pos.x + Random.Range(-15, 16), pos.y + 18.5f, pos.z);
             Instantiate(arch, structurePos, Quaternion.identity, gameObject.transform);
+        }
+        else if (structureType == (int)Structure.Windmill)
+        {
+            structurePos = new Vector3(pos.x + Random.Range(-15, 16), pos.y + 15f, pos.z);
+            Instantiate(windmill, structurePos, Quaternion.identity, gameObject.transform);
         }
     }
 }

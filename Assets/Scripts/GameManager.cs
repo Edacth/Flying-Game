@@ -43,7 +43,6 @@ public class GameManager : MonoBehaviour {
         Random.InitState(System.DateTime.Now.Millisecond);
     }
 	
-	// Update is called once per frame
 	void Update () {
 
         if (Input.GetKeyDown(KeyCode.Z))
@@ -59,6 +58,7 @@ public class GameManager : MonoBehaviour {
             //Translate the sections along
             ESectionPool[i].transform.Translate(0f, 0f, sectionSpeed);
 
+            //Move sections back if they have passed the player
             if (ESectionPool[i].transform.position.z < -80)
             {
                 ESectionPool[i].transform.position = new Vector3(0, percievedElevation, ESectionPool[i].transform.position.z + sectionLength * numOfSections);
