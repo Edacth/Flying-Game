@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     [SerializeField] Transform LeadObject;
+    public float distanceFactor;
 	// Use this for initialization
 	void Start ()
     {
@@ -14,6 +15,6 @@ public class CameraFollow : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        transform.position = new Vector3(LeadObject.position.x, LeadObject.position.y, LeadObject.position.z - 20) / 2;
+        transform.position = new Vector3(LeadObject.position.x, LeadObject.position.y, LeadObject.position.z - 20) / distanceFactor;
 	}
 }
