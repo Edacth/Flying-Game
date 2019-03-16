@@ -23,11 +23,16 @@ public class Missile : MonoBehaviour
 
     void OnEnable()
     {
+        target = null;
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         if (enemies.Length > 0)
         {
             enemiesExist = true;
             target = closestEnemy(enemies);
+        }
+        else
+        {
+            enemiesExist = false;
         }
 
         falling = true;
@@ -45,7 +50,6 @@ public class Missile : MonoBehaviour
             gameObject.SetActive(false);
             timer = 0;
             delayTimer = 0;
-
         }
         if (delayTimer >= startDelay)
         {
@@ -104,7 +108,7 @@ public class Missile : MonoBehaviour
 
         for (int i = 1; i < arr.Length; ++i)
         {
-            if (Vector3.Distance(transform.position, arr[i].transform.position) <
+            if (arr[i].activeSelf && Vector3.Distance(transform.position, arr[i].transform.position) <
                 Vector3.Distance(transform.position, closest.transform.position))
             {
                 closest = arr[i];
