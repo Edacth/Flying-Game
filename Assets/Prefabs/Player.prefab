@@ -221,7 +221,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1007970104356114}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4255404316938394}
@@ -262,13 +262,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1239823001369888}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.5, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1, y: -0.5, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4255404316938394}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4770349328900664
 Transform:
   m_ObjectHideFlags: 1
@@ -372,8 +372,8 @@ MonoBehaviour:
   defaultPos: {x: 0, y: 0, z: 0}
   rotLerp: 0.05
   moveSpeed: 300
-  xBoundary: 15
-  yBoundary: 8
+  xBoundary: 22
+  yBoundary: 14
   origin: {x: 0, y: 0, z: 0}
   GM: {fileID: 0}
   scoreInterval: 1
@@ -408,12 +408,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  missile: {fileID: 1861259394864150, guid: f798e3a1f764008489c1f950309f2618, type: 2}
+  missile: {fileID: 1371410054762224, guid: 25aa07531359b10478eef7b608473775, type: 2}
   missiles:
   - {fileID: 0}
   - {fileID: 0}
@@ -421,8 +416,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   GM: {fileID: 0}
-  gunCost: 0
-  missileCost: 0
+  gunCost: 0.1
+  missileCost: 5
   bulletSpeed: 150
   timeToFire: 0.05
 --- !u!198 &198803056749438544
@@ -4034,7 +4029,7 @@ ParticleSystem:
   LightsModule:
     enabled: 1
     ratio: 1
-    light: {fileID: 108262145721065802, guid: ff399ea102ba90147a9faeb76090e9bf, type: 2}
+    light: {fileID: 0}
     randomDistribution: 1
     color: 1
     range: 1

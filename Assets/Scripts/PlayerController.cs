@@ -98,6 +98,8 @@ public class PlayerController : MonoBehaviour
         {
             if (other.gameObject.tag == "Building")
                 TakeDamage(10);
+            else if (other.gameObject.tag == "Enemy")
+                TakeDamage(5);
         }
     }
     private void TakeDamage (int amount)
