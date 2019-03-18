@@ -42,29 +42,49 @@ public class PlayerShoot : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        if (Input.touchCount == 1)
+        // --Untested on phone as of yet
+        //-----------------------------------------------------------------------
+        if ((Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Stationary) || Input.GetMouseButton(0))
         {
-            Touch touch = Input.GetTouch(0);
-
-            if (touch.phase == TouchPhase.Stationary)
+            if (Time.time - timeStamp > timeToFire)
             {
-                if (Time.time - timeStamp > timeToFire)
-                {
-                    fireBullet();
-                    timeStamp = Time.time;
-                }
-
-            }
-        } else if (Input.touchCount > 1)
-        {
-            Touch touch = Input.GetTouch(1);
-
-            if (touch.phase == TouchPhase.Began)
-            {
-                fireMissile();
+                fireBullet();
+                timeStamp = Time.time;
             }
         }
-	}
+        else if ((Input.touchCount > 1 && Input.GetTouch(1).phase == TouchPhase.Began) || Input.GetMouseButtonDown(1))
+        {
+            fireMissile();
+        }
+        //-----------------------------------------------------------------------
+
+        //Working and tested on phone, revert back to this if necessary
+        //-----------------------------------------------------------------------
+        //if (Input.touchCount == 1)
+        //{
+        //    Touch touch = Input.GetTouch(0);
+
+        //    if (touch.phase == TouchPhase.Stationary)
+        //    {
+        //        if (Time.time - timeStamp > timeToFire)
+        //        {
+        //            fireBullet();
+        //            timeStamp = Time.time;
+        //        }
+
+        //    }
+        //}
+        //else if (Input.touchCount > 1)
+        //{
+        //    Touch touch = Input.GetTouch(1);
+
+        //    if (touch.phase == TouchPhase.Began)
+        //    {
+        //        fireMissile();
+        //    }
+        //}
+        //-----------------------------------------------------------------------
+    }
 
     void fireBullet()
     {
@@ -98,7 +118,7 @@ public class PlayerShoot : MonoBehaviour
                     msl.transform.rotation = missilePoint.rotation;
                     msl.SetActive(true);
                     GM.missileAmmo -= missileCost;
-                    Vector3 launchDirection = -transform.up * 5;
+                    Vector3 launchDirection = (-transform.up * 5 + transform.right * 5);
                     msl.GetComponent<Rigidbody>().AddForce(launchDirection, ForceMode.Impulse);
                     break;
                 }
