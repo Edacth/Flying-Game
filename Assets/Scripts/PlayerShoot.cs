@@ -11,19 +11,22 @@ public class PlayerShoot : MonoBehaviour
     public GameObject[] bullets = new GameObject[50];
     public GameObject missile;
     public GameObject[] missiles = new GameObject[20];
+    public GameObject missileHolder;
     public GameManager GM;
     public float gunCost;
     public float missileCost;
 
     [Header("Variables")]
     public float bulletSpeed;
-    public float timeToFire;
-    float timeStamp;
+    public float timeToFireBullet;
+    public float timeToFireMissile;
+    float bulletTimeStamp;
+    float missileTimeStamp;
 
 	// Use this for initialization
 	void Awake ()
     {
-        timeStamp = Time.time;
+        bulletTimeStamp = missileTimeStamp = Time.time;
 		for (int i = 0; i < bullets.Length; ++i)
         {
             bullets[i] = Instantiate(bullet) as GameObject;
@@ -46,15 +49,19 @@ public class PlayerShoot : MonoBehaviour
         //-----------------------------------------------------------------------
         if ((Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Stationary) || Input.GetMouseButton(0))
         {
-            if (Time.time - timeStamp > timeToFire)
+            if (Time.time - bulletTimeStamp > timeToFireBullet)
             {
                 fireBullet();
-                timeStamp = Time.time;
+                bulletTimeStamp = Time.time;
             }
         }
         else if ((Input.touchCount > 1 && Input.GetTouch(1).phase == TouchPhase.Began) || Input.GetMouseButtonDown(1))
         {
-            fireMissile();
+            if (Time.time - missileTimeStamp > timeToFireMissile)
+            {
+                fireMissile();
+                missileTimeStamp = Time.time;
+            }
         }
         //-----------------------------------------------------------------------
 
@@ -84,6 +91,10 @@ public class PlayerShoot : MonoBehaviour
         //    }
         //}
         //-----------------------------------------------------------------------
+        if (!missileHolder.activeSelf && Time.time - missileTimeStamp > timeToFireMissile)
+        {
+            missileHolder.SetActive(true);
+        }
     }
 
     void fireBullet()
@@ -120,6 +131,7 @@ public class PlayerShoot : MonoBehaviour
                     GM.missileAmmo -= missileCost;
                     Vector3 launchDirection = (-transform.up * 5 + transform.right * 5);
                     msl.GetComponent<Rigidbody>().AddForce(launchDirection, ForceMode.Impulse);
+                    missileHolder.SetActive(false);
                     break;
                 }
             }
