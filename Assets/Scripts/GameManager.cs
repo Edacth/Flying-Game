@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour {
     public float zFadePoint;
     public int score;
     public int highScore;
+    public float gunAmmo;
+    public float missileAmmo;
 
     List<ESectionController> ESectionPool = new List<ESectionController>();
     bool isReloading = true;

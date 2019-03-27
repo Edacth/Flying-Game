@@ -4,70 +4,88 @@ using UnityEngine;
 
 public class Missile : MonoBehaviour
 {
-    Rigidbody rBody;
-
-    public Transform target;
+    public GameObject target;
+    public GameObject defaultTarget;
     public Vector3 start, mid, end;
     public float speed;
     public float startDelay;
 
-    public Quaternion initialRot, rot;
+
     float timer = 0;
     float delayTimer = 0;
     [SerializeField]
     float elapsed = 0;
+    public int damage = 0;
+    public float lifetime;
     bool falling;
+    bool enemiesExist = false;
+    bool hit;
 
     void OnEnable()
     {
-        target = GameObject.FindGameObjectWithTag("Enemy").transform;
+        target = null;
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        if (enemies.Length > 0)
+        {
+            enemiesExist = true;
+            target = closestEnemy(enemies);
+        }
+        else
+        {
+            enemiesExist = false;
+        }
+
         falling = true;
         elapsed = 0;
-        initialRot = transform.rotation;
+        hit = false;
     }
-
-    // Use this for initialization
-    void Start ()
-    {
-        rBody = GetComponent<Rigidbody>();
-	}
 	
 	// Update is called once per frame
 	void Update ()
     {
         timer += Time.deltaTime;
-        if (timer >= 3 && gameObject.activeSelf)
+        if (timer >= lifetime || hit)
         {
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             gameObject.SetActive(false);
             timer = 0;
             delayTimer = 0;
-
         }
         if (delayTimer >= startDelay)
         {
-
-            if (falling)
+            if (enemiesExist)
             {
-                falling = false;
-                calculatePoints();
-                elapsed = 0;
-            }
-            elapsed += Time.deltaTime;
-            rBody.position = quadBezier(start, mid, end, elapsed / Vector3.Distance(start, end) * speed);
-            end = target.transform.position;
-            rot = Quaternion.LookRotation(target.position - transform.position) * initialRot;
-            transform.rotation = Quaternion.Slerp(initialRot, rot, elapsed / Vector3.Distance(start, end) * speed);
+                if (falling)
+                {
+                    falling = false;
+                    calculatePoints();
+                    elapsed = 0;
+                }
+                elapsed += Time.deltaTime;
+                transform.position = quadBezier(start, mid, end, elapsed / Vector3.Distance(start, end) * speed);
+                end = target.transform.position;
 
-        } else
+                transform.LookAt(quadBezier(start, mid, end, elapsed + Time.deltaTime / Vector3.Distance(start, end) * speed));
+
+            }
+            else
+            {
+                transform.Translate(transform.forward);
+            }
+        }
+        else
         {
             delayTimer += Time.deltaTime;
         }
 	}
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.tag == "Enemy")
+        {
+            hit = true;
+            other.GetComponent<Enemy>().takeDamage(damage);
+        }
     }
 
     Vector3 quadBezier(Vector3 a, Vector3 b, Vector3 c,  float t)
@@ -81,6 +99,21 @@ public class Missile : MonoBehaviour
     {
         start = transform.position;
         end = target.transform.position;
-        mid = start + (transform.up * Vector3.Distance(start, end) / 2);
+        mid = start + (transform.forward * Vector3.Distance(start, end) / 2);
+    }
+
+    GameObject closestEnemy(GameObject[] arr)
+    {
+        GameObject closest = arr[0];
+
+        for (int i = 1; i < arr.Length; ++i)
+        {
+            if (arr[i].activeSelf && Vector3.Distance(transform.position, arr[i].transform.position) <
+                Vector3.Distance(transform.position, closest.transform.position))
+            {
+                closest = arr[i];
+            }
+        }
+        return closest;
     }
 }

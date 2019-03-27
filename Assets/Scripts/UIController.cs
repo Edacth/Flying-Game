@@ -21,17 +21,20 @@ public class UIController : MonoBehaviour
     public TextMeshProUGUI damageText;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScoreText;
-    public float gunAmmo;
-    public float missileAmmo;
-    
+
+    private void Start()
+    {
+        GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+    }
     void Update()
     {
         UIColor = Color.Lerp(UIStartColor, UIEndColor, (float)playerController.damage / 100);
         damageText.fontSharedMaterial.SetColor(ShaderUtilities.ID_GlowColor, UIColor);
         damageText.text = "DAMAGE " + playerController.damage + "%";
         damageText.color = jetOutline.color = UIColor;
-        gunScaler.localScale = new Vector3(gunScaler.localScale.x, gunAmmo / 100);
-        missileScaler.localScale = new Vector3(missileScaler.localScale.x, missileAmmo / 100);
+        gunScaler.localScale = new Vector3(gunScaler.localScale.x, GM.gunAmmo / 100);
+        missileScaler.localScale = new Vector3(missileScaler.localScale.x, GM.missileAmmo / 100);
         scoreText.text = GM.score.ToString();
         highScoreText.text = GM.highScore.ToString();
     }

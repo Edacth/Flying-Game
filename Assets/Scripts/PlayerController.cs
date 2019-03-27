@@ -41,8 +41,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         SetCalibration();
-
-
+        GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
     
 
@@ -100,7 +99,9 @@ public class PlayerController : MonoBehaviour
         if (!invinc)
         {
             if (other.gameObject.tag == "Building")
-                TakeDamage(100);
+                TakeDamage(10);
+            else if (other.gameObject.tag == "Enemy")
+                TakeDamage(5);
         }
     }
     private void TakeDamage (int amount)

@@ -227,6 +227,21 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 224289554753699762, guid: 2cfb71ed160452147bdbc8a6543d49b5,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114562024369172504, guid: 2cfb71ed160452147bdbc8a6543d49b5,
+        type: 2}
+      propertyPath: GM
+      value: 
+      objectReference: {fileID: 1533916563}
+    - target: {fileID: 114420067198397744, guid: 2cfb71ed160452147bdbc8a6543d49b5,
+        type: 2}
+      propertyPath: LeadObject
+      value: 
+      objectReference: {fileID: 1964452932}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cfb71ed160452147bdbc8a6543d49b5, type: 2}
   m_IsPrefabAsset: 0
@@ -335,6 +350,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114579394389613776, guid: d420ec956eb4f3a419dfe179813f0dd4,
+        type: 2}
+      propertyPath: GM
+      value: 
+      objectReference: {fileID: 1533916563}
+    - target: {fileID: 114044069021571094, guid: d420ec956eb4f3a419dfe179813f0dd4,
+        type: 2}
+      propertyPath: GM
+      value: 
+      objectReference: {fileID: 1533916563}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d420ec956eb4f3a419dfe179813f0dd4, type: 2}
   m_IsPrefabAsset: 0
@@ -349,7 +374,7 @@ GameObject:
   - component: {fileID: 1533916563}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -367,10 +392,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   environmentSection: {fileID: 1027898251405006, guid: afba31f949bb3d144823fadceeddf617,
     type: 2}
+  transparentMaterial: {fileID: 0}
   numOfSections: 10
-  sectionSpeed: -0.5
+  sectionSpeed: -20
   sectionLength: 50
   percievedElevation: -15
+  zFadePoint: 0
+  score: 0
+  highScore: 0
+  gunAmmo: 100
+  missileAmmo: 100
 --- !u!4 &1533916564
 Transform:
   m_ObjectHideFlags: 0
@@ -390,3 +421,8 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 916936025}
   m_Script: {fileID: 11500000, guid: eb059fa9edf7e164890abdef7e078ad1, type: 3}
+--- !u!4 &1964452932 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4255404316938394, guid: d420ec956eb4f3a419dfe179813f0dd4,
+    type: 2}
+  m_PrefabInternal: {fileID: 916936025}
