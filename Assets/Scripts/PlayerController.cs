@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     private float scoreTimer;
     public float scoreInterval;
 
+    
+
     [Header("Misc")]
     public GameObject explosion;
 
@@ -39,6 +41,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         SetCalibration();
+
+
     }
     
 
@@ -96,7 +100,7 @@ public class PlayerController : MonoBehaviour
         if (!invinc)
         {
             if (other.gameObject.tag == "Building")
-                TakeDamage(10);
+                TakeDamage(100);
         }
     }
     private void TakeDamage (int amount)
@@ -106,9 +110,8 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
             dead = true;
-
             
-
+            GM.reloadScene();
         }
         else
         {
