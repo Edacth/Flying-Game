@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
@@ -18,8 +19,10 @@ public class GameManager : MonoBehaviour {
     public float gunAmmo;
     public float missileAmmo;
 
+    
     List<ESectionController> ESectionPool = new List<ESectionController>();
     bool isReloading = true;
+    MenuController menuController;
 
     private void Awake()
     {
@@ -32,6 +35,7 @@ public class GameManager : MonoBehaviour {
 
     void Start ()
     {
+        menuController = gameObject.GetComponent<MenuController>();
         SceneManager.sceneLoaded += OnSceneLoaded;
         Initialize();
 
@@ -99,6 +103,7 @@ public class GameManager : MonoBehaviour {
 
     void Initialize()
     {
+
         ESectionPool.Clear();
         for (int i = 0; i < numOfSections; i++)
         {
@@ -117,6 +122,7 @@ public class GameManager : MonoBehaviour {
             ESectionPool[i].GenerateTower();
         }
 
+        menuController.Initalize();
         isReloading = false;
     }
 
@@ -129,8 +135,11 @@ public class GameManager : MonoBehaviour {
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if (SceneManager.GetActiveScene().name == "MainMenu") return;
+
         Initialize();
     }
+
 }
 
 

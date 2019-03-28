@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CadeScene.unity
     guid: 48ae885049bebe7439b2ac9ee20879f8
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MainGame.unity
     guid: 7521513e27bd6404e8431fa649770a10
   m_configObjects: {}

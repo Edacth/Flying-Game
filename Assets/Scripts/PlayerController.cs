@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     public float yBoundary;
     public Vector3 origin;
     public GameManager GM;
+    public MenuController menuController;
     private float scoreTimer;
     public float scoreInterval;
 
@@ -42,6 +43,7 @@ public class PlayerController : MonoBehaviour
     {
         SetCalibration();
         GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        menuController = GameObject.FindGameObjectWithTag("GameManager").GetComponent<MenuController>();
     }
     
 
@@ -99,7 +101,7 @@ public class PlayerController : MonoBehaviour
         if (!invinc)
         {
             if (other.gameObject.tag == "Building")
-                TakeDamage(10);
+                TakeDamage(100);
             else if (other.gameObject.tag == "Enemy")
                 TakeDamage(5);
         }
@@ -111,8 +113,8 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
             dead = true;
-            
-            GM.reloadScene();
+
+            menuController.SetEndState(true);
         }
         else
         {
