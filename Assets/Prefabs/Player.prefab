@@ -576,12 +576,13 @@ MonoBehaviour:
   mr: {fileID: 23664744273179380}
   axisInput: {x: 0, y: 0}
   defaultPos: {x: 0, y: 0, z: 0}
-  rotLerp: 0.05
+  rotLerp: 0.75
   moveSpeed: 300
   xBoundary: 22
   yBoundary: 14
   origin: {x: 0, y: 0, z: 0}
   GM: {fileID: 0}
+  menuController: {fileID: 0}
   scoreInterval: 1
   explosion: {fileID: 1135525406134708, guid: 6093b51ac987cf2429b2267f096600f6, type: 2}
 --- !u!114 &114579394389613776
@@ -620,7 +621,9 @@ MonoBehaviour:
   missiles:
   - {fileID: 0}
   - {fileID: 0}
-  missileHolder: {fileID: 0}
+  missileDummies:
+  - {fileID: 0}
+  - {fileID: 0}
   GM: {fileID: 0}
   gunCost: 0.1
   missileCost: 5
