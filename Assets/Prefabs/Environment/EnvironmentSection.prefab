@@ -87,7 +87,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: df6c4b3f9224ebb4b943a1227cd0524f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -137,6 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4747a412b8095f3489a75a1bf47b88e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pos: {x: 0, y: 0, z: 0}
   structures:
   - structurePrefab: {fileID: 1052464823470320, guid: 63c2c473026c81c44ae318eced64da56,
       type: 2}
@@ -150,6 +151,10 @@ MonoBehaviour:
       type: 2}
     yPos: 15
     xBounds: {x: -15, y: 16}
+  - structurePrefab: {fileID: 1997261967076924, guid: ba95d9598dadfc34594b3494aa7bbd95,
+      type: 2}
+    yPos: 3
+    xBounds: {x: -15, y: 16}
   genOptions:
   - item: 0
     weight: 9
@@ -157,3 +162,5 @@ MonoBehaviour:
     weight: 3
   - item: 2
     weight: 5
+  - item: 3
+    weight: 7
