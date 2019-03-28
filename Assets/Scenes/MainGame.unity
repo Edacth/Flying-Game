@@ -345,6 +345,30 @@ Prefab:
       propertyPath: GM
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114579394389613776, guid: d420ec956eb4f3a419dfe179813f0dd4,
+        type: 2}
+      propertyPath: missiles.Array.data[0]
+      value: 
+      objectReference: {fileID: 1371410054762224, guid: 25aa07531359b10478eef7b608473775,
+        type: 2}
+    - target: {fileID: 114579394389613776, guid: d420ec956eb4f3a419dfe179813f0dd4,
+        type: 2}
+      propertyPath: missiles.Array.data[1]
+      value: 
+      objectReference: {fileID: 1371410054762224, guid: 25aa07531359b10478eef7b608473775,
+        type: 2}
+    - target: {fileID: 114579394389613776, guid: d420ec956eb4f3a419dfe179813f0dd4,
+        type: 2}
+      propertyPath: missileDummies.Array.data[0]
+      value: 
+      objectReference: {fileID: 1371410054762224, guid: 25aa07531359b10478eef7b608473775,
+        type: 2}
+    - target: {fileID: 114579394389613776, guid: d420ec956eb4f3a419dfe179813f0dd4,
+        type: 2}
+      propertyPath: missileDummies.Array.data[1]
+      value: 
+      objectReference: {fileID: 1371410054762224, guid: 25aa07531359b10478eef7b608473775,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d420ec956eb4f3a419dfe179813f0dd4, type: 2}
   m_IsPrefabAsset: 0

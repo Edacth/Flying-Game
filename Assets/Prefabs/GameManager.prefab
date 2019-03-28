@@ -75,4 +75,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78eedca8866c6ee4389ea55beb182dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameScene: JonathanScene
+  gameScene: MainGame
