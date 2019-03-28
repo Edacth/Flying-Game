@@ -115,7 +115,7 @@ public class GameManager : MonoBehaviour {
                 //Set the scale of the floor
                 for (int j = 0; j < section.transform.childCount; j++)
                 {
-                    if (section.transform.GetChild(j).name == "Floor")
+                    if (section.transform.GetChild(j).name == "Floor" || section.transform.GetChild(j).name == "Grass")
                     {
                         section.transform.GetChild(j).transform.localScale = new Vector3(70, 1, sectionLength);
                     }
@@ -132,7 +132,15 @@ public class GameManager : MonoBehaviour {
     {
         isReloading = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 
+    public void resetScore()
+    {
+        if (score > highScore)
+        {
+            highScore = score;
+        }
+        score = 0;
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)

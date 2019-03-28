@@ -13,7 +13,8 @@ public class MenuController : MonoBehaviour {
     Button resumeButton;
     GameObject endScreen;
     Button restartButton;
-    Button exitButton;
+    Button pauseExitButton;
+    Button endExitButton;
 
     Button startButton;
 
@@ -37,12 +38,24 @@ public class MenuController : MonoBehaviour {
             pauseButton = GameObject.Find("/Main Camera/Canvas/PauseButton").GetComponent<Button>();
             resumeButton = GameObject.Find("/Main Camera/Canvas/PauseScreen/ResumeButton").GetComponent<Button>();
             restartButton = GameObject.Find("/Main Camera/Canvas/EndScreen/RestartButton").GetComponent<Button>();
-            exitButton = GameObject.Find("/Main Camera/Canvas/EndScreen/ExitButton").GetComponent<Button>();
+            pauseExitButton = GameObject.Find("/Main Camera/Canvas/PauseScreen/PauseExitButton").GetComponent<Button>();
+            endExitButton = GameObject.Find("/Main Camera/Canvas/EndScreen/EndExitButton").GetComponent<Button>();
 
             pauseButton.onClick.AddListener(delegate { SetPauseState(true); });
             resumeButton.onClick.AddListener(delegate { SetPauseState(false); });
-            restartButton.onClick.AddListener(delegate { GM.reloadScene(); });
-            exitButton.onClick.AddListener(delegate { SceneManager.LoadScene("MainMenu"); });
+            restartButton.onClick.AddListener(delegate {
+                GM.resetScore();
+                GM.reloadScene();
+            });
+            pauseExitButton.onClick.AddListener(delegate {
+                GM.resetScore();
+                Time.timeScale = 1;
+                SceneManager.LoadScene("MainMenu");
+            });
+            endExitButton.onClick.AddListener(delegate {
+                GM.resetScore();
+                SceneManager.LoadScene("MainMenu");
+            });
         }  
     }
     public void SetPauseState(bool state)
