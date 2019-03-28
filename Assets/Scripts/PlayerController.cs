@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
 
             //rBody.rotation = Quaternion.Lerp(rBody.rotation, Quaternion.Euler(Input.gyro.rotationRateUnbiased * 10), rotLerp);
             Vector3 rot = new Vector3(Input.gyro.gravity.y * 40, Input.gyro.gravity.x * 30, -Input.gyro.gravity.x * 45);
-            transform.eulerAngles = rot;
+            transform.eulerAngles = Vector3.Lerp(transform.eulerAngles, rot, rotLerp);
             rBody.AddForce(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * moveSpeed);
             rBody.AddForce(transform.forward * moveSpeed);
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, -xBoundary, xBoundary), Mathf.Clamp(transform.position.y, -yBoundary, yBoundary), transform.position.z);

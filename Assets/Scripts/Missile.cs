@@ -12,6 +12,7 @@ public class Missile : MonoBehaviour
     public float speed;
     public float startDelay;
 
+    GameObject[] enemies;
     ParticleSystem.EmissionModule em;
     float timer = 0;
     float delayTimer = 0;
@@ -20,7 +21,6 @@ public class Missile : MonoBehaviour
     public int damage = 0;
     public float lifetime;
     bool falling;
-    bool enemiesExist = false;
     bool hit;
     bool isFired;
 
@@ -33,15 +33,10 @@ public class Missile : MonoBehaviour
     void OnEnable()
     {
         target = null;
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
         if (enemies.Length > 0)
         {
-            enemiesExist = true;
             target = closestEnemy(enemies);
-        }
-        else
-        {
-            enemiesExist = false;
         }
 
         falling = true;
@@ -71,13 +66,12 @@ public class Missile : MonoBehaviour
         }
         if (delayTimer >= startDelay)
         {
-            if (enemiesExist)
+            if (target != null)
             {
                 if (falling)
                 {
                     falling = false;
                     calculatePoints();
-                    elapsed = 0;
                 }
                 elapsed += Time.deltaTime;
                 transform.position = quadBezier(start, mid, end, elapsed / Vector3.Distance(start, end) * speed);
@@ -88,7 +82,10 @@ public class Missile : MonoBehaviour
             }
             else
             {
-                transform.Translate(transform.forward);
+                // find all enemies in the scene and find the closest one, then get new coordinates to calculate trajectory
+                enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                target = closestEnemy(enemies);
+                calculatePoints();
             }
 
             exhaust.Play();
@@ -98,25 +95,6 @@ public class Missile : MonoBehaviour
             delayTimer += Time.deltaTime;
         }
 	}
-
-    public void StageMissile()
-    {
-        target = null;
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if (enemies.Length > 0) {
-            enemiesExist = true;
-            target = closestEnemy(enemies);
-        } else {
-            enemiesExist = false;
-        }
-
-        falling = true;
-        elapsed = 0;
-        hit = false;
-
-        mesh.enabled = true;
-        em.enabled = true;
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -136,6 +114,7 @@ public class Missile : MonoBehaviour
 
     void calculatePoints()
     {
+        elapsed = 0;
         start = transform.position;
         end = target.transform.position;
         mid = start + (transform.forward * Vector3.Distance(start, end) / 2);
