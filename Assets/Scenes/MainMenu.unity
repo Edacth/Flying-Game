@@ -519,7 +519,7 @@ GameObject:
   - component: {fileID: 1857609035}
   - component: {fileID: 1857609034}
   m_Layer: 0
-  m_Name: Button
+  m_Name: StartButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -705,6 +705,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2068221213}
   - component: {fileID: 2068221212}
+  - component: {fileID: 2068221214}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -726,7 +727,7 @@ MonoBehaviour:
   environmentSection: {fileID: 1027898251405006, guid: afba31f949bb3d144823fadceeddf617,
     type: 2}
   transparentMaterial: {fileID: 2100000, guid: bee6edbef6829004685df83f60329f65, type: 2}
-  numOfSections: 1
+  numOfSections: 10
   sectionSpeed: -20
   sectionLength: 60
   percievedElevation: -15
@@ -748,6 +749,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2068221214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2068221211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78eedca8866c6ee4389ea55beb182dfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameScene: CadeScene
 --- !u!1 &2080107163
 GameObject:
   m_ObjectHideFlags: 0
