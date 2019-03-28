@@ -389,6 +389,16 @@ Prefab:
       propertyPath: missileDummies.Array.data[1]
       value: 
       objectReference: {fileID: 1156376763}
+    - target: {fileID: 114579394389613776, guid: d420ec956eb4f3a419dfe179813f0dd4,
+        type: 2}
+      propertyPath: missileCost
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114579394389613776, guid: d420ec956eb4f3a419dfe179813f0dd4,
+        type: 2}
+      propertyPath: timeToFireMissile
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d420ec956eb4f3a419dfe179813f0dd4, type: 2}
   m_IsPrefabAsset: 0
@@ -497,6 +507,12 @@ Prefab:
       propertyPath: percievedElevation
       value: -20
       objectReference: {fileID: 0}
+    - target: {fileID: 114112280151951812, guid: aebe72cdb2f46bf4fa97edc7c063b509,
+        type: 2}
+      propertyPath: environmentSection
+      value: 
+      objectReference: {fileID: 1027898251405006, guid: d2a3e0950326d4c46af112da5bee7c95,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aebe72cdb2f46bf4fa97edc7c063b509, type: 2}
   m_IsPrefabAsset: 0
