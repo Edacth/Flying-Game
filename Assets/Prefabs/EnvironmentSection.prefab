@@ -70,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1027898251405006}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -279.60724, y: 219.27437, z: 18.396233}
+  m_LocalPosition: {x: -48.445328, y: 12.215424, z: 101.39085}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4834764170409036}
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4747a412b8095f3489a75a1bf47b88e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 1211149600310582, guid: 08629af81d11d52409c816f7ec85386f, type: 2}
+  tower: {fileID: 1052464823470320, guid: 63c2c473026c81c44ae318eced64da56, type: 2}
   arch: {fileID: 1762155215455366, guid: 45530730344b3a049baa525b20bb3e75, type: 2}
   windmill: {fileID: 1740871540107088, guid: cb3f297cb07e597409011eef757f31d7, type: 2}
   genOptions:
