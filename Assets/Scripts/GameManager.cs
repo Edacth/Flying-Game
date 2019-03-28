@@ -122,7 +122,7 @@ public class GameManager : MonoBehaviour {
             ESectionPool[i].GenerateTower();
         }
 
-        menuController.Initalize();
+        //menuController.Initalize();
         isReloading = false;
     }
 
