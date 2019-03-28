@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     private float scoreTimer;
     public float scoreInterval;
 
+    
+
     [Header("Misc")]
     public GameObject explosion;
 
@@ -109,9 +111,8 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
             dead = true;
-
             
-
+            GM.reloadScene();
         }
         else
         {
