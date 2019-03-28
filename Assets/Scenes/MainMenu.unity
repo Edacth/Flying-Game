@@ -734,8 +734,8 @@ MonoBehaviour:
   zFadePoint: 15
   score: 0
   highScore: 0
-  gunAmmo: 0
-  missileAmmo: 0
+  gunAmmo: 100
+  missileAmmo: 100
 --- !u!4 &2068221213
 Transform:
   m_ObjectHideFlags: 0
@@ -760,7 +760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78eedca8866c6ee4389ea55beb182dfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameScene: CadeScene
+  gameScene: JonathanScene
 --- !u!1 &2080107163
 GameObject:
   m_ObjectHideFlags: 0
