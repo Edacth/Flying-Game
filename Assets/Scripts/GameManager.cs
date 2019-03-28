@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour {
 	
 	void Update ()
     {
-        if (isReloading) return;
+        if (isReloading || SceneManager.GetActiveScene().name == "MainMenu") return;
         
             if (score >= highScore)
             {
@@ -103,26 +103,28 @@ public class GameManager : MonoBehaviour {
 
     void Initialize()
     {
-
-        ESectionPool.Clear();
-        for (int i = 0; i < numOfSections; i++)
+        if (SceneManager.GetActiveScene().name != "MainMenu")
         {
-            Vector3 pos = new Vector3(0, percievedElevation, sectionLength * i + 80);
-            GameObject section = Instantiate(environmentSection, pos, Quaternion.identity);
-            ESectionPool.Add(section.GetComponent<ESectionController>());
-
-            //Set the scale of the floor
-            for (int j = 0; j < section.transform.childCount; j++)
+            ESectionPool.Clear();
+            for (int i = 0; i < numOfSections; i++)
             {
-                if (section.transform.GetChild(j).name == "Floor")
-                {
-                    section.transform.GetChild(j).transform.localScale = new Vector3(70, 1, sectionLength);
-                }
-            }
-            ESectionPool[i].GenerateTower();
-        }
+                Vector3 pos = new Vector3(0, percievedElevation, sectionLength * i + 80);
+                GameObject section = Instantiate(environmentSection, pos, Quaternion.identity);
+                ESectionPool.Add(section.GetComponent<ESectionController>());
 
-        //menuController.Initalize();
+                //Set the scale of the floor
+                for (int j = 0; j < section.transform.childCount; j++)
+                {
+                    if (section.transform.GetChild(j).name == "Floor" || section.transform.GetChild(j).name == "Grass")
+                    {
+                        section.transform.GetChild(j).transform.localScale = new Vector3(70, 1, sectionLength);
+                    }
+                }
+                ESectionPool[i].GenerateTower();
+            }
+        }
+        menuController.Initalize();
+
         isReloading = false;
     }
 
@@ -130,12 +132,19 @@ public class GameManager : MonoBehaviour {
     {
         isReloading = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 
+    public void resetScore()
+    {
+        if (score > highScore)
+        {
+            highScore = score;
+        }
+        score = 0;
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (SceneManager.GetActiveScene().name == "MainMenu") return;
 
         Initialize();
     }
