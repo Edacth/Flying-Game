@@ -11,7 +11,7 @@ public class PlayerShoot : MonoBehaviour
     public GameObject[] bullets = new GameObject[50];
     public GameObject missile;
     public GameObject[] missiles = new GameObject[20];
-    public GameObject missileHolder;
+    public GameObject[] missileDummies = new GameObject[2];
     public GameManager GM;
     public float gunCost;
     public float missileCost;
@@ -88,6 +88,13 @@ public class PlayerShoot : MonoBehaviour
         //    }
         //}
         //-----------------------------------------------------------------------
+        for (int i = 0; i < missiles.Length; ++i)
+        {
+            if (missiles[i].activeSelf)
+                missileDummies[i].SetActive(false);
+            else
+                missileDummies[i].SetActive(true);
+        }
     }
 
     void fireBullet()
@@ -118,6 +125,7 @@ public class PlayerShoot : MonoBehaviour
                 var msl = missiles[i];
                 if (!msl.activeSelf)
                 {
+                    missileDummies[i].SetActive(false);
                     msl.transform.position = missilePoint[i].position;
                     msl.transform.rotation = missilePoint[i].rotation;
                     msl.SetActive(true);

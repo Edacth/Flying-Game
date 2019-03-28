@@ -101,7 +101,7 @@ public class PlayerController : MonoBehaviour
         if (!invinc)
         {
             if (other.gameObject.tag == "Building")
-                TakeDamage(100);
+                TakeDamage(20);
             else if (other.gameObject.tag == "Enemy")
                 TakeDamage(5);
         }

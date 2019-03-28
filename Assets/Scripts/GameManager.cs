@@ -124,6 +124,7 @@ public class GameManager : MonoBehaviour {
             }
         }
         menuController.Initalize();
+
         isReloading = false;
     }
 
