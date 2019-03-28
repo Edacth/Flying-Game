@@ -6,21 +6,8 @@ public class ESectionController : MonoBehaviour {
     enum Structure { Tower, Arch, Windmill};
     Vector3 pos;
     
-    public GameObject tower;
-    public GameObject arch;
-    public GameObject windmill;
+    public GameObject[] structures;
     public WeightedEntry[] genOptions;
-
-    void Start () {
-        
-        
-    }
-	
-	// Update is called once per frame
-	void Update ()
-    {
-        
-	}
 
     public void GenerateTower()
     {
@@ -36,20 +23,9 @@ public class ESectionController : MonoBehaviour {
          //genOptions = new WeightedEntry[] { new WeightedEntry(0, 0), new WeightedEntry(1, 0), new WeightedEntry(2, 3) };
         int structureType = WeightedRandom.WeightedSelect(genOptions);
         Vector3 structurePos;
-        if (structureType == (int)Structure.Tower)
-        {
-            structurePos = new Vector3(pos.x + Random.Range(-25, 26), pos.y + 25, pos.z);
-            Instantiate(tower, structurePos, Quaternion.identity, gameObject.transform);
-        }
-        else if (structureType == (int)Structure.Arch)
-        {
-            structurePos = new Vector3(pos.x + Random.Range(-15, 16), pos.y + 18.5f, pos.z);
-            Instantiate(arch, structurePos, Quaternion.identity, gameObject.transform);
-        }
-        else if (structureType == (int)Structure.Windmill)
-        {
-            structurePos = new Vector3(pos.x + Random.Range(-15, 16), pos.y + 15f, pos.z);
-            Instantiate(windmill, structurePos, Quaternion.identity, gameObject.transform);
-        }
+
+        structurePos = new Vector3(pos.x + Random.Range(-15, 16), pos.y + 25, pos.z);
+        Instantiate(structures[structureType], structurePos, Quaternion.identity, gameObject.transform);
+
     }
 }
