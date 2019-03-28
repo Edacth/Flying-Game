@@ -6,11 +6,13 @@ public class Missile : MonoBehaviour
 {
     public GameObject target;
     public GameObject defaultTarget;
+    public MeshRenderer mesh;
+    public ParticleSystem exhaust;
     public Vector3 start, mid, end;
     public float speed;
     public float startDelay;
 
-
+    ParticleSystem.EmissionModule em;
     float timer = 0;
     float delayTimer = 0;
     [SerializeField]
@@ -20,7 +22,14 @@ public class Missile : MonoBehaviour
     bool falling;
     bool enemiesExist = false;
     bool hit;
+    bool isFired;
 
+    void Awake()
+    {
+        mesh = gameObject.GetComponentInChildren<MeshRenderer>();
+        exhaust = GetComponentInChildren<ParticleSystem>();
+        em = exhaust.emission;
+    }
     void OnEnable()
     {
         target = null;
@@ -38,6 +47,9 @@ public class Missile : MonoBehaviour
         falling = true;
         elapsed = 0;
         hit = false;
+
+        mesh.enabled = true;
+        em.enabled = true;
     }
 	
 	// Update is called once per frame
@@ -47,9 +59,15 @@ public class Missile : MonoBehaviour
         if (timer >= lifetime || hit)
         {
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            gameObject.SetActive(false);
-            timer = 0;
+            mesh.enabled = false;
+            em.enabled = false;
             delayTimer = 0;
+
+            if (exhaust.particleCount <= 0 && exhaust.isPlaying) {
+                gameObject.SetActive(false);
+                exhaust.Stop();
+                timer = 0;
+            }
         }
         if (delayTimer >= startDelay)
         {
@@ -72,12 +90,33 @@ public class Missile : MonoBehaviour
             {
                 transform.Translate(transform.forward);
             }
+
+            exhaust.Play();
         }
         else
         {
             delayTimer += Time.deltaTime;
         }
 	}
+
+    public void StageMissile()
+    {
+        target = null;
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        if (enemies.Length > 0) {
+            enemiesExist = true;
+            target = closestEnemy(enemies);
+        } else {
+            enemiesExist = false;
+        }
+
+        falling = true;
+        elapsed = 0;
+        hit = false;
+
+        mesh.enabled = true;
+        em.enabled = true;
+    }
 
     private void OnTriggerEnter(Collider other)
     {

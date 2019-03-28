@@ -39,7 +39,7 @@ public class ITransparancy : MonoBehaviour {
         {
             t -= fadeIncrement;
 
-            float interp = (0 * (1 - t) + 1 * t);
+            //float interp = (0 * (1 - t) + 1 * t);
             //Debug.Log(interp.ToString());
             myRenderer.material.color = Color.Lerp(transparent, opaque, t);
             yield return null;

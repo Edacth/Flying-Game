@@ -6,7 +6,7 @@ public class PlayerShoot : MonoBehaviour
 {
     [Header("References")]
     public Transform firePoint;
-    public Transform missilePoint;
+    public Transform[] missilePoint = new Transform[2];
     public GameObject bullet;
     public GameObject[] bullets = new GameObject[50];
     public GameObject missile;
@@ -55,10 +55,9 @@ public class PlayerShoot : MonoBehaviour
                 bulletTimeStamp = Time.time;
             }
         }
-        else if ((Input.touchCount > 1 && Input.GetTouch(1).phase == TouchPhase.Began) || Input.GetMouseButtonDown(1))
-        {
-            if (Time.time - missileTimeStamp > timeToFireMissile)
+        if ((Input.touchCount > 1 && Input.GetTouch(1).phase == TouchPhase.Began) || Input.GetMouseButtonDown(1)) 
             {
+            if (Time.time - missileTimeStamp > timeToFireMissile) {
                 fireMissile();
                 missileTimeStamp = Time.time;
             }
@@ -81,20 +80,14 @@ public class PlayerShoot : MonoBehaviour
 
         //    }
         //}
-        //else if (Input.touchCount > 1)
-        //{
+        //if (Input.touchCount > 1) {
         //    Touch touch = Input.GetTouch(1);
 
-        //    if (touch.phase == TouchPhase.Began)
-        //    {
+        //    if (touch.phase == TouchPhase.Began) {
         //        fireMissile();
         //    }
         //}
         //-----------------------------------------------------------------------
-        if (!missileHolder.activeSelf && Time.time - missileTimeStamp > timeToFireMissile)
-        {
-            missileHolder.SetActive(true);
-        }
     }
 
     void fireBullet()
@@ -120,18 +113,17 @@ public class PlayerShoot : MonoBehaviour
     {
         if (GM.missileAmmo > 0)
         {
-            foreach (GameObject msl in missiles)
+            for (int i = 0; i < missiles.Length; ++i)
             {
+                var msl = missiles[i];
                 if (!msl.activeSelf)
                 {
-                    msl.transform.position = new Vector3(missilePoint.position.x, missilePoint.position.y, firePoint.position.z);
-                    //msl.transform.rotation = Quaternion.Euler(missilePoint.rotation.x + 90, missilePoint.rotation.y, missilePoint.rotation.z);
-                    msl.transform.rotation = missilePoint.rotation;
+                    msl.transform.position = missilePoint[i].position;
+                    msl.transform.rotation = missilePoint[i].rotation;
                     msl.SetActive(true);
                     GM.missileAmmo -= missileCost;
-                    Vector3 launchDirection = (-transform.up * 5 + transform.right * 5);
+                    Vector3 launchDirection = (-transform.up * 2);
                     msl.GetComponent<Rigidbody>().AddForce(launchDirection, ForceMode.Impulse);
-                    missileHolder.SetActive(false);
                     break;
                 }
             }
