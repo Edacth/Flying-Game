@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour {
     public float zFadePoint;
     public int score;
     public int highScore;
+    public int kills;
     public float gunAmmo;
     public float missileAmmo;
     public bool yAxisFlipped { get; set; }
@@ -89,14 +90,6 @@ public class GameManager : MonoBehaviour {
             highScore = score;
         }
 
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            for (int i = 0; i < numOfSections; i++)
-            {
-                ESectionPool[i].GenerateTower();
-            }
-        }
-
         for (int i = 0; i < numOfSections; i++)
         {
             if (ESectionPool[i] == null)
@@ -120,6 +113,15 @@ public class GameManager : MonoBehaviour {
             }
 
         }
+       if (kills == 5)
+       {
+            gunAmmo += 3;
+            missileAmmo += 10;
+            kills = 0;
+       }
+        gunAmmo = Mathf.Clamp(gunAmmo, 0, 100);
+        missileAmmo = Mathf.Clamp(missileAmmo, 0, 100);
+
     }
 
     void recursiveTransparency(GameObject _object, bool fadingIn)
@@ -144,6 +146,8 @@ public class GameManager : MonoBehaviour {
         if (SceneManager.GetActiveScene().name != "MainMenu")
         {
             ESectionPool.Clear();
+            gunAmmo = 100;
+            missileAmmo = 100;
             for (int i = 0; i < numOfSections; i++)
             {
                 Vector3 pos = new Vector3(0, percievedElevation, sectionLength * i + 80);

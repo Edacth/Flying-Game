@@ -113,16 +113,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &58633770 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1673877307220910, guid: d420ec956eb4f3a419dfe179813f0dd4,
-    type: 2}
-  m_PrefabInternal: {fileID: 916936025}
---- !u!1 &82433490 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1343932460326180, guid: d420ec956eb4f3a419dfe179813f0dd4,
-    type: 2}
-  m_PrefabInternal: {fileID: 916936025}
 --- !u!1001 &614258355
 Prefab:
   m_ObjectHideFlags: 0
@@ -355,16 +345,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114579394389613776, guid: d420ec956eb4f3a419dfe179813f0dd4,
-        type: 2}
-      propertyPath: missileDummies.Array.data[0]
-      value: 
-      objectReference: {fileID: 82433490}
-    - target: {fileID: 114579394389613776, guid: d420ec956eb4f3a419dfe179813f0dd4,
-        type: 2}
-      propertyPath: missileDummies.Array.data[1]
-      value: 
-      objectReference: {fileID: 58633770}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d420ec956eb4f3a419dfe179813f0dd4, type: 2}
   m_IsPrefabAsset: 0

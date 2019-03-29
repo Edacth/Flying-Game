@@ -172,10 +172,17 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   moveSpeed: 0
   bulletSpeed: 75
   moveTime: 0
-  timeToFireBullet: 1
-  health: 10
+  timeToFireBullet: 0.7
   xBoundary: 15
   yBoundary: 16
+  health: 10

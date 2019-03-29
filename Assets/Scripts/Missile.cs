@@ -116,6 +116,10 @@ public class Missile : MonoBehaviour
             hit = true;
             other.GetComponent<Enemy>().takeDamage(damage);
         }
+        if (other.tag == "Building")
+        {
+            hit = true;
+        }
     }
 
     Vector3 quadBezier(Vector3 a, Vector3 b, Vector3 c,  float t)
