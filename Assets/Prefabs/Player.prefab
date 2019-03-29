@@ -314,7 +314,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1007970104356114}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 0, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4255404316938394}
@@ -342,13 +342,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1343932460326180}
-  m_LocalRotation: {x: 1, y: -0, z: -0, w: 0}
+  m_LocalRotation: {x: 0.92387956, y: -0.38268343, z: 0, w: 0}
   m_LocalPosition: {x: 0.036, y: 0, z: -0.183}
   m_LocalScale: {x: 9.72542, y: 9.725435, z: 76.7797}
   m_Children: []
   m_Father: {fileID: 4616224031238542}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 45}
 --- !u!4 &4586657063720812
 Transform:
   m_ObjectHideFlags: 1
@@ -382,13 +382,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1673877307220910}
-  m_LocalRotation: {x: 1, y: -0, z: -0, w: 0}
+  m_LocalRotation: {x: 0.92387956, y: -0.38268343, z: 0, w: 0}
   m_LocalPosition: {x: -0.092, y: 0, z: -0.183}
   m_LocalScale: {x: 9.72542, y: 9.72544, z: 76.77971}
   m_Children: []
   m_Father: {fileID: 4071488299525270}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 45}
 --- !u!4 &4770349328900664
 Transform:
   m_ObjectHideFlags: 1
@@ -620,14 +620,14 @@ MonoBehaviour:
   - {fileID: 1371410054762224, guid: 25aa07531359b10478eef7b608473775, type: 2}
   - {fileID: 1371410054762224, guid: 25aa07531359b10478eef7b608473775, type: 2}
   missileDummies:
-  - {fileID: 1371410054762224, guid: 25aa07531359b10478eef7b608473775, type: 2}
-  - {fileID: 1371410054762224, guid: 25aa07531359b10478eef7b608473775, type: 2}
+  - {fileID: 1343932460326180}
+  - {fileID: 1673877307220910}
   GM: {fileID: 0}
   gunCost: 0.1
   missileCost: 5
   bulletSpeed: 150
   timeToFireBullet: 0.1
-  timeToFireMissile: 0.5
+  timeToFireMissile: 0
 --- !u!198 &198803056749438544
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -760,7 +760,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -876,7 +876,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.25
+      scalar: 0.22
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -1839,8 +1839,8 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 1, g: 0.8666001, b: 0.3726415, a: 1}
-        key1: {r: 1, g: 0.80399513, b: 0, a: 1}
+        key0: {r: 1, g: 0.8261306, b: 0.37254906, a: 1}
+        key1: {r: 1, g: 0.76555127, b: 0, a: 1}
         key2: {r: 0.6509434, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -2016,7 +2016,7 @@ ParticleSystem:
     sprites:
     - sprite: {fileID: 0}
   VelocityModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
       minMaxState: 0
@@ -2126,7 +2126,7 @@ ParticleSystem:
     z:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: -0.05
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -5177,7 +5177,7 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7e82e10f16eabdc43a5f308985ed2fac, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
