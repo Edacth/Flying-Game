@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class MenuController : MonoBehaviour {
     public string gameScene;
@@ -23,11 +24,7 @@ public class MenuController : MonoBehaviour {
     Button backButton;
     Toggle yAxisToggle;
     Slider sensitivitySlider;
-    Text sensitivityNumber;
-
-    void Start () {
-        
-    }
+    TextMeshProUGUI sensitivityNumber;
 
     public void Initalize()
     {
@@ -42,12 +39,14 @@ public class MenuController : MonoBehaviour {
             backButton = GameObject.Find("/Main Camera/Canvas/OptionsScreen/BackButton").GetComponent<Button>();
             sensitivitySlider = GameObject.Find("/Main Camera/Canvas/OptionsScreen/SensitivitySlider").GetComponent<Slider>();
             yAxisToggle = GameObject.Find("/Main Camera/Canvas/OptionsScreen/YAxisToggle").GetComponent<Toggle>();
-            sensitivityNumber = GameObject.Find("/Main Camera/Canvas/OptionsScreen/SensitivitySlider/Number").GetComponent<Text>();
+            sensitivityNumber = GameObject.Find("/Main Camera/Canvas/OptionsScreen/SensitivitySlider/Number").GetComponent<TextMeshProUGUI>();
 
             startButton.onClick.AddListener(delegate { SceneManager.LoadScene(gameScene); });
             optionsButton.onClick.AddListener(delegate {
                 mainScreen.SetActive(false);
                 optionsScreen.SetActive(true);
+                sensitivitySlider.value = GM.sensitivity;
+                yAxisToggle.isOn = GM.yAxisFlipped;
             });
 
             backButton.onClick.AddListener(delegate {

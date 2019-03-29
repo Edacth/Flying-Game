@@ -53,13 +53,13 @@ public class GameManager : MonoBehaviour {
                 highScore = score;
             }
 
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
-                for (int i = 0; i < numOfSections; i++)
-                {
-                    ESectionPool[i].GenerateTower();
-                }
-            }
+            //if (Input.GetKeyDown(KeyCode.Z))
+            //{
+            //    for (int i = 0; i < numOfSections; i++)
+            //    {
+            //        ESectionPool[i].GenerateTower();
+            //    }
+            //}
 
             for (int i = 0; i < numOfSections; i++)
             {
