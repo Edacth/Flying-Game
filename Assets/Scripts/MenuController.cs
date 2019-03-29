@@ -17,6 +17,7 @@ public class MenuController : MonoBehaviour {
     Button endExitButton;
 
     Button startButton;
+    Button optionsButton;
 
     void Start () {
         
@@ -28,8 +29,10 @@ public class MenuController : MonoBehaviour {
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
             startButton = GameObject.Find("/Main Camera/Canvas/StartButton").GetComponent<Button>();
+            optionsButton = GameObject.Find("/Main Camera/Canvas/OptionsButton").GetComponent<Button>();
 
             startButton.onClick.AddListener(delegate { SceneManager.LoadScene(gameScene); });
+            optionsButton.onClick.AddListener(delegate { SceneManager.LoadScene(gameScene); });
         }
         else
         {
