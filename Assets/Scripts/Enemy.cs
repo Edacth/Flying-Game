@@ -56,7 +56,6 @@ public class Enemy : MonoBehaviour
             direction = new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), transform.position.z);
             moveTimer = 0;
         }
-        transform.position = new Vector3(Mathf.Clamp(direction.x * Time.deltaTime, -xBoundary, xBoundary), Mathf.Clamp(direction.y * Time.deltaTime, -yBoundary, yBoundary), transform.position.z);
     }
 
     public void takeDamage(int amount)

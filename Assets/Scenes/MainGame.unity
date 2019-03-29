@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -113,6 +113,16 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &58633770 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1673877307220910, guid: d420ec956eb4f3a419dfe179813f0dd4,
+    type: 2}
+  m_PrefabInternal: {fileID: 916936025}
+--- !u!1 &82433490 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1343932460326180, guid: d420ec956eb4f3a419dfe179813f0dd4,
+    type: 2}
+  m_PrefabInternal: {fileID: 916936025}
 --- !u!1001 &614258355
 Prefab:
   m_ObjectHideFlags: 0
@@ -232,6 +242,11 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224900014298862448, guid: 2cfb71ed160452147bdbc8a6543d49b5,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -26.099976
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cfb71ed160452147bdbc8a6543d49b5, type: 2}
   m_IsPrefabAsset: 0
@@ -340,6 +355,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114579394389613776, guid: d420ec956eb4f3a419dfe179813f0dd4,
+        type: 2}
+      propertyPath: missileDummies.Array.data[0]
+      value: 
+      objectReference: {fileID: 82433490}
+    - target: {fileID: 114579394389613776, guid: d420ec956eb4f3a419dfe179813f0dd4,
+        type: 2}
+      propertyPath: missileDummies.Array.data[1]
+      value: 
+      objectReference: {fileID: 58633770}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d420ec956eb4f3a419dfe179813f0dd4, type: 2}
   m_IsPrefabAsset: 0
