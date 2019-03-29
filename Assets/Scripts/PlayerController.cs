@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 axisInput;
     public Vector3 defaultPos;
     public float rotLerp;
-    public float moveSpeed;
+    public float defaultMoveSpeed;
     public float xBoundary;
     public float yBoundary;
     public Vector3 origin;
@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public MenuController menuController;
     private float scoreTimer;
     public float scoreInterval;
+    private float moveSpeed;
 
 
     [Header("Misc")]
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour
         SetCalibration();
         GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         menuController = GameObject.FindGameObjectWithTag("GameManager").GetComponent<MenuController>();
+        moveSpeed = defaultMoveSpeed * GM.sensitivity * 2;
     }
     
 
@@ -52,13 +54,10 @@ public class PlayerController : MonoBehaviour
         if (!dead)
         {
             //Physics/Movement
-
-            //rBody.rotation = Quaternion.Lerp(rBody.rotation, Quaternion.Euler(Input.gyro.rotationRateUnbiased * 10), rotLerp);
-            Vector3 rot = new Vector3(Input.gyro.gravity.y * 40, Input.gyro.gravity.x * 30, -Input.gyro.gravity.x * 45);
-            //transform.eulerAngles = rot;
+            Vector3 rot = new Vector3(Input.gyro.gravity.y * 40, Input.gyro.gravity.x * (GM.yAxisFlipped ? -30 : 30), -Input.gyro.gravity.x * 45);
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(rot), rotLerp);
-            rBody.AddForce(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0) * moveSpeed);
-            rBody.AddForce(transform.forward * moveSpeed);
+            rBody.AddForce(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical") * (GM.yAxisFlipped ? -1 : 1), 0) * moveSpeed); //Keyboard
+            rBody.AddForce(transform.forward * moveSpeed); //Gyroscope (Mobile)
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, -xBoundary, xBoundary), Mathf.Clamp(transform.position.y, -yBoundary, yBoundary), transform.position.z);
         
             if (Time.time - invincTime > invincDuration)
