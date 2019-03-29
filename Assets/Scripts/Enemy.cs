@@ -21,8 +21,6 @@ public class Enemy : MonoBehaviour
     float bulletTimeStamp;
     float moveTimer;
 
-    Vector3 direction;
-
     void Awake()
     {
         bulletTimeStamp = Time.time;
@@ -40,7 +38,7 @@ public class Enemy : MonoBehaviour
         {
             for (int i = 0; i < bullets.Length; ++i)
             {
-                Destroy(bullets[i]);
+                bullets[i].GetComponent<Bullet>().hasParent = false;
             }
             Destroy(gameObject);
         }
@@ -48,13 +46,6 @@ public class Enemy : MonoBehaviour
         {
             fireBullet();
             bulletTimeStamp = Time.time;
-        }
-        moveTimer = Time.time;
-
-        if (moveTimer >= moveTime)
-        {
-            direction = new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), transform.position.z);
-            moveTimer = 0;
         }
     }
 

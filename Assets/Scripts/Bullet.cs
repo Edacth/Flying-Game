@@ -6,10 +6,12 @@ public class Bullet : MonoBehaviour {
     
     public int damage = 0;
     public float lifetime;
+    public bool hasParent = true;
 
     TrailRenderer trail;
     float timer = 0;
     bool hit;
+
 
     void OnEnable()
     {
@@ -33,6 +35,10 @@ public class Bullet : MonoBehaviour {
             gameObject.SetActive(false);
             timer = 0;
         }
+        if (!hasParent && !gameObject.activeSelf)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -46,6 +52,10 @@ public class Bullet : MonoBehaviour {
         {
             hit = true;
             other.GetComponent<PlayerController>().TakeDamage(damage);
+        }
+        if (other.tag == "Building")
+        {
+            hit = true;
         }
     }
 
