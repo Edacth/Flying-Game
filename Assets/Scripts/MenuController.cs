@@ -52,6 +52,7 @@ public class MenuController : MonoBehaviour {
             backButton.onClick.AddListener(delegate {
                 optionsScreen.SetActive(false);
                 mainScreen.SetActive(true);
+                GM.Save();
             });
             sensitivitySlider.onValueChanged.AddListener(delegate {
                 GM.sensitivity = sensitivitySlider.value;

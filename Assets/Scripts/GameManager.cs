@@ -52,11 +52,7 @@ public class GameManager : MonoBehaviour {
     void Start ()
     {
         //Load preferences
-        string dataPath = Path.Combine(Application.persistentDataPath, "save.txt");
-        saveData data = Load(dataPath);
-        sensitivity = data.sensitivity;
-        yAxisFlipped = data.yAxisFlipped;
-        highScore = data.highScore;
+        Load();
 
         menuController = gameObject.GetComponent<MenuController>();
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -68,20 +64,6 @@ public class GameManager : MonoBehaviour {
 	
 	void Update ()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            saveData data = new saveData(sensitivity, yAxisFlipped, highScore);
-            string dataPath = Path.Combine(Application.persistentDataPath, "save.txt");
-            Save(data, dataPath);
-        }
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            string dataPath = Path.Combine(Application.persistentDataPath, "save.txt");
-            saveData data = Load(dataPath);
-            sensitivity = data.sensitivity;
-            yAxisFlipped = data.yAxisFlipped;
-            highScore = data.highScore;
-        }
 
         if (isReloading || SceneManager.GetActiveScene().name == "MainMenu") return;
         
@@ -191,8 +173,10 @@ public class GameManager : MonoBehaviour {
         Initialize();
     }
 
-    static void Save(saveData data, string path)
+    public void Save()
     {
+        saveData data = new saveData(sensitivity, yAxisFlipped, highScore);
+        string path = Path.Combine(Application.persistentDataPath, "save.txt");
         string jsonString = JsonUtility.ToJson(data);
 
         using (StreamWriter streamWriter = File.CreateText(path))
@@ -202,13 +186,18 @@ public class GameManager : MonoBehaviour {
         Debug.Log("I'M SAVING " + path);
     }
 
-    static saveData Load(string path)
+    public void Load()
     {
+        string path = Path.Combine(Application.persistentDataPath, "save.txt");
         using (StreamReader streamReader = File.OpenText(path))
         {
             string jsonString = streamReader.ReadToEnd();
-            return JsonUtility.FromJson<saveData>(jsonString);
+            saveData data = JsonUtility.FromJson<saveData>(jsonString);
+            sensitivity = data.sensitivity;
+            yAxisFlipped = data.yAxisFlipped;
+            highScore = data.highScore;
         }
+        
     }
 }
 

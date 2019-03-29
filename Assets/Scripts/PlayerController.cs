@@ -114,6 +114,7 @@ public class PlayerController : MonoBehaviour
             dead = true;
 
             menuController.SetEndState(true);
+            GM.Save();
         }
         else
         {
@@ -121,5 +122,4 @@ public class PlayerController : MonoBehaviour
             invinc = true;
         }
     }
-
 }
