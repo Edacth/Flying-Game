@@ -20,7 +20,8 @@ public class ESectionController : MonoBehaviour {
     {
         for (int i = 0; i < gameObject.transform.childCount; i++)
         {
-            if (gameObject.transform.GetChild(i).tag == "Building")
+            string despawnTag = gameObject.transform.GetChild(i).tag;
+            if (despawnTag == "Building" || despawnTag == "Enemy")
             {
                 Destroy(gameObject.transform.GetChild(i).gameObject);
             }
