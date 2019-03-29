@@ -16,8 +16,14 @@ public class MenuController : MonoBehaviour {
     Button pauseExitButton;
     Button endExitButton;
 
+    GameObject mainScreen;
     Button startButton;
     Button optionsButton;
+    GameObject optionsScreen;
+    Button backButton;
+    Toggle yAxisToggle;
+    Slider sensitivitySlider;
+    Text sensitivityNumber;
 
     void Start () {
         
@@ -28,11 +34,32 @@ public class MenuController : MonoBehaviour {
         GM = gameObject.GetComponent<GameManager>();
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
-            startButton = GameObject.Find("/Main Camera/Canvas/StartButton").GetComponent<Button>();
-            optionsButton = GameObject.Find("/Main Camera/Canvas/OptionsButton").GetComponent<Button>();
+            mainScreen = GameObject.Find("/Main Camera/Canvas/MainScreen");
+            startButton = GameObject.Find("/Main Camera/Canvas/MainScreen/StartButton").GetComponent<Button>();
+            optionsButton = GameObject.Find("/Main Camera/Canvas/MainScreen/OptionsButton").GetComponent<Button>();
+
+            optionsScreen = GameObject.Find("/Main Camera/Canvas/OptionsScreen");
+            backButton = GameObject.Find("/Main Camera/Canvas/OptionsScreen/BackButton").GetComponent<Button>();
+            sensitivitySlider = GameObject.Find("/Main Camera/Canvas/OptionsScreen/SensitivitySlider").GetComponent<Slider>();
+            yAxisToggle = GameObject.Find("/Main Camera/Canvas/OptionsScreen/YAxisToggle").GetComponent<Toggle>();
+            sensitivityNumber = GameObject.Find("/Main Camera/Canvas/OptionsScreen/SensitivitySlider/Number").GetComponent<Text>();
 
             startButton.onClick.AddListener(delegate { SceneManager.LoadScene(gameScene); });
-            optionsButton.onClick.AddListener(delegate { SceneManager.LoadScene(gameScene); });
+            optionsButton.onClick.AddListener(delegate {
+                mainScreen.SetActive(false);
+                optionsScreen.SetActive(true);
+            });
+
+            backButton.onClick.AddListener(delegate {
+                optionsScreen.SetActive(false);
+                mainScreen.SetActive(true);
+            });
+            sensitivitySlider.onValueChanged.AddListener(delegate {
+                GM.sensitivity = sensitivitySlider.value;
+                sensitivityNumber.text = (sensitivitySlider.value * 100).ToString("f0");
+            });
+            yAxisToggle.onValueChanged.AddListener(delegate {
+                GM.yAxisFlipped = yAxisToggle.isOn; });
         }
         else
         {

@@ -467,7 +467,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1494015232961478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 71.320915, y: 47.217495, z: -41.020023}
+  m_LocalPosition: {x: -102.22644, y: 144.55481, z: 92.70123}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4277423975189290}
@@ -1099,6 +1099,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  fadeInTimer: 0
+  fadeInDuration: 2
 --- !u!114 &114257518909853042
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1113,6 +1115,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  fadeInTimer: 0
+  fadeInDuration: 2
 --- !u!114 &114314923019465580
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1127,6 +1131,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  fadeInTimer: 0
+  fadeInDuration: 2
 --- !u!114 &114327260676517516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1141,6 +1147,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  fadeInTimer: 0
+  fadeInDuration: 2
 --- !u!114 &114369578181944698
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1155,6 +1163,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  fadeInTimer: 0
+  fadeInDuration: 2
 --- !u!114 &114404274813622010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1169,6 +1179,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  fadeInTimer: 0
+  fadeInDuration: 2
 --- !u!114 &114466150769180094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1183,6 +1195,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  fadeInTimer: 0
+  fadeInDuration: 2
 --- !u!114 &114632522495248224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1197,6 +1211,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  fadeInTimer: 0
+  fadeInDuration: 2
 --- !u!114 &114828678796835354
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1211,6 +1227,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  fadeInTimer: 0
+  fadeInDuration: 2
 --- !u!114 &114906613237461476
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1225,6 +1243,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  fadeInTimer: 0
+  fadeInDuration: 2
 --- !u!114 &114924208081125012
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1239,6 +1259,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  fadeInTimer: 0
+  fadeInDuration: 2
 --- !u!114 &114938518290734234
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1253,6 +1275,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  fadeInTimer: 0
+  fadeInDuration: 2
 --- !u!114 &114961761709616320
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1267,3 +1291,5 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  fadeInTimer: 0
+  fadeInDuration: 2

@@ -18,8 +18,9 @@ public class GameManager : MonoBehaviour {
     public int highScore;
     public float gunAmmo;
     public float missileAmmo;
+    public bool yAxisFlipped { get; set; }
+    public float sensitivity { get; set; }
 
-    
     List<ESectionController> ESectionPool = new List<ESectionController>();
     bool isReloading = true;
     MenuController menuController;
@@ -71,33 +72,35 @@ public class GameManager : MonoBehaviour {
                 
                 if (ESectionPool[i].transform.position.z < zFadePoint)
                 {
-
-                    recursiveTransparency(ESectionPool[i].gameObject);
+                    recursiveTransparency(ESectionPool[i].gameObject, false);
                 }
 
                 //Move sections back if they have passed the player
                 if (ESectionPool[i].transform.position.z < -80)
                 {
-                    ESectionPool[i].transform.position = new Vector3(0, percievedElevation, ESectionPool[i].transform.position.z + sectionLength * numOfSections);
+                    ESectionPool[i].transform.position = new Vector3(0, percievedElevation, ESectionPool[i].transform.position.z + (sectionSpeed * Time.deltaTime) + (sectionLength * numOfSections));
                     ESectionPool[i].GenerateTower();
-                }
+                    recursiveTransparency(ESectionPool[i].gameObject, true);
+            }
 
             }
        
     }
 
-    void recursiveTransparency(GameObject _object)
+    void recursiveTransparency(GameObject _object, bool fadingIn)
     {
         ITransparancy objectTransScript = _object.GetComponent<ITransparancy>();
-        if (objectTransScript != null && _object.tag == "Building")
+        if (objectTransScript != null)// && _object.tag == "Building")
         {
             //objectRenderer.material = transparentMaterial;
-            objectTransScript.Fade(0.2f);
+            if (!fadingIn) objectTransScript.Fade(0.2f);
+            else objectTransScript.startFadingIn();
+            //Debug.Break();
         }
         
         for (int j = 0; j < _object.transform.childCount; j++)
         {
-            recursiveTransparency(_object.transform.GetChild(j).gameObject);
+            recursiveTransparency(_object.transform.GetChild(j).gameObject, fadingIn);
         }
     }
 

@@ -20,7 +20,8 @@ public class ESectionController : MonoBehaviour {
     {
         for (int i = 0; i < gameObject.transform.childCount; i++)
         {
-            if (gameObject.transform.GetChild(i).tag == "Building")
+            string despawnTag = gameObject.transform.GetChild(i).tag;
+            if (despawnTag == "Building" || despawnTag == "Enemy")
             {
                 Destroy(gameObject.transform.GetChild(i).gameObject);
             }
@@ -32,7 +33,8 @@ public class ESectionController : MonoBehaviour {
         Vector3 structurePos;
 
         structurePos = new Vector3(pos.x + Random.Range(structures[structureType].xBounds.x, structures[structureType].xBounds.y), pos.y + structures[structureType].yPos, pos.z);
+        //GameObject newBuilding = Instantiate(structures[structureType].structurePrefab, structurePos, Quaternion.identity, gameObject.transform) as GameObject;
         Instantiate(structures[structureType].structurePrefab, structurePos, Quaternion.identity, gameObject.transform);
-
+        //newBuilding.GetComponent<ITransparancy>().startFadingIn();
     }
 }
