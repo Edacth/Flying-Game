@@ -107,7 +107,7 @@ public class PlayerShoot : MonoBehaviour
                 {
                     bul.SetActive(true);
                     GM.gunAmmo -= gunCost;
-                    bul.transform.position = new Vector3(firePoint.position.x, firePoint.position.y, firePoint.position.z);
+                    bul.transform.position = firePoint.position;
                     bul.transform.rotation = firePoint.rotation;
                     bul.GetComponent<Rigidbody>().AddForce(bul.transform.forward * bulletSpeed, ForceMode.Impulse);
                     break;

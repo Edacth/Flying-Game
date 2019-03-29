@@ -513,48 +513,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1306299712
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4775913448529644, guid: ccf0e8c8941eb884389beaf61c967548, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4775913448529644, guid: ccf0e8c8941eb884389beaf61c967548, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4775913448529644, guid: ccf0e8c8941eb884389beaf61c967548, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 37.93
-      objectReference: {fileID: 0}
-    - target: {fileID: 4775913448529644, guid: ccf0e8c8941eb884389beaf61c967548, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4775913448529644, guid: ccf0e8c8941eb884389beaf61c967548, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4775913448529644, guid: ccf0e8c8941eb884389beaf61c967548, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4775913448529644, guid: ccf0e8c8941eb884389beaf61c967548, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4775913448529644, guid: ccf0e8c8941eb884389beaf61c967548, type: 2}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ccf0e8c8941eb884389beaf61c967548, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!1001 &1551759105
 Prefab:
   m_ObjectHideFlags: 0
@@ -705,7 +663,7 @@ Prefab:
     - target: {fileID: 114112280151951812, guid: aebe72cdb2f46bf4fa97edc7c063b509,
         type: 2}
       propertyPath: sectionSpeed
-      value: -20
+      value: -30
       objectReference: {fileID: 0}
     - target: {fileID: 114112280151951812, guid: aebe72cdb2f46bf4fa97edc7c063b509,
         type: 2}

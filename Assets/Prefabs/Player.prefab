@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4372767345695088}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4616224031238542}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: position left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4113493941362740}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Missile Positions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 54152456093802566}
   - component: {fileID: 114044069021571094}
   - component: {fileID: 114579394389613776}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4211452187171430}
   - component: {fileID: 212023503070260214}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crosshairsClose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 4524315644309266}
   - component: {fileID: 33561342219690100}
   - component: {fileID: 23785755695965550}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: missileModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 4586657063720812}
   - component: {fileID: 33336686145977600}
   - component: {fileID: 23664744273179380}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: f16jet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4071488299525270}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: position right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4446260631432804}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Crosshairs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   - component: {fileID: 4733011915188292}
   - component: {fileID: 33305081343507952}
   - component: {fileID: 23535101275032906}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: missileModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 4770349328900664}
   - component: {fileID: 198803056749438544}
   - component: {fileID: 199152207985961488}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Exhaust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4189258299488712}
   - component: {fileID: 212425014421295718}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crosshairsFar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4221022431691434}
   - component: {fileID: 212751540157597556}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: crosshairsMid
   m_TagString: Untagged
   m_Icon: {fileID: 0}

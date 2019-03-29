@@ -103,11 +103,11 @@ public class PlayerController : MonoBehaviour
         {
             if (other.gameObject.tag == "Building")
                 TakeDamage(20);
-            else if (other.gameObject.tag == "Enemy")
+            if (other.gameObject.tag == "Enemy")
                 TakeDamage(5);
         }
     }
-    private void TakeDamage (int amount)
+    public void TakeDamage (int amount)
     {
         damage += amount;
         if (damage >= 100 && dead == false)

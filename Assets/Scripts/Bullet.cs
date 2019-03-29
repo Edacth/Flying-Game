@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
     
     public int damage = 0;
+    public float lifetime;
 
     TrailRenderer trail;
     float timer = 0;
@@ -25,7 +26,7 @@ public class Bullet : MonoBehaviour {
 	void Update ()
     {
         timer += Time.deltaTime;
-        if (timer >= 1 || hit)
+        if (timer >= lifetime || hit)
         {
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             trail.enabled = false;
@@ -40,6 +41,11 @@ public class Bullet : MonoBehaviour {
         {
             hit = true;
             other.GetComponent<Enemy>().takeDamage(damage);
+        }
+        if (other.tag == "Player")
+        {
+            hit = true;
+            other.GetComponent<PlayerController>().TakeDamage(damage);
         }
     }
 

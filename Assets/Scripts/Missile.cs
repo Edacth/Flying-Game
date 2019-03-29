@@ -71,7 +71,7 @@ public class Missile : MonoBehaviour
             {
                 transform.Translate(transform.forward);
             }
-            else if (target != null)
+            else if (target != null && target.transform.position.z > 0)
             {
                 if (falling)
                 {
@@ -82,7 +82,7 @@ public class Missile : MonoBehaviour
                 transform.position = quadBezier(start, mid, end, elapsed / Vector3.Distance(start, end) * speed);
                 end = target.transform.position;
 
-                transform.LookAt(quadBezier(start, mid, end, elapsed + Time.deltaTime / Vector3.Distance(start, end) * speed));
+                transform.LookAt(quadBezier(start, mid, end, (elapsed + Time.deltaTime) / Vector3.Distance(start, end) * speed));
 
             }
             else
@@ -130,21 +130,31 @@ public class Missile : MonoBehaviour
         elapsed = 0;
         start = transform.position;
         end = target.transform.position;
-        mid = start + (transform.forward * Vector3.Distance(start, end) / 2);
+        mid = start + (transform.forward * Vector3.Distance(start, end) * 0.5f);
     }
 
     GameObject closestEnemy(GameObject[] arr)
     {
+
         GameObject closest = arr[0];
 
         for (int i = 1; i < arr.Length; ++i)
         {
-            if (arr[i].activeSelf && Vector3.Distance(transform.position, arr[i].transform.position) <
-                Vector3.Distance(transform.position, closest.transform.position))
+            if (arr[i].activeSelf)
             {
-                closest = arr[i];
+                if (closest.transform.position.z < 0)
+                    closest = arr[i];
+                else
+                {
+                    if (Vector3.Distance(transform.position, arr[i].transform.position) <
+                    Vector3.Distance(transform.position, closest.transform.position))
+                        closest = arr[i];
+                }
             }
         }
+        if (closest.transform.position.z < 0)
+            closest = null;
+
         return closest;
     }
 }
