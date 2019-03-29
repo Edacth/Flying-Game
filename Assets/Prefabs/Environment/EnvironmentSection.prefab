@@ -139,7 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pos: {x: 0, y: 0, z: 0}
   structures:
-  - structurePrefab: {fileID: 1384333178199706, guid: ccf0e8c8941eb884389beaf61c967548,
+  - structurePrefab: {fileID: 1052464823470320, guid: 63c2c473026c81c44ae318eced64da56,
       type: 2}
     yPos: 14.5
     xBounds: {x: -15, y: 16}
@@ -151,12 +151,20 @@ MonoBehaviour:
       type: 2}
     yPos: 15
     xBounds: {x: -15, y: 16}
+  - structurePrefab: {fileID: 1384333178199706, guid: ccf0e8c8941eb884389beaf61c967548,
+      type: 2}
+    yPos: 15
+    xBounds: {x: -15, y: 16}
+  - structurePrefab: {fileID: 1997261967076924, guid: ba95d9598dadfc34594b3494aa7bbd95,
+      type: 2}
+    yPos: 15
+    xBounds: {x: -15, y: 16}
   genOptions:
   - item: 0
-    weight: 9
+    weight: 5
   - item: 1
-    weight: 9
+    weight: 3
   - item: 2
-    weight: 9
+    weight: 2
   - item: 3
-    weight: 9
+    weight: 4
