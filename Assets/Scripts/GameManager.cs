@@ -109,6 +109,8 @@ public class GameManager : MonoBehaviour {
         if (SceneManager.GetActiveScene().name != "MainMenu")
         {
             ESectionPool.Clear();
+            gunAmmo = 100;
+            missileAmmo = 100;
             for (int i = 0; i < numOfSections; i++)
             {
                 Vector3 pos = new Vector3(0, percievedElevation, sectionLength * i + 80);
