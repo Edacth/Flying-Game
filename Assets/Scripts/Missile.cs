@@ -23,6 +23,7 @@ public class Missile : MonoBehaviour
     bool falling;
     bool hit;
     bool isFired;
+    bool cannotFindTarget = false;
 
     void Awake()
     {
@@ -66,7 +67,11 @@ public class Missile : MonoBehaviour
         }
         if (delayTimer >= startDelay)
         {
-            if (target != null)
+            if (cannotFindTarget)
+            {
+                transform.Translate(transform.forward);
+            }
+            else if (target != null)
             {
                 if (falling)
                 {
@@ -84,8 +89,16 @@ public class Missile : MonoBehaviour
             {
                 // find all enemies in the scene and find the closest one, then get new coordinates to calculate trajectory
                 enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+                if (enemies.Length == 0)
+                {
+                    cannotFindTarget = true;
+                }
+                else
+                {
                 target = closestEnemy(enemies);
                 calculatePoints();
+                }
             }
 
             exhaust.Play();
