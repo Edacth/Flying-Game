@@ -575,7 +575,7 @@ MonoBehaviour:
   axisInput: {x: 0, y: 0}
   defaultPos: {x: 0, y: 0, z: 0}
   rotLerp: 0.9
-  moveSpeed: 300
+  defaultMoveSpeed: 300
   xBoundary: 22
   yBoundary: 14
   origin: {x: 0, y: 0, z: 0}
@@ -617,11 +617,11 @@ MonoBehaviour:
   - {fileID: 0}
   missile: {fileID: 1371410054762224, guid: 25aa07531359b10478eef7b608473775, type: 2}
   missiles:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1371410054762224, guid: 25aa07531359b10478eef7b608473775, type: 2}
+  - {fileID: 1371410054762224, guid: 25aa07531359b10478eef7b608473775, type: 2}
   missileDummies:
-  - {fileID: 1343932460326180}
-  - {fileID: 1673877307220910}
+  - {fileID: 1371410054762224, guid: 25aa07531359b10478eef7b608473775, type: 2}
+  - {fileID: 1371410054762224, guid: 25aa07531359b10478eef7b608473775, type: 2}
   GM: {fileID: 0}
   gunCost: 0.1
   missileCost: 5
