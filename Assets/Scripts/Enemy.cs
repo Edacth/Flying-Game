@@ -9,15 +9,16 @@ public class Enemy : MonoBehaviour
     public GameObject bullet;
     public GameObject[] bullets = new GameObject[50];
     GameObject Player;
+    GameManager GM;
 
     [Header("Variables")]
     public float moveSpeed;
     public float bulletSpeed;
     public float moveTime;
     public float timeToFireBullet;
-    public float health;
     public float xBoundary;
     public float yBoundary;
+    public int health;
     float bulletTimeStamp;
     float moveTimer;
 
@@ -29,6 +30,7 @@ public class Enemy : MonoBehaviour
             bullets[i] = Instantiate(bullet) as GameObject;
         }
         Player = GameObject.FindGameObjectWithTag("Player");
+        GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
 	
 	// Update is called once per frame
@@ -36,13 +38,14 @@ public class Enemy : MonoBehaviour
     {
 		if (health <= 0)
         {
+            GM.kills++;
             for (int i = 0; i < bullets.Length; ++i)
             {
                 bullets[i].GetComponent<Bullet>().hasParent = false;
             }
             Destroy(gameObject);
         }
-        if (Time.time - bulletTimeStamp > timeToFireBullet)
+        if (transform.position.z > 1 && Time.time - bulletTimeStamp > timeToFireBullet)
         {
             fireBullet();
             bulletTimeStamp = Time.time;
@@ -68,6 +71,14 @@ public class Enemy : MonoBehaviour
                 bul.GetComponent<Rigidbody>().AddForce(targetPos * bulletSpeed, ForceMode.Impulse);
                 break;
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            takeDamage(health);
         }
     }
 }

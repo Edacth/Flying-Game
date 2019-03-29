@@ -153,8 +153,8 @@ MonoBehaviour:
     xBounds: {x: -15, y: 16}
   genOptions:
   - item: 0
-    weight: 12
+    weight: 15
   - item: 1
-    weight: 0
+    weight: 9
   - item: 2
-    weight: 0
+    weight: 9
