@@ -64,6 +64,7 @@ MonoBehaviour:
   highScore: 0
   gunAmmo: 100
   missileAmmo: 100
+  sensitivity: 0.5
 --- !u!114 &114513415113347234
 MonoBehaviour:
   m_ObjectHideFlags: 1
