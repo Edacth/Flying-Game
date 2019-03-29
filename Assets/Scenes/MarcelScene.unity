@@ -513,7 +513,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1151930853
+--- !u!1001 &1306299712
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -530,7 +530,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4775913448529644, guid: ccf0e8c8941eb884389beaf61c967548, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 43.68
+      value: 37.93
       objectReference: {fileID: 0}
     - target: {fileID: 4775913448529644, guid: ccf0e8c8941eb884389beaf61c967548, type: 2}
       propertyPath: m_LocalRotation.x
