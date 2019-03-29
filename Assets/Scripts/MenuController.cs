@@ -8,7 +8,6 @@ public class MenuController : MonoBehaviour {
     public string gameScene;
 
     GameManager GM;
-    PlayerController playerController;
     GameObject pauseScreen;
     Button pauseButton;
     Button resumeButton;
@@ -25,9 +24,6 @@ public class MenuController : MonoBehaviour {
     Toggle yAxisToggle;
     Slider sensitivitySlider;
     Text sensitivityNumber;
-    float sensitivity = 0.5f;
-    bool yAxisFlipped = false;
-
 
     void Start () {
         
@@ -59,18 +55,14 @@ public class MenuController : MonoBehaviour {
                 mainScreen.SetActive(true);
             });
             sensitivitySlider.onValueChanged.AddListener(delegate {
-                sensitivity = sensitivitySlider.value;
+                GM.sensitivity = sensitivitySlider.value;
                 sensitivityNumber.text = (sensitivitySlider.value * 100).ToString("f0");
             });
             yAxisToggle.onValueChanged.AddListener(delegate {
-                yAxisFlipped = yAxisToggle.isOn; });
+                GM.yAxisFlipped = yAxisToggle.isOn; });
         }
         else
         {
-            playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
-            playerController.sensitivity = sensitivity;
-            playerController.yAxisFlipped = yAxisFlipped;
-
             pauseScreen = GameObject.Find("/Main Camera/Canvas/PauseScreen");
             endScreen = GameObject.Find("/Main Camera/Canvas/EndScreen");
             pauseButton = GameObject.Find("/Main Camera/Canvas/PauseButton").GetComponent<Button>();
