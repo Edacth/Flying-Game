@@ -3,8 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.IO;
 
 public class GameManager : MonoBehaviour {
+
+    class saveData
+    {
+        public saveData(float _sensitivity, bool _yAxisFlipped, int _highScore)
+        {
+            sensitivity = _sensitivity;
+            yAxisFlipped = _yAxisFlipped;
+            highScore = _highScore;
+        }
+        public float sensitivity;
+        public bool yAxisFlipped;
+        public int highScore;
+    }
 
     public static GameManager instance = null; //Instance of this script
     public GameObject environmentSection;
@@ -19,7 +33,7 @@ public class GameManager : MonoBehaviour {
     public float gunAmmo;
     public float missileAmmo;
     public bool yAxisFlipped { get; set; }
-    public float sensitivity; //{ get; set; }
+    public float sensitivity { get; set; }
 
     List<ESectionController> ESectionPool = new List<ESectionController>();
     bool isReloading = true;
@@ -36,6 +50,13 @@ public class GameManager : MonoBehaviour {
 
     void Start ()
     {
+        //Load preferences
+        string dataPath = Path.Combine(Application.persistentDataPath, "save.txt");
+        saveData data = Load(dataPath);
+        sensitivity = data.sensitivity;
+        yAxisFlipped = data.yAxisFlipped;
+        highScore = data.highScore;
+
         menuController = gameObject.GetComponent<MenuController>();
         SceneManager.sceneLoaded += OnSceneLoaded;
         Initialize();
@@ -46,45 +67,59 @@ public class GameManager : MonoBehaviour {
 	
 	void Update ()
     {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            saveData data = new saveData(sensitivity, yAxisFlipped, highScore);
+            string dataPath = Path.Combine(Application.persistentDataPath, "save.txt");
+            Save(data, dataPath);
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            string dataPath = Path.Combine(Application.persistentDataPath, "save.txt");
+            saveData data = Load(dataPath);
+            sensitivity = data.sensitivity;
+            yAxisFlipped = data.yAxisFlipped;
+            highScore = data.highScore;
+        }
+
         if (isReloading || SceneManager.GetActiveScene().name == "MainMenu") return;
         
-            if (score >= highScore)
-            {
-                highScore = score;
-            }
+        if (score >= highScore)
+        {
+            highScore = score;
+        }
 
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
-                for (int i = 0; i < numOfSections; i++)
-                {
-                    ESectionPool[i].GenerateTower();
-                }
-            }
-
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
             for (int i = 0; i < numOfSections; i++)
             {
-                if (ESectionPool[i] == null)
-                {
-                    Debug.Log("Hi");
-                }
-                //Translate the sections along
-                ESectionPool[i].transform.Translate(0f, 0f, sectionSpeed * Time.deltaTime);
+                ESectionPool[i].GenerateTower();
+            }
+        }
+
+        for (int i = 0; i < numOfSections; i++)
+        {
+            if (ESectionPool[i] == null)
+            {
+                Debug.Log("Hi");
+            }
+            //Translate the sections along
+            ESectionPool[i].transform.Translate(0f, 0f, sectionSpeed * Time.deltaTime);
                 
-                if (ESectionPool[i].transform.position.z < zFadePoint)
-                {
-                    recursiveTransparency(ESectionPool[i].gameObject, false);
-                }
-
-                //Move sections back if they have passed the player
-                if (ESectionPool[i].transform.position.z < -80)
-                {
-                    ESectionPool[i].transform.position = new Vector3(0, percievedElevation, ESectionPool[i].transform.position.z + (sectionSpeed * Time.deltaTime) + (sectionLength * numOfSections));
-                    ESectionPool[i].GenerateTower();
-                    recursiveTransparency(ESectionPool[i].gameObject, true);
+            if (ESectionPool[i].transform.position.z < zFadePoint)
+            {
+                recursiveTransparency(ESectionPool[i].gameObject, false);
             }
 
+            //Move sections back if they have passed the player
+            if (ESectionPool[i].transform.position.z < -80)
+            {
+                ESectionPool[i].transform.position = new Vector3(0, percievedElevation, ESectionPool[i].transform.position.z + (sectionSpeed * Time.deltaTime) + (sectionLength * numOfSections));
+                ESectionPool[i].GenerateTower();
+                recursiveTransparency(ESectionPool[i].gameObject, true);
             }
-       
+
+        }
     }
 
     void recursiveTransparency(GameObject _object, bool fadingIn)
@@ -152,6 +187,25 @@ public class GameManager : MonoBehaviour {
         Initialize();
     }
 
+    static void Save(saveData data, string path)
+    {
+        string jsonString = JsonUtility.ToJson(data);
+
+        using (StreamWriter streamWriter = File.CreateText(path))
+        {
+            streamWriter.Write(jsonString);
+        }
+        Debug.Log("I'M SAVING " + path);
+    }
+
+    static saveData Load(string path)
+    {
+        using (StreamReader streamReader = File.OpenText(path))
+        {
+            string jsonString = streamReader.ReadToEnd();
+            return JsonUtility.FromJson<saveData>(jsonString);
+        }
+    }
 }
 
 
