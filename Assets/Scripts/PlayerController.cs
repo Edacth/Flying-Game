@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     public MenuController menuController;
     private float scoreTimer;
     public float scoreInterval;
+    public bool yAxisFlipped { get; set; }
+    public float sensitivity { get; set; }
 
     
 
@@ -37,6 +39,7 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         Input.gyro.enabled = true;
+        yAxisFlipped = false;
     }
 
     void Start()
@@ -123,4 +126,5 @@ public class PlayerController : MonoBehaviour
             invinc = true;
         }
     }
+
 }
