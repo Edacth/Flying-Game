@@ -11,6 +11,10 @@ public class ITransparancy : MonoBehaviour {
     Renderer myRenderer;
     float t;
 
+    public float fadeInTimer;
+    public float fadeInDuration;
+    public bool fadingIn = false;
+
 
     void Start () {
         myRenderer = gameObject.GetComponent<Renderer>();
@@ -22,6 +26,20 @@ public class ITransparancy : MonoBehaviour {
     public void Fade(float goal)
     {
         StartCoroutine(FadeCoroutine(goal));
+    }
+
+    void Update()
+    {
+        if (fadingIn)
+        {
+            fadeInTimer += Time.deltaTime; //Add to the timer
+            float interp = fadeInTimer / fadeInDuration; //Calculate the opacity of the object
+            myRenderer.material.color = Color.Lerp(transparent, opaque, interp); //Change the opacity of the material
+            //Debug.Log(myRenderer.material.color);
+
+            if (fadeInTimer >= fadeInDuration) //Check to see if fading is finished
+                fadingIn = false; //Turn off timer and opacity changes
+        }
     }
 
     IEnumerator FadeCoroutine(float goal)
@@ -44,7 +62,12 @@ public class ITransparancy : MonoBehaviour {
             myRenderer.material.color = Color.Lerp(transparent, opaque, t);
             yield return null;
         }
-
-        
+    }
+    public void startFadingIn()
+    {
+        fadeInTimer = 0;
+        //myRenderer.material.color = transparent;
+        fadingIn = true;
+        //Debug.Break();
     }
 }

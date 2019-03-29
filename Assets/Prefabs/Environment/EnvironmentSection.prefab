@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 33698746882044084}
   - component: {fileID: 23979271431140584}
   - component: {fileID: 65450999084715936}
+  - component: {fileID: 114888521065181142}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -52,7 +53,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1027898251405006}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -313.68155, y: -0.011789799, z: 293.28235}
+  m_LocalPosition: {x: 21.546783, y: 333.9972, z: -140.92436}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4834764170409036}
@@ -126,6 +127,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114888521065181142
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1384968266475430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9650e085efdf28d419a45722e8d966c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  opaque: {r: 1, g: 1, b: 1, a: 1}
+  transparent: {r: 1, g: 1, b: 1, a: 0}
+  fadeIncrement: 0
+  fadeInTimer: 0
+  fadeInDuration: 2
 --- !u!114 &114968542676546336
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -146,15 +163,21 @@ MonoBehaviour:
   - structurePrefab: {fileID: 1494015232961478, guid: 840d08a4bfd94274c95821d3f80bb33e,
       type: 2}
     yPos: 14.5
-    xBounds: {x: -15, y: 16}
-  - structurePrefab: {fileID: 1740871540107088, guid: cb3f297cb07e597409011eef757f31d7,
+    xBounds: {x: -33, y: -7}
+  - structurePrefab: {fileID: 1020991892774584, guid: b2a0e08a5baecd04b9f81c1306ff9227,
+      type: 2}
+    yPos: 15
+    xBounds: {x: -33, y: 33}
+  - structurePrefab: {fileID: 1052464823470320, guid: 63c2c473026c81c44ae318eced64da56,
       type: 2}
     yPos: 15
     xBounds: {x: -15, y: 16}
   genOptions:
   - item: 0
-    weight: 9
+    weight: 0
   - item: 1
-    weight: 9
+    weight: 0
   - item: 2
-    weight: 9
+    weight: 15
+  - item: 3
+    weight: 0
