@@ -255,7 +255,7 @@ MonoBehaviour:
   startDelay: 0.3
   elapsed: 0
   damage: 10
-  lifetime: 2.5
+  lifetime: 3
 --- !u!198 &198232010013395246
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -11,12 +11,17 @@ public class Enemy : MonoBehaviour
     GameObject Player;
 
     [Header("Variables")]
+    public float moveSpeed;
     public float bulletSpeed;
+    public float moveTime;
     public float timeToFireBullet;
     public float health;
     public float xBoundary;
     public float yBoundary;
     float bulletTimeStamp;
+    float moveTimer;
+
+    Vector3 direction;
 
     void Awake()
     {
@@ -44,7 +49,14 @@ public class Enemy : MonoBehaviour
             fireBullet();
             bulletTimeStamp = Time.time;
         }
-        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -xBoundary, xBoundary), Mathf.Clamp(transform.position.y, -yBoundary, yBoundary), transform.position.z);
+        moveTimer = Time.time;
+
+        if (moveTimer >= moveTime)
+        {
+            direction = new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), transform.position.z);
+            moveTimer = 0;
+        }
+        transform.position = new Vector3(Mathf.Clamp(direction.x * Time.deltaTime, -xBoundary, xBoundary), Mathf.Clamp(direction.y * Time.deltaTime, -yBoundary, yBoundary), transform.position.z);
     }
 
     public void takeDamage(int amount)
