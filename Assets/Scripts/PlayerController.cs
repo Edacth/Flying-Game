@@ -29,7 +29,6 @@ public class PlayerController : MonoBehaviour
     private float scoreTimer;
     public float scoreInterval;
 
-    
 
     [Header("Misc")]
     public GameObject explosion;
@@ -123,4 +122,5 @@ public class PlayerController : MonoBehaviour
             invinc = true;
         }
     }
+
 }

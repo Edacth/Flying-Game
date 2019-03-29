@@ -18,8 +18,9 @@ public class GameManager : MonoBehaviour {
     public int highScore;
     public float gunAmmo;
     public float missileAmmo;
+    public bool yAxisFlipped { get; set; }
+    public float sensitivity { get; set; }
 
-    
     List<ESectionController> ESectionPool = new List<ESectionController>();
     bool isReloading = true;
     MenuController menuController;
