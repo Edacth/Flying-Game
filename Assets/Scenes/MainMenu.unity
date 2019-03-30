@@ -2574,6 +2574,7 @@ GameObject:
   - component: {fileID: 2080107164}
   - component: {fileID: 2080107166}
   - component: {fileID: 2080107165}
+  - component: {fileID: 2080107167}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -2626,3 +2627,15 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+--- !u!114 &2080107167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2080107163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1997211142, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ForceModuleActive: 0

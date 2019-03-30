@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour {
     void Start ()
     {
         //Load preferences
+        sensitivity = 0.5f;
         Load();
 
         menuController = gameObject.GetComponent<MenuController>();
@@ -188,7 +189,10 @@ public class GameManager : MonoBehaviour {
 
     public void Load()
     {
+
         string path = Path.Combine(Application.persistentDataPath, "save.txt");
+        if (!File.Exists(path)) return;
+
         using (StreamReader streamReader = File.OpenText(path))
         {
             string jsonString = streamReader.ReadToEnd();
