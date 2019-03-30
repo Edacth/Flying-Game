@@ -14,13 +14,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/RotatorTest.unity
     guid: b5d9283a68e29ad459a2dda3ea6615e8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/JonathanScene.unity
     guid: 164abd3e5be534d4c8926bf39270bda4
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MarcelScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CadeScene.unity
     guid: 48ae885049bebe7439b2ac9ee20879f8
   m_configObjects: {}
