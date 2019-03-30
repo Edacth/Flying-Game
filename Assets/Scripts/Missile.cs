@@ -12,6 +12,8 @@ public class Missile : MonoBehaviour
     public float speed;
     public float startDelay;
 
+    PlayerShoot player;
+    GameManager GM;
     GameObject[] enemies;
     ParticleSystem.EmissionModule em;
     float timer = 0;
@@ -22,7 +24,6 @@ public class Missile : MonoBehaviour
     public float lifetime;
     bool falling;
     bool hit;
-    bool isFired;
     bool cannotFindTarget = false;
 
     void Awake()
@@ -30,6 +31,8 @@ public class Missile : MonoBehaviour
         mesh = gameObject.GetComponentInChildren<MeshRenderer>();
         exhaust = GetComponentInChildren<ParticleSystem>();
         em = exhaust.emission;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShoot>();
+        GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
     void OnEnable()
     {
@@ -54,15 +57,20 @@ public class Missile : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= lifetime || hit)
         {
-            gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            mesh.enabled = false;
-            em.enabled = false;
-            delayTimer = 0;
+                gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                mesh.enabled = false;
+                em.enabled = false;
+                delayTimer = 0;
 
-            if (exhaust.particleCount <= 0 && exhaust.isPlaying) {
-                gameObject.SetActive(false);
-                exhaust.Stop();
-                timer = 0;
+            if (exhaust.particleCount <= 0 && exhaust.isPlaying)
+            {
+                if (GM.missileAmmo >= player.missileCost)
+                {
+                    gameObject.SetActive(false);
+                    exhaust.Stop();
+                    timer = 0;
+                    GM.missileAmmo -= player.missileCost;
+                }
             }
         }
         if (delayTimer >= startDelay)

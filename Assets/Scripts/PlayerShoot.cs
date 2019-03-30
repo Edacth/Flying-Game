@@ -106,7 +106,6 @@ public class PlayerShoot : MonoBehaviour
                 if (!bul.activeSelf)
                 {
                     bul.SetActive(true);
-                    GM.gunAmmo -= gunCost;
                     bul.transform.position = firePoint.position;
                     bul.transform.rotation = firePoint.rotation;
                     bul.GetComponent<Rigidbody>().AddForce(bul.transform.forward * bulletSpeed, ForceMode.Impulse);
@@ -118,8 +117,6 @@ public class PlayerShoot : MonoBehaviour
 
     void fireMissile()
     {
-        if (GM.missileAmmo > 0)
-        {
             for (int i = 0; i < missiles.Length; ++i)
             {
                 var msl = missiles[i];
@@ -129,12 +126,11 @@ public class PlayerShoot : MonoBehaviour
                     msl.transform.position = missilePoint[i].position;
                     msl.transform.rotation = missilePoint[i].rotation;
                     msl.SetActive(true);
-                    GM.missileAmmo -= missileCost;
+                    //GM.missileAmmo -= missileCost;
                     Vector3 launchDirection = (-transform.up * 2);
                     msl.GetComponent<Rigidbody>().AddForce(launchDirection, ForceMode.Impulse);
                     break;
                 }
             }
-        }
     }
 }
