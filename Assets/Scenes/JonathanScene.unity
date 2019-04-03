@@ -223,6 +223,16 @@ Prefab:
       propertyPath: sectionLength
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 114112280151951812, guid: aebe72cdb2f46bf4fa97edc7c063b509,
+        type: 2}
+      propertyPath: debugOptions
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114112280151951812, guid: aebe72cdb2f46bf4fa97edc7c063b509,
+        type: 2}
+      propertyPath: sectionSpeed
+      value: -25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aebe72cdb2f46bf4fa97edc7c063b509, type: 2}
   m_IsPrefabAsset: 0

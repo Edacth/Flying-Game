@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour {
     public int kills;
     public float gunAmmo;
     public float missileAmmo;
+    public bool debugOptions = false;
     public bool yAxisFlipped { get; set; }
     public float sensitivity { get; set; }
 
@@ -47,6 +48,7 @@ public class GameManager : MonoBehaviour {
         else if (instance != this)
             Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
+        if (debugOptions) sensitivity = 0.5f;
     }
 
     void Start ()
