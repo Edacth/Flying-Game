@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 4775913448529644}
   - component: {fileID: 114334254530881582}
   - component: {fileID: 65196487071290378}
+  - component: {fileID: 54028192220702180}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
@@ -143,6 +144,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1279263495523240}
   m_Mesh: {fileID: 4300000, guid: 646ab445880f96c49a42f44c25a049a4, type: 3}
+--- !u!54 &54028192220702180
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1384333178199706}
+  serializedVersion: 2
+  m_Mass: 0.0000001
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &65196487071290378
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -179,10 +195,15 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  moveSpeed: 0
+  rBody: {fileID: 54028192220702180}
   bulletSpeed: 75
-  moveTime: 0
   timeToFireBullet: 0.7
   xBoundary: 15
   yBoundary: 16
   health: 10
+  moveSpeed: 0.005
+  moveTarget: {x: 0, y: 0}
+  moveDirection: {x: 0, y: 0, z: 0}
+  moveTimeStamp: 0
+  moveDelay: 0.5
+  velocity: {x: 0, y: 0, z: 0}

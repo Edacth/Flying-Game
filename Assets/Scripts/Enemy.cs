@@ -8,29 +8,40 @@ public class Enemy : MonoBehaviour
     public Transform firePoint;
     public GameObject bullet;
     public GameObject[] bullets = new GameObject[50];
+    public Rigidbody rBody;
     GameObject Player;
     GameManager GM;
 
     [Header("Variables")]
-    public float moveSpeed;
     public float bulletSpeed;
-    public float moveTime;
     public float timeToFireBullet;
     public float xBoundary;
     public float yBoundary;
     public int health;
+
+    public float moveSpeed;
+    public Vector2 moveTarget;
+    public Vector3 moveDirection;
+    public float moveTimeStamp;
+    public float moveDelay;
+    public Vector3 velocity;
     float bulletTimeStamp;
-    float moveTimer;
+    Vector2 areaClamp;
 
     void Awake()
     {
         bulletTimeStamp = Time.time;
+        moveTimeStamp = Time.time;
         for (int i = 0; i < bullets.Length; ++i)
         {
             bullets[i] = Instantiate(bullet) as GameObject;
         }
         Player = GameObject.FindGameObjectWithTag("Player");
+        PlayerController playerScript = Player.GetComponent<PlayerController>();
         GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        areaClamp = new Vector2(playerScript.xBoundary, playerScript.yBoundary);
+        moveTarget = new Vector2(Random.Range(-areaClamp.x, areaClamp.x), Random.Range(-areaClamp.y, areaClamp.y));
+        moveDirection = new Vector3(transform.position.x - moveTarget.x, transform.position.y - moveTarget.y);
     }
 	
 	// Update is called once per frame
@@ -50,6 +61,20 @@ public class Enemy : MonoBehaviour
             fireBullet();
             bulletTimeStamp = Time.time;
         }
+        if(Time.time - moveTimeStamp > moveDelay)
+        {
+            //Calculates a random point within the bounds to fly to
+            moveTarget = new Vector2(Random.Range(-areaClamp.x, areaClamp.x), Random.Range(-areaClamp.y, areaClamp.y));
+            moveDirection = new Vector2(moveTarget.x - transform.position.x, moveTarget.y - transform.position.y);
+            moveTimeStamp = Time.time;
+        }
+        velocity += (moveDirection * (moveSpeed * Time.deltaTime));
+        transform.eulerAngles = new Vector3(velocity.y * 120, velocity.x * 60, velocity.x * -70);
+        transform.Translate(velocity);
+
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -areaClamp.x, areaClamp.x),
+                                         Mathf.Clamp(transform.position.y, -areaClamp.y, areaClamp.y),
+                                         transform.position.z);
     }
 
     public void takeDamage(int amount)
