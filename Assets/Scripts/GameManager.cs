@@ -9,14 +9,16 @@ public class GameManager : MonoBehaviour {
 
     class saveData
     {
-        public saveData(float _sensitivity, bool _yAxisFlipped, int _highScore)
+        public saveData(float _sensitivity, bool _yAxisFlipped, bool _firstPlay, int _highScore)
         {
             sensitivity = _sensitivity;
             yAxisFlipped = _yAxisFlipped;
+            firstPlay = _firstPlay;
             highScore = _highScore;
         }
         public float sensitivity;
         public bool yAxisFlipped;
+        public bool firstPlay;
         public int highScore;
     }
 
@@ -34,6 +36,7 @@ public class GameManager : MonoBehaviour {
     public float gunAmmo;
     public float missileAmmo;
     public bool yAxisFlipped { get; set; }
+    public bool firstPlay { get; set; }
     public float sensitivity { get; set; }
 
     List<ESectionController> ESectionPool = new List<ESectionController>();
@@ -53,6 +56,7 @@ public class GameManager : MonoBehaviour {
     {
         //Load preferences
         sensitivity = 0.5f;
+        firstPlay = true;
         Load();
 
         menuController = gameObject.GetComponent<MenuController>();
@@ -176,7 +180,7 @@ public class GameManager : MonoBehaviour {
 
     public void Save()
     {
-        saveData data = new saveData(sensitivity, yAxisFlipped, highScore);
+        saveData data = new saveData(sensitivity, yAxisFlipped, firstPlay, highScore);
         string path = Path.Combine(Application.persistentDataPath, "save.txt");
         string jsonString = JsonUtility.ToJson(data);
 
@@ -199,9 +203,24 @@ public class GameManager : MonoBehaviour {
             saveData data = JsonUtility.FromJson<saveData>(jsonString);
             sensitivity = data.sensitivity;
             yAxisFlipped = data.yAxisFlipped;
+            firstPlay = data.firstPlay;
             highScore = data.highScore;
         }
         
+    }
+
+    public void ClearSave()
+    {
+        string path = Path.Combine(Application.persistentDataPath, "save.txt");
+        if (!File.Exists(path)) return;
+        File.Delete(path);
+
+        sensitivity = 0.5f;
+        yAxisFlipped = false;
+        firstPlay = true;
+        highScore = 0;
+        Save();
+        menuController.resetOptionsMenu();
     }
 }
 
