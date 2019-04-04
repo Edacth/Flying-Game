@@ -40,6 +40,5 @@ public class CameraFollow : MonoBehaviour
     public void Shake(float factor)
     {
         shakeDuration = factor;
-        Handheld.Vibrate();
     }
 }

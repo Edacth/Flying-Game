@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
             dead = true;
-
+            Handheld.Vibrate();
             menuController.StartCoroutine("EndScreenDelay");
 
             GM.Save();
