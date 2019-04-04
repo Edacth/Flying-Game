@@ -118,15 +118,20 @@ public class GameManager : MonoBehaviour {
 
     void recursiveTransparency(GameObject _object, bool fadingIn)
     {
-        ITransparancy objectTransScript = _object.GetComponent<ITransparancy>();
-        if (objectTransScript != null)// && _object.tag == "Building")
-        {
-            //objectRenderer.material = transparentMaterial;
-            if (!fadingIn) objectTransScript.Fade(0.2f);
-            else objectTransScript.startFadingIn();
-            //Debug.Break();
-        }
         
+        ITransparancy objectTransScript = _object.GetComponent<ITransparancy>();
+        if (objectTransScript != null)
+        {
+            objectTransScript.Fade(0.2f);
+        }
+        //if (objectTransScript != null)// && _object.tag == "Building")
+        //{
+        //    //objectRenderer.material = transparentMaterial;
+        //    if (!fadingIn) objectTransScript.Fade(0.2f);
+        //    else objectTransScript.startFadingIn();
+        //    //Debug.Break();
+        //}
+
         for (int j = 0; j < _object.transform.childCount; j++)
         {
             recursiveTransparency(_object.transform.GetChild(j).gameObject, fadingIn);
@@ -143,7 +148,7 @@ public class GameManager : MonoBehaviour {
             missileAmmo = 100;
             for (int i = 0; i < numOfSections; i++)
             {
-                Vector3 pos = new Vector3(0, percievedElevation, sectionLength * i + 80);
+                Vector3 pos = new Vector3(0, percievedElevation, sectionLength * i);
                 GameObject section = Instantiate(environmentSection, pos, Quaternion.identity);
                 ESectionPool.Add(section.GetComponent<ESectionController>());
 
@@ -155,7 +160,10 @@ public class GameManager : MonoBehaviour {
                         section.transform.GetChild(j).transform.localScale = new Vector3(70, 1, sectionLength);
                     }
                 }
-                ESectionPool[i].GenerateTower();
+                if (i > 2)
+                {
+                    ESectionPool[i].GenerateTower();
+                }
             }
         }
         menuController.Initalize();

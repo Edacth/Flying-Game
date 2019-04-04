@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Renderer))]
 public class ITransparancy : MonoBehaviour {
 
     public Color opaque;
     public Color transparent;
     public float fadeIncrement;
 
-    Renderer myRenderer;
+    public Renderer myRenderer;
     public Material opaqueMat;
     public Material fadeMat;
     float t;
@@ -24,32 +25,36 @@ public class ITransparancy : MonoBehaviour {
         materialName = materialName.Replace(" (Instance)", "");
         opaqueMat = Resources.Load<Material>(materialName + "Opaque");
         fadeMat = Resources.Load<Material>(materialName + "Fade");
+        myRenderer.material = opaqueMat;
         //myRenderer.material = opaqueMat;
         //StartCoroutine(Fade(0.0f) );
         t = 1;
     }
-	
+
     public void Fade(float goal)
     {
+        if (fadeMat != null && myRenderer != null)
+        {
+            myRenderer.material = fadeMat;
+        }
         StartCoroutine(FadeCoroutine(goal));
-        myRenderer.material = fadeMat;
     }
 
     void Update()
     {
-        if (fadingIn)
-        {
-            fadeInTimer += Time.deltaTime; //Add to the timer
-            float interp = fadeInTimer / fadeInDuration; //Calculate the opacity of the object
-            myRenderer.material.color = Color.Lerp(transparent, opaque, interp); //Change the opacity of the material
-            //Debug.Log(myRenderer.material.color);
+        //if (fadingIn)
+        //{
+        //    fadeInTimer += Time.deltaTime; //Add to the timer
+        //    float interp = fadeInTimer / fadeInDuration; //Calculate the opacity of the object
+        //    myRenderer.material.color = Color.Lerp(transparent, opaque, interp); //Change the opacity of the material
+        //    //Debug.Log(myRenderer.material.color);
 
-            if (fadeInTimer >= fadeInDuration) //Check to see if fading is finished
-            {
-                fadingIn = false; //Turn off timer and opacity changes
-                myRenderer.material = opaqueMat;
-            }
-        }
+        //    if (fadeInTimer >= fadeInDuration) //Check to see if fading is finished
+        //    {
+        //        fadingIn = false; //Turn off timer and opacity changes
+        //        myRenderer.material = opaqueMat;
+        //    }
+        //}
     }
 
     IEnumerator FadeCoroutine(float goal)
@@ -59,7 +64,11 @@ public class ITransparancy : MonoBehaviour {
             t += fadeIncrement;
 
             float interp = (0 * (1 - t) + 1 * t);
-            myRenderer.material.color = Color.Lerp(opaque, transparent, interp);
+            Color newColor = Color.Lerp(opaque, transparent, interp);
+            if (myRenderer != null)
+            {
+                myRenderer.material.color = newColor;
+            }
             yield return null;
         }
 
