@@ -29,7 +29,9 @@ public class PlayerController : MonoBehaviour
     private float scoreTimer;
     public float scoreInterval;
     private float moveSpeed;
-
+    private PlayerShoot playerShootScript;
+    public GameObject exhaustParticle;
+    public GameObject crossHairs;
 
     [Header("Misc")]
     public GameObject explosion;
@@ -45,6 +47,7 @@ public class PlayerController : MonoBehaviour
         GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         menuController = GameObject.FindGameObjectWithTag("GameManager").GetComponent<MenuController>();
         moveSpeed = defaultMoveSpeed * GM.sensitivity * 2;
+        playerShootScript = gameObject.GetComponent<PlayerShoot>();
     }
     
 
@@ -71,6 +74,13 @@ public class PlayerController : MonoBehaviour
             //Death Sequence
             mr.enabled = false;
             rBody.velocity = Vector3.zero;
+            GM.gunAmmo = 0;
+            GM.missileAmmo = 0;
+            playerShootScript.dead = true;
+            //playerShootScript.missileDummies[0].SetActive(false);
+            //playerShootScript.missileDummies[1].SetActive(false);
+            exhaustParticle.SetActive(false);
+            crossHairs.SetActive(false);
         }
         if(damage >= 100)
         {
