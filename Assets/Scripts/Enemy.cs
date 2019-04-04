@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     GameObject explosion;
     GameObject Player;
     GameManager GM;
+    PlayerController playerScript;
 
     [Header("Variables")]
     public float bulletSpeed;
@@ -41,7 +42,7 @@ public class Enemy : MonoBehaviour
             bullets[i] = Instantiate(bullet) as GameObject;
         }
         Player = GameObject.FindGameObjectWithTag("Player");
-        PlayerController playerScript = Player.GetComponent<PlayerController>();
+        playerScript = Player.GetComponent<PlayerController>();
         GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         areaClamp = new Vector2(playerScript.xBoundary, playerScript.yBoundary);
         moveTarget = new Vector2(Random.Range(-areaClamp.x, areaClamp.x), Random.Range(-areaClamp.y, areaClamp.y));
@@ -100,18 +101,21 @@ public class Enemy : MonoBehaviour
 
     void fireBullet()
     {
-        foreach (GameObject bul in bullets)
+        if (!playerScript.dead)
         {
-            // search for first available bullet
-            if (!bul.activeSelf)
+            foreach (GameObject bul in bullets)
             {
-                Vector3 targetPos = (Player.transform.position - transform.position).normalized;
+                // search for first available bullet
+                if (!bul.activeSelf)
+                {
+                    Vector3 targetPos = (Player.transform.position - transform.position).normalized;
 
-                bul.SetActive(true);
-                bul.transform.position = firePoint.position;
-                bul.transform.LookAt(targetPos);
-                bul.GetComponent<Rigidbody>().AddForce(targetPos * bulletSpeed, ForceMode.Impulse);
-                break;
+                    bul.SetActive(true);
+                    bul.transform.position = firePoint.position;
+                    bul.transform.LookAt(targetPos);
+                    bul.GetComponent<Rigidbody>().AddForce(targetPos * bulletSpeed, ForceMode.Impulse);
+                    break;
+                }
             }
         }
     }

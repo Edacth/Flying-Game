@@ -2609,6 +2609,8 @@ MonoBehaviour:
   LeadObject: {fileID: 0}
   distanceFactor: 1.5
   zOffset: -15
+  shakeFactor: 0.5
+  shakeDecrement: 0.02
 --- !u!114 &114807980694274746
 MonoBehaviour:
   m_ObjectHideFlags: 1
