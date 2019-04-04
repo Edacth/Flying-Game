@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Renderer))]
 public class ITransparancy : MonoBehaviour {
 
     public Color opaque;
     public Color transparent;
     public float fadeIncrement;
 
-    Renderer myRenderer;
+    public Renderer myRenderer;
     public Material opaqueMat;
     public Material fadeMat;
     float t;
@@ -29,11 +30,14 @@ public class ITransparancy : MonoBehaviour {
         //StartCoroutine(Fade(0.0f) );
         t = 1;
     }
-	
+
     public void Fade(float goal)
     {
+        if (fadeMat != null && myRenderer != null)
+        {
+            myRenderer.material = fadeMat;
+        }
         StartCoroutine(FadeCoroutine(goal));
-        myRenderer.material = fadeMat;
     }
 
     void Update()
@@ -60,7 +64,11 @@ public class ITransparancy : MonoBehaviour {
             t += fadeIncrement;
 
             float interp = (0 * (1 - t) + 1 * t);
-            myRenderer.material.color = Color.Lerp(opaque, transparent, interp);
+            Color newColor = Color.Lerp(opaque, transparent, interp);
+            if (myRenderer != null)
+            {
+                myRenderer.material.color = newColor;
+            }
             yield return null;
         }
 

@@ -220,28 +220,13 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114112280151951812, guid: aebe72cdb2f46bf4fa97edc7c063b509,
         type: 2}
-      propertyPath: sectionLength
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 114112280151951812, guid: aebe72cdb2f46bf4fa97edc7c063b509,
-        type: 2}
-      propertyPath: debugOptions
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: AmmoReplenText
+      value: 
+      objectReference: {fileID: 1911460753}
     - target: {fileID: 114112280151951812, guid: aebe72cdb2f46bf4fa97edc7c063b509,
         type: 2}
       propertyPath: sectionSpeed
-      value: -25
-      objectReference: {fileID: 0}
-    - target: {fileID: 114112280151951812, guid: aebe72cdb2f46bf4fa97edc7c063b509,
-        type: 2}
-      propertyPath: zFadePoint
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114112280151951812, guid: aebe72cdb2f46bf4fa97edc7c063b509,
-        type: 2}
-      propertyPath: numOfSections
-      value: 20
+      value: -35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aebe72cdb2f46bf4fa97edc7c063b509, type: 2}
@@ -480,3 +465,8 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cfb71ed160452147bdbc8a6543d49b5, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1911460753 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1718971981273010, guid: 2cfb71ed160452147bdbc8a6543d49b5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1911460752}
