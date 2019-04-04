@@ -139,10 +139,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pos: {x: 0, y: 0, z: 0}
   structures:
-  - structurePrefab: {fileID: 1384333178199706, guid: ccf0e8c8941eb884389beaf61c967548,
+  - structurePrefab: {fileID: 1588605196702460, guid: 7a93428c5af06f944b70cb355f90ec3b,
       type: 2}
-    yPos: 14.5
-    xBounds: {x: -15, y: 16}
+    yPos: 20
+    xBounds: {x: -28, y: 28}
   - structurePrefab: {fileID: 1494015232961478, guid: 840d08a4bfd94274c95821d3f80bb33e,
       type: 2}
     yPos: 14.5

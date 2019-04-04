@@ -562,6 +562,9 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  fadeInTimer: 0
+  fadeInDuration: 0
+  fadingIn: 0
 --- !u!114 &114491394098396440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -576,6 +579,9 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  fadeInTimer: 0
+  fadeInDuration: 0
+  fadingIn: 0
 --- !u!114 &114569296486504964
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -590,6 +596,9 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  fadeInTimer: 0
+  fadeInDuration: 0
+  fadingIn: 0
 --- !u!114 &114708814035160388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -604,6 +613,9 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  fadeInTimer: 0
+  fadeInDuration: 0
+  fadingIn: 0
 --- !u!114 &114848655060664656
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -618,6 +630,9 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  fadeInTimer: 0
+  fadeInDuration: 0
+  fadingIn: 0
 --- !u!114 &114893621428012118
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -512,6 +512,7 @@ MonoBehaviour:
   fadeIncrement: 0.002
   fadeInTimer: 0
   fadeInDuration: 2
+  fadingIn: 0
 --- !u!114 &114067852143172026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -528,6 +529,7 @@ MonoBehaviour:
   fadeIncrement: 0.002
   fadeInTimer: 0
   fadeInDuration: 2
+  fadingIn: 0
 --- !u!114 &114158260069642390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -544,6 +546,7 @@ MonoBehaviour:
   fadeIncrement: 0.002
   fadeInTimer: 0
   fadeInDuration: 2
+  fadingIn: 0
 --- !u!114 &114180656786348512
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -560,6 +563,7 @@ MonoBehaviour:
   fadeIncrement: 0.002
   fadeInTimer: 0
   fadeInDuration: 2
+  fadingIn: 0
 --- !u!114 &114745021718552476
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -576,6 +580,7 @@ MonoBehaviour:
   fadeIncrement: 0.002
   fadeInTimer: 0
   fadeInDuration: 2
+  fadingIn: 0
 --- !u!114 &114908406752015030
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -592,3 +597,4 @@ MonoBehaviour:
   fadeIncrement: 0.002
   fadeInTimer: 0
   fadeInDuration: 2
+  fadingIn: 0
