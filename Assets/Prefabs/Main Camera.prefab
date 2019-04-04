@@ -29,13 +29,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!1 &1034891355216568
+=======
+--- !u!1 &1036243260186480
+>>>>>>> parent of e74c2bf... Updated GameOver and Pause screens with final UI
 GameObject:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
+<<<<<<< HEAD
   - component: {fileID: 224390655664049312}
   - component: {fileID: 222961616395416896}
   - component: {fileID: 114621773648595514}
@@ -53,6 +58,8 @@ GameObject:
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
+=======
+>>>>>>> parent of e74c2bf... Updated GameOver and Pause screens with final UI
   - component: {fileID: 224541144719449618}
   - component: {fileID: 222845254503846322}
   - component: {fileID: 114743692911088632}
@@ -658,6 +665,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+<<<<<<< HEAD
 --- !u!1 &1957324339461300
 GameObject:
   m_ObjectHideFlags: 1
@@ -693,6 +701,9 @@ GameObject:
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1994629767088768
+=======
+--- !u!1 &1967516979804074
+>>>>>>> parent of e74c2bf... Updated GameOver and Pause screens with final UI
 GameObject:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1637,6 +1648,7 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+<<<<<<< HEAD
 --- !u!114 &114421084738384922
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1665,6 +1677,8 @@ MonoBehaviour:
   m_canvasRenderer: {fileID: 222185617778850954}
   m_TextComponent: {fileID: 114871432436093290}
   m_materialReferenceIndex: 1
+=======
+>>>>>>> parent of e74c2bf... Updated GameOver and Pause screens with final UI
 --- !u!114 &114446287810165296
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2522,6 +2536,7 @@ MonoBehaviour:
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 1
+<<<<<<< HEAD
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -2666,10 +2681,12 @@ MonoBehaviour:
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
+=======
+>>>>>>> parent of e74c2bf... Updated GameOver and Pause screens with final UI
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -2969,11 +2986,16 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1967516979804074}
   m_CullTransparentMesh: 0
+<<<<<<< HEAD
 --- !u!222 &222271000261683374
+=======
+--- !u!222 &222306653979651730
+>>>>>>> parent of e74c2bf... Updated GameOver and Pause screens with final UI
 CanvasRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1350624851565870}
   m_CullTransparentMesh: 0
 --- !u!222 &222274108183942038
@@ -2988,6 +3010,8 @@ CanvasRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+=======
+>>>>>>> parent of e74c2bf... Updated GameOver and Pause screens with final UI
   m_GameObject: {fileID: 1487672901925370}
   m_CullTransparentMesh: 0
 --- !u!222 &222359874581423020
@@ -3039,6 +3063,7 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1994629767088768}
   m_CullTransparentMesh: 0
+<<<<<<< HEAD
 --- !u!222 &222534093773743388
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -3046,6 +3071,8 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1076630840477748}
   m_CullTransparentMesh: 0
+=======
+>>>>>>> parent of e74c2bf... Updated GameOver and Pause screens with final UI
 --- !u!222 &222623286142197202
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -3095,6 +3122,7 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1516816073390172}
   m_CullTransparentMesh: 0
+<<<<<<< HEAD
 --- !u!222 &222821322253976822
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -3102,6 +3130,8 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1957324339461300}
   m_CullTransparentMesh: 0
+=======
+>>>>>>> parent of e74c2bf... Updated GameOver and Pause screens with final UI
 --- !u!222 &222845254503846322
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -3278,6 +3308,7 @@ RectTransform:
   m_AnchoredPosition: {x: 197.59999, y: -32.90001}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 0}
+<<<<<<< HEAD
 --- !u!224 &224078299338739710
 RectTransform:
   m_ObjectHideFlags: 1
@@ -3297,12 +3328,20 @@ RectTransform:
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 1, y: 0}
 --- !u!224 &224113889980246664
+=======
+--- !u!224 &224122065513944478
+>>>>>>> parent of e74c2bf... Updated GameOver and Pause screens with final UI
 RectTransform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1216549621238708}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+=======
+  m_GameObject: {fileID: 1424130471067488}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+>>>>>>> parent of e74c2bf... Updated GameOver and Pause screens with final UI
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
   m_Children:
@@ -3408,16 +3447,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -73}
   m_SizeDelta: {x: 350.83, y: 106.4}
   m_Pivot: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
 --- !u!224 &224236435252094634
+=======
+--- !u!224 &224298071375357356
+>>>>>>> parent of e74c2bf... Updated GameOver and Pause screens with final UI
 RectTransform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1212039469970936}
+=======
+  m_GameObject: {fileID: 1487672901925370}
+>>>>>>> parent of e74c2bf... Updated GameOver and Pause screens with final UI
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
+<<<<<<< HEAD
   m_Father: {fileID: 224113889980246664}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3436,6 +3484,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
+=======
+>>>>>>> parent of e74c2bf... Updated GameOver and Pause screens with final UI
   m_Father: {fileID: 224792818934799288}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3511,6 +3561,7 @@ RectTransform:
   m_Father: {fileID: 224169307729829294}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -3548,6 +3599,8 @@ RectTransform:
   m_Father: {fileID: 224338612837751564}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> parent of e74c2bf... Updated GameOver and Pause screens with final UI
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -52.5, y: -24.999878}

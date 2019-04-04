@@ -576,13 +576,14 @@ MonoBehaviour:
   defaultPos: {x: 0, y: 0, z: 0}
   rotLerp: 0.9
   defaultMoveSpeed: 300
-  xBoundary: 22
-  yBoundary: 14
+  xBoundary: 18
+  yBoundary: 11
   origin: {x: 0, y: 0, z: 0}
   GM: {fileID: 0}
   menuController: {fileID: 0}
   scoreInterval: 1
   exhaustParticle: {fileID: 1753034482799924}
+  crossHairs: {fileID: 1643525240284698}
   explosion: {fileID: 1135525406134708, guid: 6093b51ac987cf2429b2267f096600f6, type: 2}
 --- !u!114 &114579394389613776
 MonoBehaviour:
@@ -629,6 +630,7 @@ MonoBehaviour:
   bulletSpeed: 150
   timeToFireBullet: 0.1
   timeToFireMissile: 0
+  dead: 0
 --- !u!198 &198803056749438544
 ParticleSystem:
   m_ObjectHideFlags: 1
