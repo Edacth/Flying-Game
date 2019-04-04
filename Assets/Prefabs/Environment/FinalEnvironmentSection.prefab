@@ -501,10 +501,10 @@ MonoBehaviour:
     xBounds: {x: -15, y: 16}
   genOptions:
   - item: 0
-    weight: 5
+    weight: 10
   - item: 1
     weight: 5
   - item: 2
-    weight: 5
+    weight: 3
   - item: 3
-    weight: 5
+    weight: 7

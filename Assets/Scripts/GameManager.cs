@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour {
         }
        if (kills == 5)
        {
-            gunAmmo += 6;
+            gunAmmo += 7;
             missileAmmo += 15;
             kills = 0;
             AmmoReplenText.GetComponent<Animator>().Play("Fade");
@@ -118,7 +118,12 @@ public class GameManager : MonoBehaviour {
 
     void recursiveTransparency(GameObject _object, bool fadingIn)
     {
-        //ITransparancy objectTransScript = _object.GetComponent<ITransparancy>();
+        
+        ITransparancy objectTransScript = _object.GetComponent<ITransparancy>();
+        if (objectTransScript != null)
+        {
+            objectTransScript.Fade(0.2f);
+        }
         //if (objectTransScript != null)// && _object.tag == "Building")
         //{
         //    //objectRenderer.material = transparentMaterial;
@@ -126,7 +131,7 @@ public class GameManager : MonoBehaviour {
         //    else objectTransScript.startFadingIn();
         //    //Debug.Break();
         //}
-        
+
         for (int j = 0; j < _object.transform.childCount; j++)
         {
             recursiveTransparency(_object.transform.GetChild(j).gameObject, fadingIn);

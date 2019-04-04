@@ -143,7 +143,7 @@ MonoBehaviour:
       type: 2}
     yPos: 20
     xBounds: {x: -28, y: 28}
-  - structurePrefab: {fileID: 1494015232961478, guid: 840d08a4bfd94274c95821d3f80bb33e,
+  - structurePrefab: {fileID: 1088806493810276, guid: 7c9caf56ef0fc184ea5c7e43cf81ac2a,
       type: 2}
     yPos: 14.5
     xBounds: {x: -15, y: 16}
@@ -163,4 +163,4 @@ MonoBehaviour:
   - item: 2
     weight: 5
   - item: 3
-    weight: 8
+    weight: 4

@@ -74,8 +74,16 @@ public class Missile : MonoBehaviour
                     GM.missileAmmo -= player.missileCost;
                 }
             }
+            else if (hit && !exhaust.isPlaying)
+            {
+                if (GM.missileAmmo >= player.missileCost)
+                {
+                    gameObject.SetActive(false);
+                    GM.missileAmmo -= player.missileCost;
+                }
+            }
         }
-        if (delayTimer >= startDelay)
+        if (delayTimer >= startDelay && !hit)
         {
             if (cannotFindTarget)
             {
