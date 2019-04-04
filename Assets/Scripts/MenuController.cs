@@ -94,7 +94,6 @@ public class MenuController : MonoBehaviour {
                 htpScreen.SetActive(false);
                 mainScreen.SetActive(true);
                 htpBackButton.gameObject.SetActive(false);
-                GM.Save();
             });
             continueButton.onClick.AddListener(delegate { SceneManager.LoadScene(gameScene); });
             clearButton.onClick.AddListener(delegate { GM.ClearSave(); });
@@ -123,8 +122,6 @@ public class MenuController : MonoBehaviour {
             });
             endExitButton.onClick.AddListener(delegate {
                 GM.resetScore();
-                optionBackButton.gameObject.SetActive(false);
-                continueButton.gameObject.SetActive(false);
                 SceneManager.LoadScene("MainMenu");
             });
         }  
