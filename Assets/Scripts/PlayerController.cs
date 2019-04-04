@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private float invincTime;
 
     public bool dead;
+    public bool godMode;
 
     [Header("Physics/Input")]
     public Rigidbody rBody;
@@ -53,7 +54,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        
+        if (godMode) damage = 0;
         if (!dead)
         {
             //Physics/Movement

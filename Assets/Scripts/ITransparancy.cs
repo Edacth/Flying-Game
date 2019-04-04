@@ -9,6 +9,8 @@ public class ITransparancy : MonoBehaviour {
     public float fadeIncrement;
 
     Renderer myRenderer;
+    public Material opaqueMat;
+    public Material fadeMat;
     float t;
 
     public float fadeInTimer;
@@ -19,13 +21,14 @@ public class ITransparancy : MonoBehaviour {
     void Start () {
         myRenderer = gameObject.GetComponent<Renderer>();
         t = 1;
-
+        myRenderer.material = opaqueMat;
         //StartCoroutine(Fade(0.0f) );
     }
 	
     public void Fade(float goal)
     {
         StartCoroutine(FadeCoroutine(goal));
+        myRenderer.material = fadeMat;
     }
 
     void Update()
