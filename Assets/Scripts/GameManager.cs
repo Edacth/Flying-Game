@@ -108,6 +108,7 @@ public class GameManager : MonoBehaviour {
             gunAmmo += 3;
             missileAmmo += 10;
             kills = 0;
+            AmmoReplenText.GetComponent<Animator>().Play("Fade");
        }
         gunAmmo = Mathf.Clamp(gunAmmo, 0, 100);
         missileAmmo = Mathf.Clamp(missileAmmo, 0, 100);
