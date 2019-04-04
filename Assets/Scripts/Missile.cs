@@ -121,13 +121,13 @@ public class Missile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Enemy")
+        if (!hit && other.tag == "Enemy")
         {
             hit = true;
             other.GetComponent<Enemy>().takeDamage(damage);
             Instantiate(explosion, transform.position, transform.rotation);
         }
-        if (other.tag == "Building")
+        if (!hit && other.tag == "Building")
         {
             hit = true;
             Instantiate(explosion, transform.position, transform.rotation);

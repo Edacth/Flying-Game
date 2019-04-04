@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     private PlayerShoot playerShootScript;
     public GameObject exhaustParticle;
     public GameObject crossHairs;
+    public BoxCollider hitbox;
 
     [Header("Misc")]
     public GameObject explosion;
@@ -48,6 +49,9 @@ public class PlayerController : MonoBehaviour
         menuController = GameObject.FindGameObjectWithTag("GameManager").GetComponent<MenuController>();
         moveSpeed = defaultMoveSpeed * GM.sensitivity * 2;
         playerShootScript = gameObject.GetComponent<PlayerShoot>();
+        
+        // get player's collider
+        hitbox = GetComponent<BoxCollider>();
     }
     
 
@@ -73,6 +77,7 @@ public class PlayerController : MonoBehaviour
         {
             //Death Sequence
             mr.enabled = false;
+            hitbox.enabled = false;
             rBody.velocity = Vector3.zero;
             GM.gunAmmo = 0;
             GM.missileAmmo = 0;
