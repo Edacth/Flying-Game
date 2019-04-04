@@ -582,6 +582,7 @@ MonoBehaviour:
   GM: {fileID: 0}
   menuController: {fileID: 0}
   scoreInterval: 1
+  exhaustParticle: {fileID: 1753034482799924}
   explosion: {fileID: 1135525406134708, guid: 6093b51ac987cf2429b2267f096600f6, type: 2}
 --- !u!114 &114579394389613776
 MonoBehaviour:

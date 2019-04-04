@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using TMPro;
 
 public class MenuController : MonoBehaviour {
     public string gameScene;
@@ -21,10 +19,16 @@ public class MenuController : MonoBehaviour {
     Button startButton;
     Button optionsButton;
     GameObject optionsScreen;
-    Button backButton;
+    Button optionBackButton;
     Toggle yAxisToggle;
     Slider sensitivitySlider;
     TextMeshProUGUI sensitivityNumber;
+    Button htpButton;
+    Button clearButton;
+    GameObject htpScreen;
+    Button htpBackButton;
+    Button continueButton;
+
 
     public void Initalize()
     {
@@ -36,12 +40,30 @@ public class MenuController : MonoBehaviour {
             optionsButton = GameObject.Find("/Main Camera/Canvas/MainScreen/OptionsButton").GetComponent<Button>();
 
             optionsScreen = GameObject.Find("/Main Camera/Canvas/OptionsScreen");
-            backButton = GameObject.Find("/Main Camera/Canvas/OptionsScreen/BackButton").GetComponent<Button>();
+            optionBackButton = GameObject.Find("/Main Camera/Canvas/OptionsScreen/OptionBackButton").GetComponent<Button>();
             sensitivitySlider = GameObject.Find("/Main Camera/Canvas/OptionsScreen/SensitivitySlider").GetComponent<Slider>();
             yAxisToggle = GameObject.Find("/Main Camera/Canvas/OptionsScreen/YAxisToggle").GetComponent<Toggle>();
             sensitivityNumber = GameObject.Find("/Main Camera/Canvas/OptionsScreen/SensitivitySlider/Number").GetComponent<TextMeshProUGUI>();
+            htpButton = GameObject.Find("/Main Camera/Canvas/OptionsScreen/HTPButton").GetComponent<Button>();
+            clearButton = GameObject.Find("/Main Camera/Canvas/OptionsScreen/ClearButton").GetComponent<Button>();
 
-            startButton.onClick.AddListener(delegate { SceneManager.LoadScene(gameScene); });
+            htpScreen = GameObject.Find("/Main Camera/Canvas/HTPScreen");
+            htpBackButton = GameObject.Find("/Main Camera/Canvas/HTPScreen/HTPBackButton").GetComponent<Button>();
+            continueButton = GameObject.Find("/Main Camera/Canvas/HTPScreen/ContinueButton").GetComponent<Button>();
+
+            startButton.onClick.AddListener(delegate {
+                if (GM.firstPlay)
+                {
+                    htpScreen.SetActive(true);
+                    mainScreen.SetActive(false);
+                    continueButton.gameObject.SetActive(true);
+                    GM.firstPlay = false;
+                }
+                else
+                {
+                    SceneManager.LoadScene(gameScene);
+                }
+            });
             optionsButton.onClick.AddListener(delegate {
                 mainScreen.SetActive(false);
                 optionsScreen.SetActive(true);
@@ -49,7 +71,7 @@ public class MenuController : MonoBehaviour {
                 yAxisToggle.isOn = GM.yAxisFlipped;
             });
 
-            backButton.onClick.AddListener(delegate {
+            optionBackButton.onClick.AddListener(delegate {
                 optionsScreen.SetActive(false);
                 mainScreen.SetActive(true);
                 GM.Save();
@@ -60,6 +82,22 @@ public class MenuController : MonoBehaviour {
             });
             yAxisToggle.onValueChanged.AddListener(delegate {
                 GM.yAxisFlipped = yAxisToggle.isOn; });
+
+            htpButton.onClick.AddListener(delegate {
+                optionsScreen.SetActive(false);
+                htpScreen.SetActive(true);
+                htpBackButton.gameObject.SetActive(true);
+                GM.Save();
+            });
+
+            htpBackButton.onClick.AddListener(delegate {
+                htpScreen.SetActive(false);
+                mainScreen.SetActive(true);
+                htpBackButton.gameObject.SetActive(false);
+                GM.Save();
+            });
+            continueButton.onClick.AddListener(delegate { SceneManager.LoadScene(gameScene); });
+            clearButton.onClick.AddListener(delegate { GM.ClearSave(); });
         }
         else
         {
@@ -81,9 +119,12 @@ public class MenuController : MonoBehaviour {
                 GM.resetScore();
                 Time.timeScale = 1;
                 SceneManager.LoadScene("MainMenu");
+                GM.Save();
             });
             endExitButton.onClick.AddListener(delegate {
                 GM.resetScore();
+                optionBackButton.gameObject.SetActive(false);
+                continueButton.gameObject.SetActive(false);
                 SceneManager.LoadScene("MainMenu");
             });
         }  
@@ -99,5 +140,11 @@ public class MenuController : MonoBehaviour {
     {
         endScreen.SetActive(state);
         pauseButton.gameObject.SetActive(!state);
+    }
+
+    public void resetOptionsMenu()
+    {
+        sensitivitySlider.value = 0.5f;
+        yAxisToggle.isOn = false;
     }
 }
