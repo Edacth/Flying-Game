@@ -47,25 +47,40 @@ public class Enemy : MonoBehaviour
         moveTarget = new Vector2(Random.Range(-areaClamp.x, areaClamp.x), Random.Range(-areaClamp.y, areaClamp.y));
         moveDirection = new Vector3(transform.position.x - moveTarget.x, transform.position.y - moveTarget.y);
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    void ClearBullets()
+    {
+        for (int i = 0; i < bullets.Length; ++i)
+        {
+            //De-parents all the bullets from the enemy so they can exist on their own
+            if (bullets[i] != null)
+            {
+                bullets[i].GetComponent<Bullet>().hasParent = false;
+                if (!bullets[i].activeSelf)
+                    Destroy(bullets[i]);
+            }
+        }
+    }
+
+    void OnDisable()
+    {
+        ClearBullets();
+    }
+
+    // Update is called once per frame
+    void Update ()
     {
         // if enemy dies
 		if (health <= 0)
         {
             GM.kills++;
             GM.score += pointWorth;
-            for (int i = 0; i < bullets.Length; ++i)
-            {
-                //De-parents all the bullets from the enemy so they can exist on their own
-                bullets[i].GetComponent<Bullet>().hasParent = false;
-            }
+            ClearBullets();
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
         }
         // if enemy is far enough away from the player
-        if (transform.position.z > 1 && Time.time - bulletTimeStamp > timeToFireBullet)
+        if (transform.position.z > 25 && Time.time - bulletTimeStamp > timeToFireBullet)
         {
             //Fires a bullet and resets the cooldown timer
             fireBullet();

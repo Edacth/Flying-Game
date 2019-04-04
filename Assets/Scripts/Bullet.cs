@@ -22,6 +22,14 @@ public class Bullet : MonoBehaviour {
         StartCoroutine("activateTrail");
     }
 
+    void OnDisable()
+    {
+        if (!hasParent)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Awake ()
     {
         trail = gameObject.GetComponent<TrailRenderer>();
@@ -38,11 +46,6 @@ public class Bullet : MonoBehaviour {
             trail.enabled = false;
             gameObject.SetActive(false);
             timer = 0;
-        }
-        // if bullet no longer has a parent and is disabled, destroy
-        if (!hasParent && !gameObject.activeSelf)
-        {
-            Destroy(gameObject);
         }
     }
 
