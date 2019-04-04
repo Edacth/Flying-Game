@@ -126,7 +126,6 @@ public class PlayerShoot : MonoBehaviour
                     msl.transform.position = missilePoint[i].position;
                     msl.transform.rotation = missilePoint[i].rotation;
                     msl.SetActive(true);
-                    //GM.missileAmmo -= missileCost;
                     Vector3 launchDirection = (-transform.up * 2);
                     msl.GetComponent<Rigidbody>().AddForce(launchDirection, ForceMode.Impulse);
                     break;

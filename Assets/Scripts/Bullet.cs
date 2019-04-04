@@ -8,6 +8,8 @@ public class Bullet : MonoBehaviour {
     public float lifetime;
     public bool hasParent = true;
 
+    [SerializeField]
+    GameObject explosion;
     TrailRenderer trail;
     float timer = 0;
     bool hit;
@@ -16,6 +18,7 @@ public class Bullet : MonoBehaviour {
     void OnEnable()
     {
         hit = false;
+        // wait before turning on particle system
         StartCoroutine("activateTrail");
     }
 
@@ -28,6 +31,7 @@ public class Bullet : MonoBehaviour {
 	void Update ()
     {
         timer += Time.deltaTime;
+        // if bullet reaches its lifetime or hits something
         if (timer >= lifetime || hit)
         {
             gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -35,6 +39,7 @@ public class Bullet : MonoBehaviour {
             gameObject.SetActive(false);
             timer = 0;
         }
+        // if bullet no longer has a parent and is disabled, destroy
         if (!hasParent && !gameObject.activeSelf)
         {
             Destroy(gameObject);
@@ -47,15 +52,18 @@ public class Bullet : MonoBehaviour {
         {
             hit = true;
             other.GetComponent<Enemy>().takeDamage(damage);
+            Instantiate(explosion, transform.position, transform.rotation);
         }
         if (other.tag == "Player")
         {
             hit = true;
             other.GetComponent<PlayerController>().TakeDamage(damage);
+            Instantiate(explosion, transform.position, transform.rotation);
         }
         if (other.tag == "Building")
         {
             hit = true;
+            Instantiate(explosion, transform.position, transform.rotation);
         }
     }
 

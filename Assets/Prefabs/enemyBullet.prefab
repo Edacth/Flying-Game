@@ -217,6 +217,7 @@ MonoBehaviour:
   damage: 2
   lifetime: 3
   hasParent: 1
+  explosion: {fileID: 1335658141741778, guid: 5d4c940d1b87d6541903dc68d07baf8f, type: 2}
 --- !u!135 &135625387672661650
 SphereCollider:
   m_ObjectHideFlags: 1

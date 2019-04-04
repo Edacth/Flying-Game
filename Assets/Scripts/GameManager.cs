@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager instance = null; //Instance of this script
     public GameObject environmentSection;
+    public GameObject AmmoReplenText;
     public Material transparentMaterial;
     public int numOfSections;
     public float sectionSpeed;

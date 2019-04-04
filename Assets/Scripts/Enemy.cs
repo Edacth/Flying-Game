@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour
     void Awake()
     {
         bulletTimeStamp = Time.time;
+        // instantiate object pool
         for (int i = 0; i < bullets.Length; ++i)
         {
             bullets[i] = Instantiate(bullet) as GameObject;
@@ -36,6 +37,7 @@ public class Enemy : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        // if enemy dies
 		if (health <= 0)
         {
             GM.kills++;
@@ -45,6 +47,7 @@ public class Enemy : MonoBehaviour
             }
             Destroy(gameObject);
         }
+        // if enemy is far enough away from the player
         if (transform.position.z > 1 && Time.time - bulletTimeStamp > timeToFireBullet)
         {
             fireBullet();
@@ -61,6 +64,7 @@ public class Enemy : MonoBehaviour
     {
         foreach (GameObject bul in bullets)
         {
+            // search for first available bullet
             if (!bul.activeSelf)
             {
                 Vector3 targetPos = (Player.transform.position - transform.position).normalized;
@@ -76,6 +80,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // deal damage to player on collision
         if (other.tag == "Player")
         {
             takeDamage(health);

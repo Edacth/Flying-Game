@@ -13,6 +13,8 @@ public class Missile : MonoBehaviour
     public float startDelay;
 
     PlayerShoot player;
+    [SerializeField]
+    GameObject explosion;
     GameManager GM;
     GameObject[] enemies;
     ParticleSystem.EmissionModule em;
@@ -123,10 +125,12 @@ public class Missile : MonoBehaviour
         {
             hit = true;
             other.GetComponent<Enemy>().takeDamage(damage);
+            Instantiate(explosion, transform.position, transform.rotation);
         }
         if (other.tag == "Building")
         {
             hit = true;
+            Instantiate(explosion, transform.position, transform.rotation);
         }
     }
 
