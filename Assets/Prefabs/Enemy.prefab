@@ -196,7 +196,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   rBody: {fileID: 54028192220702180}
-  explosion: {fileID: 1135525406134708, guid: 6093b51ac987cf2429b2267f096600f6, type: 2}
+  explosion: {fileID: 1836976317534486, guid: d60e6692e9c7f7c44a9fdbc9aa63bbc8, type: 2}
   bulletSpeed: 75
   timeToFireBullet: 0.7
   xBoundary: 15

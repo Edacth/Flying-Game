@@ -54,7 +54,6 @@ public class GameManager : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
         if (debugOptions) sensitivity = 0.5f;
 
-        AmmoReplenText = GameObject.FindGameObjectWithTag("ReplenishText");
     }
 
     void Start ()
@@ -107,8 +106,8 @@ public class GameManager : MonoBehaviour {
         }
        if (kills == 5)
        {
-            gunAmmo += 4;
-            missileAmmo += 10;
+            gunAmmo += 6;
+            missileAmmo += 15;
             kills = 0;
             AmmoReplenText.GetComponent<Animator>().Play("Fade");
        }
@@ -139,6 +138,7 @@ public class GameManager : MonoBehaviour {
         if (SceneManager.GetActiveScene().name != "MainMenu")
         {
             ESectionPool.Clear();
+            AmmoReplenText = GameObject.FindGameObjectWithTag("ReplenishText");
             gunAmmo = 100;
             missileAmmo = 100;
             for (int i = 0; i < numOfSections; i++)

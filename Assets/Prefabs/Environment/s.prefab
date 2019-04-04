@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4026770646972090}
   - component: {fileID: 114968542676546336}
   m_Layer: 0
-  m_Name: EnvironmentSection
+  m_Name: s
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,7 +52,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1027898251405006}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -63.054337, y: 445.39276, z: -1307.401}
+  m_LocalPosition: {x: -313.68155, y: -0.011789799, z: 293.28235}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4834764170409036}
@@ -139,19 +139,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pos: {x: 0, y: 0, z: 0}
   structures:
-  - structurePrefab: {fileID: 1588605196702460, guid: 7a93428c5af06f944b70cb355f90ec3b,
+  - structurePrefab: {fileID: 1384333178199706, guid: ccf0e8c8941eb884389beaf61c967548,
       type: 2}
-    yPos: 20
-    xBounds: {x: -28, y: 28}
+    yPos: 14.5
+    xBounds: {x: -15, y: 16}
   - structurePrefab: {fileID: 1494015232961478, guid: 840d08a4bfd94274c95821d3f80bb33e,
       type: 2}
     yPos: 14.5
     xBounds: {x: -15, y: 16}
-  - structurePrefab: {fileID: 1020991892774584, guid: b2a0e08a5baecd04b9f81c1306ff9227,
-      type: 2}
-    yPos: 15
-    xBounds: {x: -15, y: 16}
-  - structurePrefab: {fileID: 1384333178199706, guid: ccf0e8c8941eb884389beaf61c967548,
+  - structurePrefab: {fileID: 1740871540107088, guid: cb3f297cb07e597409011eef757f31d7,
       type: 2}
     yPos: 15
     xBounds: {x: -15, y: 16}
@@ -159,8 +155,6 @@ MonoBehaviour:
   - item: 0
     weight: 0
   - item: 1
-    weight: 0
+    weight: 3
   - item: 2
-    weight: 0
-  - item: 3
-    weight: 8
+    weight: 3
