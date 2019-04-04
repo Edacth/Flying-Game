@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     public GameObject exhaustParticle;
     public GameObject crossHairs;
     public BoxCollider hitbox;
+    public CameraFollow cameraScript;
 
     [Header("Misc")]
     public GameObject explosion;
@@ -50,6 +51,7 @@ public class PlayerController : MonoBehaviour
         menuController = GameObject.FindGameObjectWithTag("GameManager").GetComponent<MenuController>();
         moveSpeed = defaultMoveSpeed * GM.sensitivity * 2;
         playerShootScript = gameObject.GetComponent<PlayerShoot>();
+        cameraScript = Camera.main.GetComponent<CameraFollow>();
         
         // get player's collider
         hitbox = GetComponent<BoxCollider>();
@@ -116,14 +118,15 @@ public class PlayerController : MonoBehaviour
         if (!invinc)
         {
             if (other.gameObject.tag == "Building")
-                TakeDamage(20);
+                TakeDamage(20, 0.5f);
             if (other.gameObject.tag == "Enemy")
-                TakeDamage(5);
+                TakeDamage(5, 0.2f);
         }
     }
-    public void TakeDamage (int amount)
+    public void TakeDamage (int amount, float shakeFactor)
     {
         damage += amount;
+        cameraScript.Shake(shakeFactor);
         if (damage >= 100 && dead == false)
         {
             Instantiate(explosion, transform.position, Quaternion.identity);

@@ -7,8 +7,15 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] Transform LeadObject;
     public float distanceFactor;
     public float zOffset;
-	// Use this for initialization
-	void Start ()
+
+    public float shakeFactor;
+    public float shakeDecrement;
+
+    private float shakeDuration;
+    
+
+    // Use this for initialization
+    void Start ()
     {
         LeadObject = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 	}
@@ -16,6 +23,22 @@ public class CameraFollow : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        transform.position = new Vector3(LeadObject.position.x, LeadObject.position.y + 1, LeadObject.position.z + zOffset) / distanceFactor;
+        if (shakeDuration > 0)
+        {
+            shakeDuration -= shakeDecrement;
+        }
+        else
+        {
+            shakeDuration = 0;
+        }
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            Shake(shakeFactor);
+        }
+        transform.position = new Vector3(LeadObject.position.x + Random.Range(-shakeDuration, shakeDuration), LeadObject.position.y + 1 + Random.Range(-shakeDuration, shakeDuration), LeadObject.position.z + zOffset) / distanceFactor;
 	}
+    public void Shake(float factor)
+    {
+        shakeDuration = factor;
+    }
 }

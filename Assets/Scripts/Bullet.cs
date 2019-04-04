@@ -57,7 +57,7 @@ public class Bullet : MonoBehaviour {
         if (other.tag == "Player")
         {
             hit = true;
-            other.GetComponent<PlayerController>().TakeDamage(damage);
+            other.GetComponent<PlayerController>().TakeDamage(damage, 0.2f);
             Instantiate(explosion, transform.position, transform.rotation);
         }
         if (other.tag == "Building")

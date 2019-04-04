@@ -7,8 +7,7 @@ public class WindmillScript : MonoBehaviour {
     public float rotSpeed;
 
     GameObject blades;
-
-
+    
 	void Start () {
         blades = gameObject;
 	}
