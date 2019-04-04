@@ -53,6 +53,8 @@ public class GameManager : MonoBehaviour {
             Destroy(gameObject);
         DontDestroyOnLoad(gameObject);
         if (debugOptions) sensitivity = 0.5f;
+
+        AmmoReplenText = GameObject.FindGameObjectWithTag("ReplenishText");
     }
 
     void Start ()
@@ -105,7 +107,7 @@ public class GameManager : MonoBehaviour {
         }
        if (kills == 5)
        {
-            gunAmmo += 3;
+            gunAmmo += 4;
             missileAmmo += 10;
             kills = 0;
             AmmoReplenText.GetComponent<Animator>().Play("Fade");

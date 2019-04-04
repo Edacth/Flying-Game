@@ -54,17 +54,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   environmentSection: {fileID: 1027898251405006, guid: d2a3e0950326d4c46af112da5bee7c95,
     type: 2}
+  AmmoReplenText: {fileID: 0}
   transparentMaterial: {fileID: 2100000, guid: bee6edbef6829004685df83f60329f65, type: 2}
   numOfSections: 10
   sectionSpeed: -25
   sectionLength: 30
-  percievedElevation: -15
+  percievedElevation: -20
   zFadePoint: 10
   score: 0
   highScore: 0
+  kills: 0
   gunAmmo: 100
   missileAmmo: 100
-  sensitivity: 0.5
+  debugOptions: 0
 --- !u!114 &114513415113347234
 MonoBehaviour:
   m_ObjectHideFlags: 1

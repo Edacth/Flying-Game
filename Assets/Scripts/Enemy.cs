@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     public GameObject bullet;
     public GameObject[] bullets = new GameObject[50];
     public Rigidbody rBody;
+    [SerializeField]
+    GameObject explosion;
     GameObject Player;
     GameManager GM;
 
@@ -57,6 +59,7 @@ public class Enemy : MonoBehaviour
                 //De-parents all the bullets from the enemy so they can exist on their own
                 bullets[i].GetComponent<Bullet>().hasParent = false;
             }
+            Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
         }
         // if enemy is far enough away from the player

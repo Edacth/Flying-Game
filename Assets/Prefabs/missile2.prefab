@@ -220,7 +220,7 @@ MonoBehaviour:
   start: {x: 0, y: 0, z: 0}
   mid: {x: 0, y: 0, z: 0}
   end: {x: 0, y: 0, z: 0}
-  speed: 50
+  speed: 70
   startDelay: 0.3
   explosion: {fileID: 1292894734870982, guid: 341cec3f79dc72e449aac1082768d892, type: 2}
   elapsed: 0

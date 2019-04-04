@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -112,6 +113,7 @@ public class MenuController : MonoBehaviour {
             resumeButton.onClick.AddListener(delegate { SetPauseState(false); });
             restartButton.onClick.AddListener(delegate {
                 GM.resetScore();
+                //StopCoroutine("EndScreenDelay");
                 GM.reloadScene();
             });
             pauseExitButton.onClick.AddListener(delegate {
@@ -143,5 +145,12 @@ public class MenuController : MonoBehaviour {
     {
         sensitivitySlider.value = 0.5f;
         yAxisToggle.isOn = false;
+    }
+
+    public IEnumerator EndScreenDelay()
+    {
+        yield return new WaitForSeconds(2);
+        Debug.Log("Coroutine");
+        SetEndState(true);
     }
 }

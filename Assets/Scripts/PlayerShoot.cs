@@ -111,6 +111,7 @@ public class PlayerShoot : MonoBehaviour
                     bul.transform.position = firePoint.position;
                     bul.transform.rotation = firePoint.rotation;
                     bul.GetComponent<Rigidbody>().AddForce(bul.transform.forward * bulletSpeed, ForceMode.Impulse);
+                    GM.gunAmmo -= gunCost;
                     break;
                 }
             }
