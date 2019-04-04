@@ -370,6 +370,25 @@ Prefab:
       propertyPath: gunCost
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 23535101275032906, guid: d420ec956eb4f3a419dfe179813f0dd4,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 47eb9b19985899e41aa5b0d2c1d2580e, type: 2}
+    - target: {fileID: 23785755695965550, guid: d420ec956eb4f3a419dfe179813f0dd4,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 47eb9b19985899e41aa5b0d2c1d2580e, type: 2}
+    - target: {fileID: 4372767345695088, guid: d420ec956eb4f3a419dfe179813f0dd4, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114044069021571094, guid: d420ec956eb4f3a419dfe179813f0dd4,
+        type: 2}
+      propertyPath: godMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d420ec956eb4f3a419dfe179813f0dd4, type: 2}
   m_IsPrefabAsset: 0
@@ -420,6 +439,11 @@ Prefab:
     - target: {fileID: 1495834551052442, guid: aebe72cdb2f46bf4fa97edc7c063b509, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114112280151951812, guid: aebe72cdb2f46bf4fa97edc7c063b509,
+        type: 2}
+      propertyPath: sectionSpeed
+      value: -35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aebe72cdb2f46bf4fa97edc7c063b509, type: 2}

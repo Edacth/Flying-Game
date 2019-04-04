@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour {
         }
        if (kills == 5)
        {
-            gunAmmo += 6;
+            gunAmmo += 7;
             missileAmmo += 15;
             kills = 0;
             AmmoReplenText.GetComponent<Animator>().Play("Fade");
