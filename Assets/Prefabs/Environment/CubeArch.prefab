@@ -542,8 +542,9 @@ GameObject:
   - component: {fileID: 33898665916568260}
   - component: {fileID: 23187034014271580}
   - component: {fileID: 136423675694392344}
+  - component: {fileID: 114336304254669104}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: Arch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5533,6 +5534,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -5550,6 +5553,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -5567,6 +5572,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -5584,6 +5591,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -5601,6 +5610,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -5618,6 +5629,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -5635,6 +5648,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -5652,6 +5667,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -5669,6 +5686,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -5686,6 +5705,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -5703,6 +5724,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -5720,6 +5743,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -5737,6 +5762,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -5754,6 +5781,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -5771,6 +5800,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -5788,6 +5819,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -5805,6 +5838,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -5822,6 +5857,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -5839,6 +5876,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -5856,6 +5895,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -5873,6 +5914,27 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
+  fadeInTimer: 0
+  fadeInDuration: 2
+  fadingIn: 0
+--- !u!114 &114336304254669104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1390878867263080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9650e085efdf28d419a45722e8d966c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  opaque: {r: 1, g: 1, b: 1, a: 1}
+  transparent: {r: 1, g: 1, b: 1, a: 0}
+  fadeIncrement: 0.002
+  opaqueMat: {fileID: 2100000, guid: df6c4b3f9224ebb4b943a1227cd0524f, type: 2}
+  fadeMat: {fileID: 2100000, guid: 48096b5ead4c7334d8639eb9db63d499, type: 2}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -5890,6 +5952,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -5907,6 +5971,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -5924,6 +5990,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -5941,6 +6009,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -5958,6 +6028,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -5975,6 +6047,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -5992,6 +6066,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6009,6 +6085,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6026,6 +6104,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6043,6 +6123,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6060,6 +6142,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6077,6 +6161,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6094,6 +6180,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6111,6 +6199,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6128,6 +6218,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6145,6 +6237,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6162,6 +6256,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6179,6 +6275,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6196,6 +6294,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6213,6 +6313,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6230,6 +6332,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6247,6 +6351,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6264,6 +6370,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6281,6 +6389,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6298,6 +6408,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6315,6 +6427,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6332,6 +6446,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6349,6 +6465,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6366,6 +6484,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6383,6 +6503,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6400,6 +6522,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6417,6 +6541,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6434,6 +6560,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6451,6 +6579,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6468,6 +6598,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6485,6 +6617,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6502,6 +6636,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6519,6 +6655,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6536,6 +6674,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6553,6 +6693,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6570,6 +6712,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6587,6 +6731,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6604,6 +6750,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6621,6 +6769,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6638,6 +6788,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6655,6 +6807,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
@@ -6672,6 +6826,8 @@ MonoBehaviour:
   opaque: {r: 1, g: 1, b: 1, a: 1}
   transparent: {r: 1, g: 1, b: 1, a: 0}
   fadeIncrement: 0.002
+  opaqueMat: {fileID: 0}
+  fadeMat: {fileID: 0}
   fadeInTimer: 0
   fadeInDuration: 2
   fadingIn: 0
