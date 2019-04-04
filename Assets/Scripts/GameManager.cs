@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour {
     public bool debugOptions = false;
     public bool yAxisFlipped { get; set; }
     public bool firstPlay { get; set; }
-    public float sensitivity { get; set; }
+    public float sensitivity;
 
     List<ESectionController> ESectionPool = new List<ESectionController>();
     bool isReloading = true;
