@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
     public float xBoundary;
     public float yBoundary;
     public int health;
+    public int pointWorth;
 
     public float moveSpeed;
     public Vector2 moveTarget;
@@ -54,6 +55,7 @@ public class Enemy : MonoBehaviour
 		if (health <= 0)
         {
             GM.kills++;
+            GM.score += pointWorth;
             for (int i = 0; i < bullets.Length; ++i)
             {
                 //De-parents all the bullets from the enemy so they can exist on their own
