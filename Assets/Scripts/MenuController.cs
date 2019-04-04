@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -94,7 +95,6 @@ public class MenuController : MonoBehaviour {
                 htpScreen.SetActive(false);
                 mainScreen.SetActive(true);
                 htpBackButton.gameObject.SetActive(false);
-                GM.Save();
             });
             continueButton.onClick.AddListener(delegate { SceneManager.LoadScene(gameScene); });
             clearButton.onClick.AddListener(delegate { GM.ClearSave(); });
@@ -113,6 +113,7 @@ public class MenuController : MonoBehaviour {
             resumeButton.onClick.AddListener(delegate { SetPauseState(false); });
             restartButton.onClick.AddListener(delegate {
                 GM.resetScore();
+                //StopCoroutine("EndScreenDelay");
                 GM.reloadScene();
             });
             pauseExitButton.onClick.AddListener(delegate {
@@ -123,8 +124,6 @@ public class MenuController : MonoBehaviour {
             });
             endExitButton.onClick.AddListener(delegate {
                 GM.resetScore();
-                optionBackButton.gameObject.SetActive(false);
-                continueButton.gameObject.SetActive(false);
                 SceneManager.LoadScene("MainMenu");
             });
         }  
@@ -146,5 +145,12 @@ public class MenuController : MonoBehaviour {
     {
         sensitivitySlider.value = 0.5f;
         yAxisToggle.isOn = false;
+    }
+
+    public IEnumerator EndScreenDelay()
+    {
+        yield return new WaitForSeconds(2);
+        Debug.Log("Coroutine");
+        SetEndState(true);
     }
 }

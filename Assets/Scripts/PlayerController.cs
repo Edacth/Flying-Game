@@ -128,7 +128,8 @@ public class PlayerController : MonoBehaviour
             Instantiate(explosion, transform.position, Quaternion.identity);
             dead = true;
 
-            menuController.SetEndState(true);
+            menuController.StartCoroutine("EndScreenDelay");
+
             GM.Save();
         }
         else
