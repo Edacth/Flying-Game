@@ -23,6 +23,8 @@ public class PlayerShoot : MonoBehaviour
     float bulletTimeStamp;
     float missileTimeStamp;
 
+    [HideInInspector] public bool dead = false;
+
 	// Use this for initialization
 	void Awake ()
     {
@@ -90,7 +92,7 @@ public class PlayerShoot : MonoBehaviour
         //-----------------------------------------------------------------------
         for (int i = 0; i < missiles.Length; ++i)
         {
-            if (missiles[i].activeSelf)
+            if (missiles[i].activeSelf || dead)
                 missileDummies[i].SetActive(false);
             else
                 missileDummies[i].SetActive(true);
@@ -117,6 +119,8 @@ public class PlayerShoot : MonoBehaviour
 
     void fireMissile()
     {
+        if (!dead)
+        {
             for (int i = 0; i < missiles.Length; ++i)
             {
                 var msl = missiles[i];
@@ -132,5 +136,6 @@ public class PlayerShoot : MonoBehaviour
                     break;
                 }
             }
+        }
     }
 }
