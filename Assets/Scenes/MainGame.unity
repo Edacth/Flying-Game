@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4010758, g: 0.43881392, b: 0.47962844, a: 1}
+  m_IndirectSpecularColor: {r: 0.40433413, g: 0.4368095, b: 0.47857028, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -355,19 +355,9 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114044069021571094, guid: d420ec956eb4f3a419dfe179813f0dd4,
-        type: 2}
-      propertyPath: crossHairs
-      value: 
-      objectReference: {fileID: 916936026}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d420ec956eb4f3a419dfe179813f0dd4, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &916936026 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1643525240284698, guid: d420ec956eb4f3a419dfe179813f0dd4,
-    type: 2}
-  m_PrefabInternal: {fileID: 916936025}
 --- !u!1001 &1553211000
 Prefab:
   m_ObjectHideFlags: 0
