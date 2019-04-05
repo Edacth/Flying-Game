@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour {
     public bool yAxisFlipped { get; set; }
     public bool firstPlay { get; set; }
     public float sensitivity;
+    public float gameTime;
     public float fadeIncrement;
 
     List<ESectionController> ESectionPool = new List<ESectionController>();
@@ -74,6 +75,20 @@ public class GameManager : MonoBehaviour {
 	
 	void Update ()
     {
+
+        gameTime += Time.deltaTime;
+        if (gameTime >= 30)
+        {
+            for (int i = 0; i < numOfSections; i++)
+            {
+                if (ESectionPool[i].genOptions[3].weight < 30)
+                    ESectionPool[i].genOptions[3].weight++;
+            }
+
+            sectionSpeed = Mathf.Clamp(sectionSpeed - 2, -50, 0);
+
+            gameTime = 0;
+        }
 
         if (isReloading || SceneManager.GetActiveScene().name == "MainMenu") return;
         
@@ -114,7 +129,6 @@ public class GameManager : MonoBehaviour {
        }
         gunAmmo = Mathf.Clamp(gunAmmo, 0, 100);
         missileAmmo = Mathf.Clamp(missileAmmo, 0, 100);
-
     }
 
     void recursiveTransparency(GameObject _object, bool fadingIn)

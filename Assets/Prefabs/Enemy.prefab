@@ -203,9 +203,9 @@ MonoBehaviour:
   yBoundary: 16
   health: 10
   pointWorth: 5
-  moveSpeed: 0.02
+  moveSpeed: 0.01
   moveTarget: {x: 0, y: 0}
   moveDirection: {x: 0, y: 0, z: 0}
   moveTimeStamp: 0
-  moveDelay: 0.1
+  moveDelay: 0.4
   velocity: {x: 0, y: 0, z: 0}
