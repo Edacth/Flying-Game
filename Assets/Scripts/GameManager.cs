@@ -110,11 +110,16 @@ public class GameManager : MonoBehaviour {
             }
             //Translate the sections along
             ESectionPool[i].transform.Translate(0f, 0f, sectionSpeed * Time.deltaTime);
-                
-            //if (ESectionPool[i].transform.position.z < zFadePoint)
-            //{
-            //    recursiveTransparency(ESectionPool[i].gameObject, false);
-            //}
+
+            if (ESectionPool[i].transform.position.z < zFadePoint)
+            {
+                //recursiveTransparency(ESectionPool[i].gameObject, false);
+                ITransparancy transparancyScript = ESectionPool[i].gameObject.GetComponentInChildren<ITransparancy>();
+                if (transparancyScript != null)
+                {
+                    transparancyScript.Fade(1);
+                }
+            }
 
             //Move sections back if they have passed the player
             if (ESectionPool[i].transform.position.z < -80)
