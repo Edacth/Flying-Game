@@ -27,13 +27,14 @@ public class GameManager : MonoBehaviour {
     public GameObject AmmoReplenText;
     public Material transparentMaterial;
     public int numOfSections;
-    public float sectionSpeed;
+    public float startingSectionSpeed;
     public float sectionLength;
     public float percievedElevation;
     public float zFadePoint;
     public int score;
     public int highScore;
     public int milestoneCount;
+    public int totalKills;
     public float gunAmmo;
     public float missileAmmo;
     public bool debugOptions = false;
@@ -41,8 +42,10 @@ public class GameManager : MonoBehaviour {
     public bool firstPlay { get; set; }
     public float sensitivity;
     public float gameTime;
+    public float totalGameTime;
     public float fadeIncrement;
 
+    float sectionSpeed;
     List<ESectionController> ESectionPool = new List<ESectionController>();
     bool isReloading = true;
     MenuController menuController;
@@ -61,6 +64,7 @@ public class GameManager : MonoBehaviour {
     void Start ()
     {
         //Load preferences
+        sectionSpeed = startingSectionSpeed;
         sensitivity = 0.5f;
         firstPlay = true;
         Load();
@@ -77,6 +81,7 @@ public class GameManager : MonoBehaviour {
     {
 
         gameTime += Time.deltaTime;
+        totalGameTime += Time.deltaTime;
         if (gameTime >= 15)
         {
             for (int i = 0; i < numOfSections; i++)
@@ -107,11 +112,16 @@ public class GameManager : MonoBehaviour {
             }
             //Translate the sections along
             ESectionPool[i].transform.Translate(0f, 0f, sectionSpeed * Time.deltaTime);
-                
-            //if (ESectionPool[i].transform.position.z < zFadePoint)
-            //{
-            //    recursiveTransparency(ESectionPool[i].gameObject, false);
-            //}
+
+            if (ESectionPool[i].transform.position.z < zFadePoint)
+            {
+                //recursiveTransparency(ESectionPool[i].gameObject, false);
+                ITransparancy transparancyScript = ESectionPool[i].gameObject.GetComponentInChildren<ITransparancy>();
+                if (transparancyScript != null)
+                {
+                    transparancyScript.Fade(1);
+                }
+            }
 
             //Move sections back if they have passed the player
             if (ESectionPool[i].transform.position.z < -80)
@@ -207,6 +217,12 @@ public class GameManager : MonoBehaviour {
             highScore = score;
         }
         score = 0;
+        sectionSpeed = startingSectionSpeed;
+        kills = 0;
+        totalKills = 0;
+        gameTime = 0;
+        totalGameTime = 0;
+
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
