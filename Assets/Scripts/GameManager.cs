@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour {
     public int score;
     public int highScore;
     public int kills;
+    public int totalKills;
     public float gunAmmo;
     public float missileAmmo;
     public bool debugOptions = false;
@@ -41,6 +42,7 @@ public class GameManager : MonoBehaviour {
     public bool firstPlay { get; set; }
     public float sensitivity;
     public float gameTime;
+    public float totalGameTime;
     public float fadeIncrement;
 
     List<ESectionController> ESectionPool = new List<ESectionController>();
@@ -77,6 +79,7 @@ public class GameManager : MonoBehaviour {
     {
 
         gameTime += Time.deltaTime;
+        totalGameTime += Time.deltaTime;
         if (gameTime >= 15)
         {
             for (int i = 0; i < numOfSections; i++)
