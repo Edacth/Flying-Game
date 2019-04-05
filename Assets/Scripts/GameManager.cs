@@ -134,7 +134,7 @@ public class GameManager : MonoBehaviour {
         }
        if (milestoneCount == 5)
        {
-            gunAmmo += 7;
+            gunAmmo += 10;
             missileAmmo += 15;
             milestoneCount = 0;
             AmmoReplenText.GetComponent<Animator>().Play("Fade");
@@ -218,7 +218,7 @@ public class GameManager : MonoBehaviour {
         }
         score = 0;
         sectionSpeed = startingSectionSpeed;
-        kills = 0;
+        milestoneCount = 0;
         totalKills = 0;
         gameTime = 0;
         totalGameTime = 0;

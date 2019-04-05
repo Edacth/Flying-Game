@@ -76,10 +76,6 @@ public class PlayerController : MonoBehaviour
             //Vector3 rot = new Vector3(Input.gyro.gravity.y * (GM.yAxisFlipped ? -40 : 40), Input.gyro.gravity.x * 30, -Input.gyro.gravity.x * 45);
             Vector3 rot = new Vector3(adjustedGravity.y * (GM.yAxisFlipped ? -40 : 40), adjustedGravity.x * 30, -adjustedGravity.x * 45);
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(rot), rotLerp);
-            if (Input.GetMouseButton(0))
-            {
-                SetCalibration();
-            }
             rBody.AddForce(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical") * (GM.yAxisFlipped ? -1 : 1), 0) * moveSpeed); //Keyboard
             rBody.AddForce(transform.forward * moveSpeed); //Gyroscope (Mobile)
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, -xBoundary, xBoundary), Mathf.Clamp(transform.position.y, -yBoundary, yBoundary), transform.position.z);

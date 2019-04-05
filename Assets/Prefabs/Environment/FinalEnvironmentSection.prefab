@@ -507,9 +507,9 @@ MonoBehaviour:
   - item: 0
     weight: 20
   - item: 1
-    weight: 10
-  - item: 2
     weight: 15
+  - item: 2
+    weight: 10
   - item: 3
     weight: 10
   - item: 4
