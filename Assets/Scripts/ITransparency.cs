@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Renderer))]
-public class ITransparency : MonoBehaviour {
+public class ITransparancy : MonoBehaviour {
 
     public Color opaque;
     public Color transparent;
