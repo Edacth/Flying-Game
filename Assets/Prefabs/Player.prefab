@@ -577,8 +577,8 @@ MonoBehaviour:
   defaultPos: {x: 0, y: 0, z: 0}
   rotLerp: 0.5
   defaultMoveSpeed: 300
-  xBoundary: 22
-  yBoundary: 14
+  xBoundary: 19
+  yBoundary: 10
   origin: {x: 0, y: 0, z: 0}
   GM: {fileID: 0}
   menuController: {fileID: 0}

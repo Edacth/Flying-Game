@@ -40,6 +40,15 @@ public class PlayerController : MonoBehaviour
     [Header("Misc")]
     public GameObject explosion;
 
+    Matrix4x4 baseMat = Matrix4x4.identity;
+    Vector3 adjustedGravity
+    {
+        get
+        {
+            return baseMat.MultiplyVector(Input.gyro.gravity);
+        }
+    }
+
     void Awake()
     {
         Input.gyro.enabled = true;
@@ -65,7 +74,8 @@ public class PlayerController : MonoBehaviour
         if (!dead)
         {
             //Physics/Movement
-            Vector3 rot = new Vector3(Input.gyro.gravity.y * (GM.yAxisFlipped ? -40 : 40), Input.gyro.gravity.x * 30, -Input.gyro.gravity.x * 45);
+            //Vector3 rot = new Vector3(Input.gyro.gravity.y * (GM.yAxisFlipped ? -40 : 40), Input.gyro.gravity.x * 30, -Input.gyro.gravity.x * 45);
+            Vector3 rot = new Vector3(adjustedGravity.y * (GM.yAxisFlipped ? -40 : 40), adjustedGravity.x * 30, -adjustedGravity.x * 45);
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(rot), rotLerp);
             rBody.AddForce(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical") * (GM.yAxisFlipped ? -1 : 1), 0) * moveSpeed); //Keyboard
             rBody.AddForce(transform.forward * moveSpeed); //Gyroscope (Mobile)
@@ -111,8 +121,11 @@ public class PlayerController : MonoBehaviour
     }
     public void SetCalibration()
     {
-        origin = Input.gyro.gravity.normalized; //Phone's forward
-        transform.rotation = Quaternion.identity;
+        Quaternion rot = Quaternion.FromToRotation(new Vector3(0.0f, 0.0f, -1.0f), Input.gyro.gravity);
+
+        Matrix4x4 mat = Matrix4x4.TRS(Vector3.zero, rot, new Vector3(1.0f, 1.0f, 1.0f));
+
+        baseMat = mat.inverse;
     }
     private void OnTriggerEnter(Collider other)
     {

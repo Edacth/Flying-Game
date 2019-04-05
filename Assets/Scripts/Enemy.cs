@@ -76,7 +76,7 @@ public class Enemy : MonoBehaviour
         // if enemy dies
 		if (health <= 0)
         {
-            GM.kills++;
+            GM.milestoneCount++;
             GM.totalKills++;
             audioSource.PlayOneShot(audioSource.clip);
             Debug.Log("Death.");

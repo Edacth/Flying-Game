@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.40433413, g: 0.4368095, b: 0.47857028, a: 1}
+  m_IndirectSpecularColor: {r: 0.4010758, g: 0.43881392, b: 0.47962844, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -395,7 +395,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1001 &916936025
 Prefab:
@@ -434,7 +434,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4255404316938394, guid: d420ec956eb4f3a419dfe179813f0dd4, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d420ec956eb4f3a419dfe179813f0dd4, type: 2}
@@ -710,12 +710,24 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4300527396802566, guid: aebe72cdb2f46bf4fa97edc7c063b509, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1495834551052442, guid: aebe72cdb2f46bf4fa97edc7c063b509, type: 2}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114112280151951812, guid: aebe72cdb2f46bf4fa97edc7c063b509,
+        type: 2}
+      propertyPath: AmmoReplenText
+      value: 
+      objectReference: {fileID: 1027898251405006, guid: 5f6534236fad1c94595d8e54b714699c,
+        type: 2}
+    - target: {fileID: 114112280151951812, guid: aebe72cdb2f46bf4fa97edc7c063b509,
+        type: 2}
+      propertyPath: environmentSection
+      value: 
+      objectReference: {fileID: 1027898251405006, guid: 5f6534236fad1c94595d8e54b714699c,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aebe72cdb2f46bf4fa97edc7c063b509, type: 2}
   m_IsPrefabAsset: 0
@@ -883,50 +895,3 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1703754223}
   m_CullTransparentMesh: 0
---- !u!1001 &2033015601
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4026770646972090, guid: d2a3e0950326d4c46af112da5bee7c95, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -63.054337
-      objectReference: {fileID: 0}
-    - target: {fileID: 4026770646972090, guid: d2a3e0950326d4c46af112da5bee7c95, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 445.39276
-      objectReference: {fileID: 0}
-    - target: {fileID: 4026770646972090, guid: d2a3e0950326d4c46af112da5bee7c95, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -1307.401
-      objectReference: {fileID: 0}
-    - target: {fileID: 4026770646972090, guid: d2a3e0950326d4c46af112da5bee7c95, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4026770646972090, guid: d2a3e0950326d4c46af112da5bee7c95, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4026770646972090, guid: d2a3e0950326d4c46af112da5bee7c95, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4026770646972090, guid: d2a3e0950326d4c46af112da5bee7c95, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4026770646972090, guid: d2a3e0950326d4c46af112da5bee7c95, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114968542676546336, guid: d2a3e0950326d4c46af112da5bee7c95,
-        type: 2}
-      propertyPath: genOptions.Array.data[3].weight
-      value: 8
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d2a3e0950326d4c46af112da5bee7c95, type: 2}
-  m_IsPrefabAsset: 0

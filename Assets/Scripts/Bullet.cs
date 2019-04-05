@@ -72,7 +72,7 @@ public class Bullet : MonoBehaviour {
 
     private IEnumerator activateTrail()
     {
-        for (int i = 0; i < 2; ++i)
+        for (int i = 0; i < 1; ++i)
             yield return null;
 
         trail.enabled = true;

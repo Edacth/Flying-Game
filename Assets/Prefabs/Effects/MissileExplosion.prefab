@@ -3749,9 +3749,9 @@ ParticleSystem:
       type: 0
       properties: 0
   LightsModule:
-    enabled: 0
+    enabled: 1
     ratio: 0
-    light: {fileID: 0}
+    light: {fileID: 108706090460221604, guid: c14925a6d49f1904e9ab3def2c30c99b, type: 2}
     randomDistribution: 1
     color: 1
     range: 1
@@ -9224,7 +9224,7 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 7e82e10f16eabdc43a5f308985ed2fac, type: 2}
+  - {fileID: 2100000, guid: df0d992629b55e243844dc578e951d46, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -9281,7 +9281,7 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 7e82e10f16eabdc43a5f308985ed2fac, type: 2}
+  - {fileID: 2100000, guid: df0d992629b55e243844dc578e951d46, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
