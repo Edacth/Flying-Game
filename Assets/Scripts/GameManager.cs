@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour {
     public float zFadePoint;
     public int score;
     public int highScore;
-    public int kills;
+    public int milestoneCount;
     public float gunAmmo;
     public float missileAmmo;
     public bool debugOptions = false;
@@ -81,8 +81,10 @@ public class GameManager : MonoBehaviour {
         {
             for (int i = 0; i < numOfSections; i++)
             {
-                if (ESectionPool[i].genOptions[3].weight < 30)
+                if (ESectionPool[i].genOptions[3].weight < 25)
                     ESectionPool[i].genOptions[3].weight++;
+                if (ESectionPool[i].genOptions[4].weight < 30)
+                    ESectionPool[i].genOptions[4].weight++;
             }
 
             sectionSpeed = Mathf.Clamp(sectionSpeed - 2, -50, 0);
@@ -120,11 +122,11 @@ public class GameManager : MonoBehaviour {
             }
 
         }
-       if (kills == 5)
+       if (milestoneCount == 5)
        {
             gunAmmo += 7;
             missileAmmo += 15;
-            kills = 0;
+            milestoneCount = 0;
             AmmoReplenText.GetComponent<Animator>().Play("Fade");
        }
         gunAmmo = Mathf.Clamp(gunAmmo, 0, 100);
@@ -161,8 +163,12 @@ public class GameManager : MonoBehaviour {
         {
             ESectionPool.Clear();
             AmmoReplenText = GameObject.FindGameObjectWithTag("ReplenishText");
+            // reset parameters
             gunAmmo = 100;
             missileAmmo = 100;
+            milestoneCount = 0;
+            sectionSpeed = -25;
+
             for (int i = 0; i < numOfSections; i++)
             {
                 Vector3 pos = new Vector3(0, percievedElevation, sectionLength * i);

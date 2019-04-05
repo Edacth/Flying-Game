@@ -151,10 +151,13 @@ public class Missile : MonoBehaviour
 
     void calculatePoints()
     {
-        elapsed = 0;
-        start = transform.position;
-        end = target.transform.position;
-        mid = start + (transform.forward * Vector3.Distance(start, end) * 0.5f);
+        if (target != null)
+        {
+            elapsed = 0;
+            start = transform.position;
+            end = target.transform.position;
+            mid = start + (transform.forward * Vector3.Distance(start, end) * 0.5f);
+        }
     }
 
     GameObject closestEnemy(GameObject[] arr)
