@@ -221,7 +221,6 @@ GameObject:
   - component: {fileID: 4220086953180002}
   - component: {fileID: 33676592804750810}
   - component: {fileID: 23241067846986880}
-  - component: {fileID: 136860783039978956}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -1008,7 +1007,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1588605196702460}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -44.37883, y: 60.816826, z: -21.064114}
+  m_LocalPosition: {x: -176.94481, y: 416.19574, z: -135.95035}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4712936796244978}
@@ -2697,16 +2696,3 @@ MonoBehaviour:
   subMeshes: []
   GM: {fileID: 0}
   fadeIncrement: 0
---- !u!136 &136860783039978956
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1325878626724944}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
