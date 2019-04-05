@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour {
     {
 
         gameTime += Time.deltaTime;
-        if (gameTime >= 30)
+        if (gameTime >= 15)
         {
             for (int i = 0; i < numOfSections; i++)
             {
