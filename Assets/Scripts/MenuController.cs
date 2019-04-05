@@ -113,7 +113,7 @@ public class MenuController : MonoBehaviour {
             resumeButton.onClick.AddListener(delegate { SetPauseState(false); });
             restartButton.onClick.AddListener(delegate {
                 GM.resetScore();
-                //StopCoroutine("EndScreenDelay");
+                StopCoroutine("EndScreenDelay");
                 GM.reloadScene();
             });
             pauseExitButton.onClick.AddListener(delegate {

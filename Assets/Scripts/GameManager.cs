@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour {
     public bool firstPlay { get; set; }
     public float sensitivity;
     public float gameTime;
+    public float fadeIncrement;
 
     List<ESectionController> ESectionPool = new List<ESectionController>();
     bool isReloading = true;

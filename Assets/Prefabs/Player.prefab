@@ -570,11 +570,12 @@ MonoBehaviour:
   invinc: 0
   invincDuration: 0.5
   dead: 0
+  godMode: 0
   rBody: {fileID: 54152456093802566}
   mr: {fileID: 23664744273179380}
   axisInput: {x: 0, y: 0}
   defaultPos: {x: 0, y: 0, z: 0}
-  rotLerp: 0.9
+  rotLerp: 0.5
   defaultMoveSpeed: 300
   xBoundary: 22
   yBoundary: 14
@@ -585,6 +586,7 @@ MonoBehaviour:
   exhaustParticle: {fileID: 1753034482799924}
   crossHairs: {fileID: 1643525240284698}
   hitbox: {fileID: 0}
+  cameraScript: {fileID: 0}
   explosion: {fileID: 1135525406134708, guid: 6093b51ac987cf2429b2267f096600f6, type: 2}
 --- !u!114 &114579394389613776
 MonoBehaviour:
