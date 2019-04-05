@@ -26,9 +26,12 @@ public class MenuController : MonoBehaviour {
     TextMeshProUGUI sensitivityNumber;
     Button htpButton;
     Button clearButton;
+    Button creditsButton;
     GameObject htpScreen;
     Button htpBackButton;
     Button continueButton;
+    GameObject creditsScreen;
+    Button creditsBackButton;
 
 
     public void Initalize()
@@ -47,6 +50,9 @@ public class MenuController : MonoBehaviour {
             sensitivityNumber = GameObject.Find("/Main Camera/Canvas/OptionsScreen/SensitivitySlider/Number").GetComponent<TextMeshProUGUI>();
             htpButton = GameObject.Find("/Main Camera/Canvas/OptionsScreen/HTPButton").GetComponent<Button>();
             clearButton = GameObject.Find("/Main Camera/Canvas/OptionsScreen/ClearButton").GetComponent<Button>();
+            creditsScreen = GameObject.Find("/Main Camera/Canvas/CreditsScreen");
+            creditsButton = GameObject.Find("/Main Camera/Canvas/OptionsScreen/CreditsButton").GetComponent<Button>();
+            creditsBackButton = GameObject.Find("/Main Camera/Canvas/CreditsScreen/CreditsBackButton").GetComponent<Button>();
 
             htpScreen = GameObject.Find("/Main Camera/Canvas/HTPScreen");
             htpBackButton = GameObject.Find("/Main Camera/Canvas/HTPScreen/HTPBackButton").GetComponent<Button>();
@@ -96,8 +102,20 @@ public class MenuController : MonoBehaviour {
                 mainScreen.SetActive(true);
                 htpBackButton.gameObject.SetActive(false);
             });
+
             continueButton.onClick.AddListener(delegate { SceneManager.LoadScene(gameScene); });
             clearButton.onClick.AddListener(delegate { GM.ClearSave(); });
+
+            creditsButton.onClick.AddListener(delegate {
+                optionsScreen.SetActive(false);
+                creditsScreen.SetActive(true);
+                GM.Save();
+            });
+
+            creditsBackButton.onClick.AddListener(delegate {
+                creditsScreen.SetActive(false);
+                mainScreen.SetActive(true);
+            });
         }
         else
         {
