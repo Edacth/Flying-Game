@@ -75,6 +75,7 @@ public class Enemy : MonoBehaviour
 		if (health <= 0)
         {
             GM.kills++;
+            GM.totalKills++;
             GM.score += pointWorth;
             ClearBullets();
             Instantiate(explosion, transform.position, transform.rotation);

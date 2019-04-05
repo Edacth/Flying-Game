@@ -15,6 +15,8 @@ public class MenuController : MonoBehaviour {
     Button restartButton;
     Button pauseExitButton;
     Button endExitButton;
+    TextMeshProUGUI enemyText;
+    TextMeshProUGUI timeText;
 
     GameObject mainScreen;
     Button startButton;
@@ -126,6 +128,9 @@ public class MenuController : MonoBehaviour {
             restartButton = GameObject.Find("/Main Camera/Canvas/EndScreen/RestartButton").GetComponent<Button>();
             pauseExitButton = GameObject.Find("/Main Camera/Canvas/PauseScreen/PauseExitButton").GetComponent<Button>();
             endExitButton = GameObject.Find("/Main Camera/Canvas/EndScreen/EndExitButton").GetComponent<Button>();
+            enemyText = GameObject.Find("/Main Camera/Canvas/EndScreen/EnemyText").GetComponent<TextMeshProUGUI>();
+            timeText = GameObject.Find("/Main Camera/Canvas/EndScreen/TimeText").GetComponent<TextMeshProUGUI>();
+
 
             pauseButton.onClick.AddListener(delegate { SetPauseState(true); });
             resumeButton.onClick.AddListener(delegate { SetPauseState(false); });
@@ -157,6 +162,9 @@ public class MenuController : MonoBehaviour {
     {
         endScreen.SetActive(state);
         pauseButton.gameObject.SetActive(!state);
+        enemyText.text = "ENEMIES\nDESTROYED:\n" + GM.totalKills;
+        timeText.text = "TIME\nSURVIVED:\n" + GM.totalGameTime.ToString("F2");
+
     }
 
     public void resetOptionsMenu()
@@ -167,8 +175,7 @@ public class MenuController : MonoBehaviour {
 
     public IEnumerator EndScreenDelay()
     {
-        yield return new WaitForSeconds(2);
-        Debug.Log("Coroutine");
+        yield return new WaitForSeconds(1.5f);
         SetEndState(true);
     }
 }

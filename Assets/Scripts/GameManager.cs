@@ -27,13 +27,14 @@ public class GameManager : MonoBehaviour {
     public GameObject AmmoReplenText;
     public Material transparentMaterial;
     public int numOfSections;
-    public float sectionSpeed;
+    public float startingSectionSpeed;
     public float sectionLength;
     public float percievedElevation;
     public float zFadePoint;
     public int score;
     public int highScore;
     public int kills;
+    public int totalKills;
     public float gunAmmo;
     public float missileAmmo;
     public bool debugOptions = false;
@@ -41,8 +42,10 @@ public class GameManager : MonoBehaviour {
     public bool firstPlay { get; set; }
     public float sensitivity;
     public float gameTime;
+    public float totalGameTime;
     public float fadeIncrement;
 
+    float sectionSpeed;
     List<ESectionController> ESectionPool = new List<ESectionController>();
     bool isReloading = true;
     MenuController menuController;
@@ -61,6 +64,7 @@ public class GameManager : MonoBehaviour {
     void Start ()
     {
         //Load preferences
+        sectionSpeed = startingSectionSpeed;
         sensitivity = 0.5f;
         firstPlay = true;
         Load();
@@ -77,6 +81,7 @@ public class GameManager : MonoBehaviour {
     {
 
         gameTime += Time.deltaTime;
+        totalGameTime += Time.deltaTime;
         if (gameTime >= 15)
         {
             for (int i = 0; i < numOfSections; i++)
@@ -206,6 +211,12 @@ public class GameManager : MonoBehaviour {
             highScore = score;
         }
         score = 0;
+        sectionSpeed = startingSectionSpeed;
+        kills = 0;
+        totalKills = 0;
+        gameTime = 0;
+        totalGameTime = 0;
+
     }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
