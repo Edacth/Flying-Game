@@ -106,17 +106,17 @@ public class GameManager : MonoBehaviour {
             //Translate the sections along
             ESectionPool[i].transform.Translate(0f, 0f, sectionSpeed * Time.deltaTime);
                 
-            if (ESectionPool[i].transform.position.z < zFadePoint)
-            {
-                recursiveTransparency(ESectionPool[i].gameObject, false);
-            }
+            //if (ESectionPool[i].transform.position.z < zFadePoint)
+            //{
+            //    recursiveTransparency(ESectionPool[i].gameObject, false);
+            //}
 
             //Move sections back if they have passed the player
             if (ESectionPool[i].transform.position.z < -80)
             {
                 ESectionPool[i].transform.position = new Vector3(0, percievedElevation, ESectionPool[i].transform.position.z + (sectionSpeed * Time.deltaTime) + (sectionLength * numOfSections));
                 ESectionPool[i].GenerateTower();
-                recursiveTransparency(ESectionPool[i].gameObject, true);
+                //recursiveTransparency(ESectionPool[i].gameObject, true);
             }
 
         }
@@ -131,6 +131,7 @@ public class GameManager : MonoBehaviour {
         missileAmmo = Mathf.Clamp(missileAmmo, 0, 100);
     }
 
+    
     void recursiveTransparency(GameObject _object, bool fadingIn)
     {
         
@@ -152,6 +153,7 @@ public class GameManager : MonoBehaviour {
             recursiveTransparency(_object.transform.GetChild(j).gameObject, fadingIn);
         }
     }
+    
 
     void Initialize()
     {

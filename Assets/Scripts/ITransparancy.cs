@@ -39,7 +39,7 @@ public class ITransparancy : MonoBehaviour {
         {
             myRenderer.material = fadeMat;
         }
-        StartCoroutine(FadeCoroutine(goal));
+        //StartCoroutine(FadeCoroutine(goal));
     }
 
     void Update()
