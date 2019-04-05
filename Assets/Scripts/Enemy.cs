@@ -74,7 +74,7 @@ public class Enemy : MonoBehaviour
         // if enemy dies
 		if (health <= 0)
         {
-            GM.kills++;
+            GM.milestoneCount++;
             GM.totalKills++;
             GM.score += pointWorth;
             ClearBullets();

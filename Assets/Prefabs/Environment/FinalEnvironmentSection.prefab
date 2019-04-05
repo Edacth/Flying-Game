@@ -499,6 +499,10 @@ MonoBehaviour:
       type: 2}
     yPos: 15
     xBounds: {x: -15, y: 15}
+  - structurePrefab: {fileID: 1735345481221478, guid: 6f5d1b7afecacaf4b899314a5a076141,
+      type: 2}
+    yPos: 15
+    xBounds: {x: -15, y: 16}
   genOptions:
   - item: 0
     weight: 20
@@ -508,3 +512,5 @@ MonoBehaviour:
     weight: 15
   - item: 3
     weight: 10
+  - item: 4
+    weight: 0
