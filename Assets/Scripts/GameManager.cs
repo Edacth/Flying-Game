@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour {
     public float totalGameTime;
     public float fadeIncrement;
 
-    float sectionSpeed;
+    [SerializeField] float sectionSpeed;
     List<ESectionController> ESectionPool = new List<ESectionController>();
     bool isReloading = true;
     MenuController menuController;
@@ -115,11 +115,13 @@ public class GameManager : MonoBehaviour {
 
             if (ESectionPool[i].transform.position.z < zFadePoint)
             {
-                //recursiveTransparency(ESectionPool[i].gameObject, false);
-                ITransparancy transparancyScript = ESectionPool[i].gameObject.GetComponentInChildren<ITransparancy>();
-                if (transparancyScript != null)
+                ITransparancy[] transparancyScripts = ESectionPool[i].gameObject.GetComponentsInChildren<ITransparancy>();
+                foreach (ITransparancy script in transparancyScripts)
                 {
-                    transparancyScript.Fade(1);
+                    if (script != null)
+                    {
+                        script.Fade(1);
+                    }
                 }
             }
 
@@ -128,7 +130,6 @@ public class GameManager : MonoBehaviour {
             {
                 ESectionPool[i].transform.position = new Vector3(0, percievedElevation, ESectionPool[i].transform.position.z + (sectionSpeed * Time.deltaTime) + (sectionLength * numOfSections));
                 ESectionPool[i].GenerateTower();
-                //recursiveTransparency(ESectionPool[i].gameObject, true);
             }
 
         }
@@ -152,13 +153,6 @@ public class GameManager : MonoBehaviour {
         {
             objectTransScript.Fade(0.2f);
         }
-        //if (objectTransScript != null)// && _object.tag == "Building")
-        //{
-        //    //objectRenderer.material = transparentMaterial;
-        //    if (!fadingIn) objectTransScript.Fade(0.2f);
-        //    else objectTransScript.startFadingIn();
-        //    //Debug.Break();
-        //}
 
         for (int j = 0; j < _object.transform.childCount; j++)
         {
