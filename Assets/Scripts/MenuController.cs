@@ -41,7 +41,7 @@ public class MenuController : MonoBehaviour {
     public void Initalize()
     {
         GM = gameObject.GetComponent<GameManager>();
-        playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
+        
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
             mainScreen = GameObject.Find("/Main Camera/Canvas/MainScreen");
@@ -124,6 +124,7 @@ public class MenuController : MonoBehaviour {
         }
         else
         {
+            playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
             pauseScreen = GameObject.Find("/Main Camera/Canvas/PauseScreen");
             endScreen = GameObject.Find("/Main Camera/Canvas/EndScreen");
             pauseButton = GameObject.Find("/Main Camera/Canvas/PauseButton").GetComponent<Button>();
