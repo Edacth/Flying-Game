@@ -124,7 +124,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1027898251405006}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.992173, y: 20.200577, z: 5.067211}
+  m_LocalPosition: {x: -171.71237, y: 304.55563, z: -238.61787}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4834764170409036}
@@ -215,7 +215,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 5ecaeab7efa4b2c4986cd4074e34433d, type: 2}
+  - {fileID: 2100000, guid: d2b9ce61c1b6cee429d414b951866cff, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -250,7 +250,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 5ecaeab7efa4b2c4986cd4074e34433d, type: 2}
+  - {fileID: 2100000, guid: d2b9ce61c1b6cee429d414b951866cff, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -285,7 +285,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 5ecaeab7efa4b2c4986cd4074e34433d, type: 2}
+  - {fileID: 2100000, guid: d2b9ce61c1b6cee429d414b951866cff, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -320,7 +320,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 5ecaeab7efa4b2c4986cd4074e34433d, type: 2}
+  - {fileID: 2100000, guid: d2b9ce61c1b6cee429d414b951866cff, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -483,7 +483,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pos: {x: 0, y: 0, z: 0}
   structures:
-  - structurePrefab: {fileID: 1588605196702460, guid: 9f8589a6b79b44a49b2dcbcccef5e52d,
+  - structurePrefab: {fileID: 1871049413706900, guid: 7159b472efa6c2d49b5c84a8ebcc2e20,
       type: 2}
     yPos: 20
     xBounds: {x: -27, y: 27}
@@ -502,7 +502,11 @@ MonoBehaviour:
   - structurePrefab: {fileID: 1735345481221478, guid: 6f5d1b7afecacaf4b899314a5a076141,
       type: 2}
     yPos: 15
-    xBounds: {x: -15, y: 16}
+    xBounds: {x: -15, y: 15}
+  - structurePrefab: {fileID: 1554802179079536, guid: 50e8957eb0fa7124bbd27d56860f49a2,
+      type: 2}
+    yPos: 50
+    xBounds: {x: 0, y: 0}
   genOptions:
   - item: 0
     weight: 20
@@ -514,3 +518,5 @@ MonoBehaviour:
     weight: 10
   - item: 4
     weight: 0
+  - item: 5
+    weight: 5
