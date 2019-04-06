@@ -35,7 +35,6 @@ public class PlayerController : MonoBehaviour
     public GameObject crossHairs;
     public BoxCollider hitbox;
     public CameraFollow cameraScript;
-    private AudioSource audioSource;
 
     [Header("Misc")]
     public GameObject explosion;
@@ -62,7 +61,6 @@ public class PlayerController : MonoBehaviour
         moveSpeed = defaultMoveSpeed * GM.sensitivity * 2;
         playerShootScript = gameObject.GetComponent<PlayerShoot>();
         cameraScript = Camera.main.GetComponent<CameraFollow>();
-        audioSource = gameObject.GetComponent<AudioSource>();
         // get player's collider
         hitbox = GetComponent<BoxCollider>();
     }
@@ -147,7 +145,6 @@ public class PlayerController : MonoBehaviour
             dead = true;
             Handheld.Vibrate();
             menuController.StartCoroutine("EndScreenDelay");
-            audioSource.PlayOneShot(audioSource.clip);
             GM.Save();
         }
         else

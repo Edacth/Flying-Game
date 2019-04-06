@@ -259,7 +259,6 @@ public class GameManager : MonoBehaviour {
             firstPlay = data.firstPlay;
             highScore = data.highScore;
         }
-        
     }
 
     public void ClearSave()
