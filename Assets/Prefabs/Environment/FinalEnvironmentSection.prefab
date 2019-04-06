@@ -505,7 +505,7 @@ MonoBehaviour:
     xBounds: {x: -15, y: 15}
   - structurePrefab: {fileID: 1554802179079536, guid: 50e8957eb0fa7124bbd27d56860f49a2,
       type: 2}
-    yPos: 50
+    yPos: 40
     xBounds: {x: 0, y: 0}
   genOptions:
   - item: 0
