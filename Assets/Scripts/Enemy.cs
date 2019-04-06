@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
     public Vector3 velocity;
     float bulletTimeStamp;
     Vector2 areaClamp;
-    private AudioSource audioSource;
+    
 
     void Awake()
     {
@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
         playerScript = Player.GetComponent<PlayerController>();
         GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-        audioSource = gameObject.GetComponent<AudioSource>();
+        
         areaClamp = new Vector2(playerScript.xBoundary, playerScript.yBoundary);
         moveTarget = new Vector2(Random.Range(-areaClamp.x, areaClamp.x), Random.Range(-areaClamp.y, areaClamp.y));
         moveDirection = new Vector3(transform.position.x - moveTarget.x, transform.position.y - moveTarget.y);
@@ -78,8 +78,6 @@ public class Enemy : MonoBehaviour
         {
             GM.milestoneCount++;
             GM.totalKills++;
-            audioSource.PlayOneShot(audioSource.clip);
-            Debug.Log("Death.");
             GM.score += pointWorth;
             ClearBullets();
             Instantiate(explosion, transform.position, transform.rotation);
