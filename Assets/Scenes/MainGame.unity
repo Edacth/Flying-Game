@@ -453,6 +453,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114044069021571094, guid: d420ec956eb4f3a419dfe179813f0dd4,
+        type: 2}
+      propertyPath: godMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d420ec956eb4f3a419dfe179813f0dd4, type: 2}
   m_IsPrefabAsset: 0
@@ -754,6 +759,16 @@ Prefab:
         type: 2}
       propertyPath: startingSectionSpeed
       value: -50
+      objectReference: {fileID: 0}
+    - target: {fileID: 114112280151951812, guid: aebe72cdb2f46bf4fa97edc7c063b509,
+        type: 2}
+      propertyPath: zFadePoint
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114112280151951812, guid: aebe72cdb2f46bf4fa97edc7c063b509,
+        type: 2}
+      propertyPath: fadeIncrement
+      value: 0.05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aebe72cdb2f46bf4fa97edc7c063b509, type: 2}
