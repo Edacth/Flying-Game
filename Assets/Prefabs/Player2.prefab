@@ -626,10 +626,10 @@ MonoBehaviour:
   - {fileID: 1632067848207572}
   - {fileID: 1197287350965990}
   GM: {fileID: 0}
-  gunCost: 0.2
+  gunCost: 0.1
   missileCost: 5
   bulletSpeed: 150
-  timeToFireBullet: 0.1
+  timeToFireBullet: 0.05
   timeToFireMissile: 0
   dead: 0
 --- !u!114 &114886891440147092
@@ -649,7 +649,7 @@ MonoBehaviour:
   dead: 0
   godMode: 0
   rBody: {fileID: 54009289737345512}
-  mr: {fileID: 0}
+  mr: {fileID: 23635507131182948}
   axisInput: {x: 0, y: 0}
   defaultPos: {x: 0, y: 0, z: 0}
   rotLerp: 0.5
