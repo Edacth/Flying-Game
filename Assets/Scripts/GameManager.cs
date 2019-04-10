@@ -241,7 +241,6 @@ public class GameManager : MonoBehaviour {
         {
             streamWriter.Write(jsonString);
         }
-        Debug.Log("I'M SAVING " + path);
     }
 
     public void Load()

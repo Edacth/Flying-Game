@@ -138,7 +138,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 1, g: 0.9694695, b: 0.8349056, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -178,7 +178,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: -55.170002, y: -30, z: 174.66301}
 --- !u!1 &904941240 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1718971981273010, guid: 2cfb71ed160452147bdbc8a6543d49b5,
@@ -210,7 +210,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1551759105
 Prefab:
@@ -254,6 +254,10 @@ Prefab:
     - target: {fileID: 114044069021571094, guid: d420ec956eb4f3a419dfe179813f0dd4,
         type: 2}
       propertyPath: godMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1220392448394486, guid: d420ec956eb4f3a419dfe179813f0dd4, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -438,7 +442,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4300527396802566, guid: aebe72cdb2f46bf4fa97edc7c063b509, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114112280151951812, guid: aebe72cdb2f46bf4fa97edc7c063b509,
         type: 2}
