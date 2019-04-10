@@ -15,6 +15,7 @@ public class MenuController : MonoBehaviour {
     Button restartButton;
     Button pauseExitButton;
     Button endExitButton;
+    Button calibrateButton;
     TextMeshProUGUI enemyText;
     TextMeshProUGUI timeText;
 
@@ -34,11 +35,13 @@ public class MenuController : MonoBehaviour {
     Button continueButton;
     GameObject creditsScreen;
     Button creditsBackButton;
+    public PlayerController playerController;
 
 
     public void Initalize()
     {
         GM = gameObject.GetComponent<GameManager>();
+        
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
             mainScreen = GameObject.Find("/Main Camera/Canvas/MainScreen");
@@ -121,9 +124,11 @@ public class MenuController : MonoBehaviour {
         }
         else
         {
+            playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
             pauseScreen = GameObject.Find("/Main Camera/Canvas/PauseScreen");
             endScreen = GameObject.Find("/Main Camera/Canvas/EndScreen");
             pauseButton = GameObject.Find("/Main Camera/Canvas/PauseButton").GetComponent<Button>();
+            calibrateButton = GameObject.Find("/Main Camera/Canvas/PauseScreen/CalibrateButton").GetComponent<Button>();
             resumeButton = GameObject.Find("/Main Camera/Canvas/PauseScreen/ResumeButton").GetComponent<Button>();
             restartButton = GameObject.Find("/Main Camera/Canvas/EndScreen/RestartButton").GetComponent<Button>();
             pauseExitButton = GameObject.Find("/Main Camera/Canvas/PauseScreen/PauseExitButton").GetComponent<Button>();
@@ -133,6 +138,7 @@ public class MenuController : MonoBehaviour {
 
 
             pauseButton.onClick.AddListener(delegate { SetPauseState(true); });
+            calibrateButton.onClick.AddListener(delegate { playerController.SetCalibration(); });
             resumeButton.onClick.AddListener(delegate { SetPauseState(false); });
             restartButton.onClick.AddListener(delegate {
                 GM.resetScore();

@@ -61,7 +61,6 @@ public class PlayerController : MonoBehaviour
         moveSpeed = defaultMoveSpeed * GM.sensitivity * 2;
         playerShootScript = gameObject.GetComponent<PlayerShoot>();
         cameraScript = Camera.main.GetComponent<CameraFollow>();
-        
         // get player's collider
         hitbox = GetComponent<BoxCollider>();
     }
@@ -146,7 +145,6 @@ public class PlayerController : MonoBehaviour
             dead = true;
             Handheld.Vibrate();
             menuController.StartCoroutine("EndScreenDelay");
-
             GM.Save();
         }
         else
