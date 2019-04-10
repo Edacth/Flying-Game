@@ -1065,7 +1065,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 12
+        scalar: 10
         minScalar: 0
         maxCurve:
           serializedVersion: 2
@@ -3639,7 +3639,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     range: {x: 0, y: 1}
   CollisionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 3
     type: 1
     collisionMode: 0
@@ -3846,7 +3846,7 @@ ParticleSystem:
       type: 0
       properties: 0
   LightsModule:
-    enabled: 1
+    enabled: 0
     ratio: 1
     light: {fileID: 108706090460221604, guid: c14925a6d49f1904e9ab3def2c30c99b, type: 2}
     randomDistribution: 1
@@ -8379,7 +8379,7 @@ ParticleSystem:
       type: 0
       properties: 0
   LightsModule:
-    enabled: 1
+    enabled: 0
     ratio: 1
     light: {fileID: 108706090460221604, guid: c14925a6d49f1904e9ab3def2c30c99b, type: 2}
     randomDistribution: 1
