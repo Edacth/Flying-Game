@@ -25,11 +25,13 @@ public class MenuController : MonoBehaviour {
     //How To Play screen
     Button htpBackButton, continueButton;
     //Menu screens
-    GameObject optionsScreen, htpScreen, creditsScreen;
+    GameObject optionsScreen, htpScreen, creditsScreen, planeSelectScreen;
     //Options
     Toggle yAxisToggle;
     Slider sensitivitySlider;
     TextMeshProUGUI sensitivityNumber;
+    //Plane Selections
+    Button F16Button, A10Button, GyroButton;
 
     public PlayerController playerController;
 
@@ -59,18 +61,14 @@ public class MenuController : MonoBehaviour {
             htpBackButton = GameObject.Find("/Main Camera/Canvas/HTPScreen/HTPBackButton").GetComponent<Button>();
             continueButton = GameObject.Find("/Main Camera/Canvas/HTPScreen/ContinueButton").GetComponent<Button>();
 
+            planeSelectScreen = GameObject.Find("/Main Camera/Canvas/PlaneSelectScreen");
+            F16Button = GameObject.Find("/Main Camera/Canvas/PlaneSelectScreen/F16Button").GetComponent<Button>();
+            A10Button = GameObject.Find("/Main Camera/Canvas/PlaneSelectScreen/A10Button").GetComponent<Button>();
+            GyroButton = GameObject.Find("/Main Camera/Canvas/PlaneSelectScreen/GyroButton").GetComponent<Button>();
+
             startButton.onClick.AddListener(delegate {
-                if (GM.firstPlay)
-                {
-                    htpScreen.SetActive(true);
-                    mainScreen.SetActive(false);
-                    continueButton.gameObject.SetActive(true);
-                    GM.firstPlay = false;
-                }
-                else
-                {
-                    SceneManager.LoadScene(gameScene);
-                }
+                mainScreen.SetActive(false);
+                planeSelectScreen.SetActive(true);
             });
             optionsButton.onClick.AddListener(delegate {
                 mainScreen.SetActive(false);
@@ -116,6 +114,21 @@ public class MenuController : MonoBehaviour {
             creditsBackButton.onClick.AddListener(delegate {
                 creditsScreen.SetActive(false);
                 mainScreen.SetActive(true);
+            });
+
+            F16Button.onClick.AddListener(delegate {
+                GM.planeType = GameManager.PLANETYPE.F16;
+                LoadGame();
+            });
+
+            A10Button.onClick.AddListener(delegate {
+                GM.planeType = GameManager.PLANETYPE.A10;
+                LoadGame();
+            });
+
+            GyroButton.onClick.AddListener(delegate {
+                GM.planeType = GameManager.PLANETYPE.GYRO;
+                LoadGame();
             });
         }
         else
@@ -178,5 +191,21 @@ public class MenuController : MonoBehaviour {
     {
         yield return new WaitForSeconds(1.5f);
         SetEndState(true);
+    }
+
+    public void LoadGame()
+    {
+        if (GM.firstPlay)
+        {
+            htpScreen.SetActive(true);
+            //mainScreen.SetActive(false);
+            planeSelectScreen.SetActive(false);
+            continueButton.gameObject.SetActive(true);
+            GM.firstPlay = false;
+        }
+        else
+        {
+            SceneManager.LoadScene(gameScene);
+        }
     }
 }

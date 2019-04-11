@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Physics/Input")]
     public Rigidbody rBody;
-    public MeshRenderer mr;
+    public GameObject mr;
     public Vector2 axisInput;
     public Vector3 defaultPos;
     public float rotLerp;
@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     public GameObject crossHairs;
     public BoxCollider hitbox;
     public CameraFollow cameraScript;
+    public GameObject F16, A10, Gyro;
 
     [Header("Misc")]
     public GameObject explosion;
@@ -55,8 +56,24 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        SetCalibration();
         GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+
+        switch(GM.planeType)
+        {
+            case GameManager.PLANETYPE.F16:
+                F16.SetActive(true);
+                mr = F16;
+                break;
+            case GameManager.PLANETYPE.A10:
+                A10.SetActive(true);
+                mr = A10;
+                break;
+            case GameManager.PLANETYPE.GYRO:
+                Gyro.SetActive(true);
+                mr = Gyro;
+                break;
+        }
+        SetCalibration();
         menuController = GameObject.FindGameObjectWithTag("GameManager").GetComponent<MenuController>();
         moveSpeed = defaultMoveSpeed * GM.sensitivity * 2;
         playerShootScript = gameObject.GetComponent<PlayerShoot>();
@@ -81,19 +98,19 @@ public class PlayerController : MonoBehaviour
             if (Time.time - invincTime > invincDuration)
                 invinc = false;
             if (invinc)
-                mr.enabled = !mr.enabled;
-            else mr.enabled = true;
+                mr.SetActive(!mr.activeSelf);
+            else mr.SetActive(true);
         }
         else
         {
             //Death Sequence
-            mr.enabled = false;
+            mr.SetActive(false);
             hitbox.enabled = false;
             rBody.velocity = Vector3.zero;
             GM.gunAmmo = 0;
             GM.missileAmmo = 0;
             playerShootScript.dead = true;
-            exhaustParticle.SetActive(false);
+            //exhaustParticle.SetActive(false);
             crossHairs.SetActive(false);
         }
         if(damage >= 100)

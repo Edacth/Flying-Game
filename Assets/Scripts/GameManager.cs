@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour {
         public int highScore;
     }
 
+    public enum PLANETYPE { F16, A10, GYRO };
+
     public static GameManager instance = null; //Instance of this script
     public GameObject environmentSection;
     public GameObject AmmoReplenText;
@@ -44,6 +46,9 @@ public class GameManager : MonoBehaviour {
     public float gameTime;
     public float totalGameTime;
     public float fadeIncrement;
+    
+
+    public PLANETYPE planeType;
 
     [SerializeField] float sectionSpeed;
     List<ESectionController> ESectionPool = new List<ESectionController>();

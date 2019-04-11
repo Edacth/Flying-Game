@@ -15,6 +15,7 @@ public class PlayerShoot : MonoBehaviour
     public GameManager GM;
     public float gunCost;
     public float missileCost;
+    private bool variablesAssigned = false;
 
     [Header("Variables")]
     public float bulletSpeed;
@@ -47,6 +48,11 @@ public class PlayerShoot : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
+        if(!variablesAssigned)
+        {
+            AssignReferences();
+            variablesAssigned = true;
+        }
         if ((Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Stationary) || Input.GetMouseButton(0))
         {
             if (Time.time - bulletTimeStamp > timeToFireBullet)
@@ -110,5 +116,13 @@ public class PlayerShoot : MonoBehaviour
                 }
             }
         }
+    }
+    void AssignReferences()
+    {
+        firePoint = GameObject.Find("/Player/" + GM.planeType.ToString() + "/FirePoint").transform;
+        missilePoint[0] = GameObject.Find("/Player/" + GM.planeType.ToString() + "/Missile Positions/position left").transform;
+        missilePoint[1] = GameObject.Find("/Player/" + GM.planeType.ToString() + "/Missile Positions/position right").transform;
+        missileDummies[0] = GameObject.Find("/Player/" + GM.planeType.ToString() + "/Missile Positions/position left/missileModel");
+        missileDummies[1] = GameObject.Find("/Player/" + GM.planeType.ToString() + "/Missile Positions/position right/missileModel");
     }
 }
