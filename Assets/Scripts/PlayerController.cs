@@ -72,7 +72,6 @@ public class PlayerController : MonoBehaviour
         if (!dead)
         {
             //Physics/Movement
-            //Vector3 rot = new Vector3(Input.gyro.gravity.y * (GM.yAxisFlipped ? -40 : 40), Input.gyro.gravity.x * 30, -Input.gyro.gravity.x * 45);
             Vector3 rot = new Vector3(adjustedGravity.y * (GM.yAxisFlipped ? -40 : 40), adjustedGravity.x * 30, -adjustedGravity.x * 45);
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(rot), rotLerp);
             rBody.AddForce(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical") * (GM.yAxisFlipped ? -1 : 1), 0) * moveSpeed); //Keyboard
@@ -94,8 +93,6 @@ public class PlayerController : MonoBehaviour
             GM.gunAmmo = 0;
             GM.missileAmmo = 0;
             playerShootScript.dead = true;
-            //playerShootScript.missileDummies[0].SetActive(false);
-            //playerShootScript.missileDummies[1].SetActive(false);
             exhaustParticle.SetActive(false);
             crossHairs.SetActive(false);
         }

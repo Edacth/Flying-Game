@@ -47,8 +47,6 @@ public class PlayerShoot : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        // --Untested on phone as of yet
-        //-----------------------------------------------------------------------
         if ((Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Stationary) || Input.GetMouseButton(0))
         {
             if (Time.time - bulletTimeStamp > timeToFireBullet)
@@ -64,32 +62,7 @@ public class PlayerShoot : MonoBehaviour
                 missileTimeStamp = Time.time;
             }
         }
-        //-----------------------------------------------------------------------
 
-        //Working and tested on phone, revert back to this if necessary
-        //-----------------------------------------------------------------------
-        //if (Input.touchCount == 1)
-        //{
-        //    Touch touch = Input.GetTouch(0);
-
-        //    if (touch.phase == TouchPhase.Stationary)
-        //    {
-        //        if (Time.time - timeStamp > timeToFire)
-        //        {
-        //            fireBullet();
-        //            timeStamp = Time.time;
-        //        }
-
-        //    }
-        //}
-        //if (Input.touchCount > 1) {
-        //    Touch touch = Input.GetTouch(1);
-
-        //    if (touch.phase == TouchPhase.Began) {
-        //        fireMissile();
-        //    }
-        //}
-        //-----------------------------------------------------------------------
         for (int i = 0; i < missiles.Length; ++i)
         {
             if (missiles[i].activeSelf || dead)
