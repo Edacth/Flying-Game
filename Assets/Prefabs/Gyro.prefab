@@ -215,7 +215,6 @@ GameObject:
   - component: {fileID: 4930543697312984}
   - component: {fileID: 33089475575387214}
   - component: {fileID: 23322153056358550}
-  - component: {fileID: 54356203937506798}
   m_Layer: 0
   m_Name: bread
   m_TagString: Untagged
@@ -1228,21 +1227,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1221176409094172}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54356203937506798
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1556612435429644}
-  serializedVersion: 2
-  m_Mass: 0.0000001
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!54 &54596049415262138
 Rigidbody:
   m_ObjectHideFlags: 1
