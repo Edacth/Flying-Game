@@ -8,6 +8,7 @@ public class Explosion : MonoBehaviour
     float time;
     private AudioSource audioSource;
     public AudioClip[] sounds;
+    public float lowPitch, highPitch;
 
     void Awake()
     {
@@ -15,6 +16,7 @@ public class Explosion : MonoBehaviour
         audioSource = gameObject.GetComponent<AudioSource>();
         if (sounds.Length > 0)
         {
+            audioSource.pitch = Random.Range(lowPitch, highPitch);
             audioSource.PlayOneShot(sounds[Random.Range(0, sounds.Length)]);
         }
         

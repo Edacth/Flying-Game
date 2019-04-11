@@ -85,7 +85,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7df3773342e58d3418891c6eb87ef969, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 0.05
   m_Pitch: 0.9
   Loop: 0
   Mute: 0
@@ -181,7 +181,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   time: 2
-  sounds: []
+  sounds:
+  - {fileID: 8300000, guid: 166a7eaf1d677fe449b7b6b742bfbd2f, type: 3}
+  lowPitch: 1
+  highPitch: 1
 --- !u!198 &198479701255051468
 ParticleSystem:
   m_ObjectHideFlags: 1
