@@ -21,6 +21,8 @@ public class UIController : MonoBehaviour
     public TextMeshProUGUI damageText;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highScoreText;
+    public float defaultGunYScale;
+    public float defaultMissileYScale;
 
     private void Start()
     {
@@ -33,8 +35,8 @@ public class UIController : MonoBehaviour
         damageText.fontSharedMaterial.SetColor(ShaderUtilities.ID_GlowColor, UIColor);
         damageText.text = "DAMAGE " + playerController.damage + "%";
         damageText.color = jetOutline.color = UIColor;
-        gunScaler.localScale = new Vector3(gunScaler.localScale.x, GM.gunAmmo / 100);
-        missileScaler.localScale = new Vector3(missileScaler.localScale.x, GM.missileAmmo / 100);
+        gunScaler.sizeDelta = new Vector3(gunScaler.rect.width, GM.gunAmmo * defaultGunYScale / 100);
+        missileScaler.sizeDelta = new Vector3(missileScaler.rect.width, GM.missileAmmo * defaultMissileYScale / 100);
         scoreText.text = GM.score.ToString();
         highScoreText.text = GM.highScore.ToString();
     }
