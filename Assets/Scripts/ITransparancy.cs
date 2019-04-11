@@ -50,18 +50,8 @@ public class ITransparancy : MonoBehaviour
     }
     public void findSubMeshes()
     {
-        //Returns all Renderer components under the current object.
         Component[] subMeshRenderers = gameObject.GetComponentsInChildren(typeof(Renderer));
-        //Iterate through the child renderers.
         StartCoroutine(DetectSubMeshCoroutine(subMeshRenderers));
-        //foreach(Renderer renderer in subMeshRenderers)
-        //{
-        //    string materialName = renderer.material.name.Replace(" (Instance)", "");
-        //    //Adds a new SubMesh to the list, with the renderer and 2 material types
-        //    subMeshes.Add(new SubMesh(renderer, materialName, Resources.Load<Material>(materialName + "Opaque"), Resources.Load<Material>(materialName + "Fade")));
-        //    //Sets the mesh to opaque upon spawning.
-        //    subMeshes[subMeshes.Count - 1].meshRenderer.material = subMeshes[subMeshes.Count - 1].opaqueMat;
-        //}
     }
     IEnumerator DetectSubMeshCoroutine(Component[] subMeshList)
     {

@@ -8,7 +8,6 @@ public class UIController : MonoBehaviour
 {
     [Header("Assets")]
     public RawImage jetOutline;
-    
     private Color UIColor;
     public Color UIStartColor;
     public Color UIEndColor;
@@ -31,12 +30,17 @@ public class UIController : MonoBehaviour
     }
     void Update()
     {
+        //Damage icon fades from green to orange based on damage
         UIColor = Color.Lerp(UIStartColor, UIEndColor, (float)playerController.damage / 100);
         damageText.fontSharedMaterial.SetColor(ShaderUtilities.ID_GlowColor, UIColor);
         damageText.text = "DAMAGE " + playerController.damage + "%";
         damageText.color = jetOutline.color = UIColor;
+
+        //Scaling ammo bars
         gunScaler.sizeDelta = new Vector3(gunScaler.rect.width, GM.gunAmmo * defaultGunYScale / 100);
         missileScaler.sizeDelta = new Vector3(missileScaler.rect.width, GM.missileAmmo * defaultMissileYScale / 100);
+
+        //Changing score text
         scoreText.text = GM.score.ToString();
         highScoreText.text = GM.highScore.ToString();
     }

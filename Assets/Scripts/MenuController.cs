@@ -7,34 +7,30 @@ using UnityEngine.UI;
 public class MenuController : MonoBehaviour {
     public string gameScene;
 
+    //Gameplay UI
     GameManager GM;
-    GameObject pauseScreen;
-    Button pauseButton;
-    Button resumeButton;
-    GameObject endScreen;
-    Button restartButton;
-    Button pauseExitButton;
-    Button endExitButton;
-    Button calibrateButton;
-    TextMeshProUGUI enemyText;
-    TextMeshProUGUI timeText;
+    //Different screens
+    GameObject pauseScreen, endScreen;
+    //Gameplay buttons
+    Button pauseButton, pauseExitButton, resumeButton, endExitButton, calibrateButton, restartButton;
+    //Results screen
+    TextMeshProUGUI enemyText, timeText;
 
+    //MenuUI
     GameObject mainScreen;
-    Button startButton;
-    Button optionsButton;
-    GameObject optionsScreen;
-    Button optionBackButton;
+    //Main Menu
+    Button startButton, optionsButton;
+    //Options Menu
+    Button optionBackButton, htpButton, clearButton, creditsButton, creditsBackButton;
+    //How To Play screen
+    Button htpBackButton, continueButton;
+    //Menu screens
+    GameObject optionsScreen, htpScreen, creditsScreen;
+    //Options
     Toggle yAxisToggle;
     Slider sensitivitySlider;
     TextMeshProUGUI sensitivityNumber;
-    Button htpButton;
-    Button clearButton;
-    Button creditsButton;
-    GameObject htpScreen;
-    Button htpBackButton;
-    Button continueButton;
-    GameObject creditsScreen;
-    Button creditsBackButton;
+
     public PlayerController playerController;
 
 
@@ -170,7 +166,6 @@ public class MenuController : MonoBehaviour {
         pauseButton.gameObject.SetActive(!state);
         enemyText.text = "ENEMIES\nDESTROYED:\n" + GM.totalKills;
         timeText.text = "TIME\nSURVIVED:\n" + GM.totalGameTime.ToString("F2");
-
     }
 
     public void resetOptionsMenu()
