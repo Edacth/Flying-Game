@@ -60,7 +60,7 @@ MonoBehaviour:
   startingSectionSpeed: -35
   sectionLength: 30
   percievedElevation: -20
-  zFadePoint: 10
+  zFadePoint: 0
   score: 0
   highScore: 0
   milestoneCount: 0
@@ -72,6 +72,7 @@ MonoBehaviour:
   gameTime: 0
   totalGameTime: 0
   fadeIncrement: 0.1
+  sectionSpeed: 0
 --- !u!114 &114513415113347234
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -84,3 +85,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameScene: MainGame
+  playerController: {fileID: 0}
