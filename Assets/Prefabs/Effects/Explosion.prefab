@@ -187,6 +187,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 166a7eaf1d677fe449b7b6b742bfbd2f, type: 3}
   - {fileID: 8300000, guid: 0fd64499577e26543a47efebe774826a, type: 3}
   - {fileID: 8300000, guid: 7df3773342e58d3418891c6eb87ef969, type: 3}
+  lowPitch: 1
+  highPitch: 1
 --- !u!198 &198701466046980242
 ParticleSystem:
   m_ObjectHideFlags: 1
