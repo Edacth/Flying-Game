@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ITransparancy : MonoBehaviour
 {
-    [System.Serializable] public class SubMesh
+    [System.Serializable]
+    public class SubMesh
     {
         public Renderer meshRenderer;
         public string materialName;
@@ -20,6 +21,8 @@ public class ITransparancy : MonoBehaviour
         }
     }
 
+    Dictionary<string, Material> materialDct = new Dictionary<string, Material>();
+
     public Color opaque;
     public Color transparent;
 
@@ -31,6 +34,12 @@ public class ITransparancy : MonoBehaviour
     void Start()
     {
         fadeIncrement = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>().fadeIncrement;
+
+        // Material mat1 = Resources.Load<Material>("CementFade");
+        // Material mat2 = Resources.Load<Material>("CementFade");
+        // bool yup = (mat1 == mat2);
+        // Debug.Log(yup);
+
         findSubMeshes();
     }
 
@@ -50,25 +59,40 @@ public class ITransparancy : MonoBehaviour
     }
     public void findSubMeshes()
     {
+        subMeshes.Clear();
         Component[] subMeshRenderers = gameObject.GetComponentsInChildren(typeof(Renderer));
+        //Component[] subMeshRenderers = new Component[0];
         StartCoroutine(DetectSubMeshCoroutine(subMeshRenderers));
     }
     IEnumerator DetectSubMeshCoroutine(Component[] subMeshList)
     {
-        for(int i = 0; i < subMeshList.Length; i++)
+        for (int i = 0; i < subMeshList.Length; i++)
         {
-            string materialName = ((Renderer)subMeshList[i]).material.name.Replace(" (Instance)", "");
+            string materialName = ((Renderer)subMeshList[i]).sharedMaterial.name.Replace(" (Instance)", "");
+            //Checks if the opaque/fade materials do not exist in the dictionary
+            //If so, add material to the dictionary
+            //Else, reuse the material.
+            if (!materialDct.ContainsKey(materialName + "Opaque"))
+            {
+                materialDct.Add(materialName + "Opaque", Resources.Load<Material>(materialName + "Opaque"));
+            }
+            if (!materialDct.ContainsKey(materialName + "Fade"))
+            {
+                materialDct.Add(materialName + "Fade", Resources.Load<Material>(materialName + "Fade"));
+            }
             //Adds a new SubMesh to the list, with the renderer and 2 material types
-            subMeshes.Add(new SubMesh(((Renderer)subMeshList[i]), materialName, Resources.Load<Material>(materialName + "Opaque"), Resources.Load<Material>(materialName + "Fade")));
+            subMeshes.Add(new SubMesh(((Renderer)subMeshList[i]), materialName, materialDct[materialName + "Opaque"], materialDct[materialName + "Fade"]));
             //Sets the mesh to opaque upon spawning.
             subMeshes[subMeshes.Count - 1].meshRenderer.material = subMeshes[subMeshes.Count - 1].opaqueMat;
             yield return null;
         }
     }
+
     public void convertToFadeMat()
     {
-        foreach(SubMesh subMesh in subMeshes)
+        foreach (SubMesh subMesh in subMeshes)
         {
+            Destroy(subMesh.meshRenderer.material);
             subMesh.meshRenderer.material = subMesh.fadeMat;
         }
     }
@@ -77,6 +101,13 @@ public class ITransparancy : MonoBehaviour
         foreach (SubMesh subMesh in subMeshes)
         {
             subMesh.meshRenderer.material.color = Color.Lerp(opaque, transparent, t);
+        }
+    }
+    void OnDestroy()
+    {
+        foreach(SubMesh mesh in subMeshes)
+        {
+            Destroy(mesh.meshRenderer.material);
         }
     }
 }
@@ -108,3 +139,15 @@ public class ITransparancy : MonoBehaviour
         yield return null;
     }
 */
+    // IEnumerator DetectSubMeshCoroutine(Component[] subMeshList)
+    // {
+    //     for(int i = 0; i < subMeshList.Length; i++)
+    //     {
+    //         string materialName = ((Renderer)subMeshList[i]).material.name.Replace(" (Instance)", "");
+    //         //Adds a new SubMesh to the list, with the renderer and 2 material types
+    //         subMeshes.Add(new SubMesh(((Renderer)subMeshList[i]), materialName, materialDct[materialName + "Opaque"], materialDct[materialName + "Fade"]));
+    //         //Sets the mesh to opaque upon spawning.
+    //         subMeshes[subMeshes.Count - 1].meshRenderer.material = subMeshes[subMeshes.Count - 1].opaqueMat;
+    //         yield return null;
+    //     }
+    // }
