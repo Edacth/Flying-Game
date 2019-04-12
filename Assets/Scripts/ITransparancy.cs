@@ -79,14 +79,6 @@ public class ITransparancy : MonoBehaviour
             subMesh.meshRenderer.material.color = Color.Lerp(opaque, transparent, t);
         }
     }
-    void OnDestroy()
-    {
-        foreach(SubMesh mesh in subMeshes)
-        {
-            Destroy(mesh.opaqueMat);
-            Destroy(mesh.fadeMat);
-        }
-    }
 }
 
 //Legacy code
@@ -116,30 +108,3 @@ public class ITransparancy : MonoBehaviour
         yield return null;
     }
 */
-
-    //public Dictionary<string, Material> materialDct;
-
-// IEnumerator DetectSubMeshCoroutine(Component[] subMeshList)
-    // {
-    //     for(int i = 0; i < subMeshList.Length; i++)
-    //     {
-    //         string materialName = ((Renderer)subMeshList[i]).material.name.Replace(" (Instance)", "");
-    //         //Checks if the opaque/fade materials do not exist in the dictionary
-    //         //If so, add material to the dictionary
-    //         //Else, reuse the material.
-    //         if(!materialDct.ContainsKey(materialName + "Opaque"))
-    //         {
-    //             materialDct.Add(materialName + "Opaque", Resources.Load<Material>(materialName + "Opaque"));
-    //         }
-    //         if(!materialDct.ContainsKey(materialName + "Fade"))
-    //         {
-    //             materialDct.Add(materialName + "Fade", Resources.Load<Material>(materialName + "Fade"));
-    //         }
-    //         //Adds a new SubMesh to the list, with the renderer and 2 material types
-    //         subMeshes.Add(new SubMesh(((Renderer)subMeshList[i]), materialName, materialDct[materialName + "Opaque"], materialDct[materialName + "Fade"]));
-    //         //Sets the mesh to opaque upon spawning.
-    //         subMeshes[subMeshes.Count - 1].meshRenderer.material = subMeshes[subMeshes.Count - 1].opaqueMat;
-    //         yield return null;
-    //     }
-    // }
-    
