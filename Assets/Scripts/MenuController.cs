@@ -42,6 +42,7 @@ public class MenuController : MonoBehaviour {
         
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
+            Screen.sleepTimeout = SleepTimeout.SystemSetting;
             mainScreen = GameObject.Find("/Main Camera/Canvas/MainScreen");
             startButton = GameObject.Find("/Main Camera/Canvas/MainScreen/StartButton").GetComponent<Button>();
             optionsButton = GameObject.Find("/Main Camera/Canvas/MainScreen/OptionsButton").GetComponent<Button>();
@@ -133,6 +134,7 @@ public class MenuController : MonoBehaviour {
         }
         else
         {
+            Screen.sleepTimeout = SleepTimeout.NeverSleep;
             playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
             pauseScreen = GameObject.Find("/Main Camera/Canvas/PauseScreen");
             endScreen = GameObject.Find("/Main Camera/Canvas/EndScreen");
