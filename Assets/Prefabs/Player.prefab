@@ -2155,7 +2155,9 @@ MonoBehaviour:
   missilePoint:
   - {fileID: 0}
   - {fileID: 0}
-  bullet: {fileID: 1491694834098644, guid: fa8585925d7ff7d42b6e702ed28bd8d3, type: 2}
+  weakBullet: {fileID: 1491694834098644, guid: fa8585925d7ff7d42b6e702ed28bd8d3, type: 2}
+  strongBullet: {fileID: 1491694834098644, guid: 0c723cac122bc034387f9f285a132dae,
+    type: 2}
   bullets:
   - {fileID: 0}
   - {fileID: 0}

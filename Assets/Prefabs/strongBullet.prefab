@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 54090579044622588}
   - component: {fileID: 96988344298490320}
   m_Layer: 9
-  m_Name: playerBullet
+  m_Name: strongBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1491694834098644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.374071, y: -10.574656, z: -4.48088}
+  m_LocalPosition: {x: 2.35, y: -11.30217, z: -4.96113}
   m_LocalScale: {x: 0.1, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a5b2a147a69be4d95d72fef0ee1b0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 4
+  damage: 5
   lifetime: 1
   hasParent: 1
   explosion: {fileID: 1335658141741778, guid: 5d4c940d1b87d6541903dc68d07baf8f, type: 2}

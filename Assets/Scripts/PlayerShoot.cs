@@ -7,7 +7,9 @@ public class PlayerShoot : MonoBehaviour
     [Header("References")]
     public Transform firePoint;
     public Transform[] missilePoint = new Transform[2];
-    public GameObject bullet;
+    private GameObject bullet;
+    public GameObject weakBullet;
+    public GameObject strongBullet;
     public GameObject[] bullets = new GameObject[50];
     public GameObject missile;
     public GameObject[] missiles = new GameObject[20];
@@ -26,11 +28,30 @@ public class PlayerShoot : MonoBehaviour
 
     [HideInInspector] public bool dead = false;
 
-	// Use this for initialization
-	void Awake ()
+    // Use this for initialization
+    void Awake()
     {
+        GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        if (GM.planeType == GameManager.PLANETYPE.F16)
+        {
+            bullet = weakBullet;
+            missileCost = 2.5f; //40
+            gunCost = 0.2f; //500
+        }
+        if (GM.planeType == GameManager.PLANETYPE.A10)
+        {
+            bullet = strongBullet;
+            missileCost = 5; //20
+            gunCost = 0.1f; //1000
+        }
+        if (GM.planeType == GameManager.PLANETYPE.GYRO)
+        {
+            bullet = strongBullet;
+            missileCost = 1; //100
+            gunCost = 0.1f; //1000
+        }
         bulletTimeStamp = missileTimeStamp = Time.time;
-		for (int i = 0; i < bullets.Length; ++i)
+        for (int i = 0; i < bullets.Length; ++i)
         {
             bullets[i] = Instantiate(bullet) as GameObject;
         }
@@ -38,17 +59,11 @@ public class PlayerShoot : MonoBehaviour
         {
             missiles[i] = Instantiate(missile) as GameObject;
         }
-	}
-
-    private void Start()
-    {
-        GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
-
-    // Update is called once per frame
-    void Update ()
+    
+    void Update()
     {
-        if(!variablesAssigned)
+        if (!variablesAssigned)
         {
             AssignReferences();
             variablesAssigned = true;
@@ -61,9 +76,10 @@ public class PlayerShoot : MonoBehaviour
                 bulletTimeStamp = Time.time;
             }
         }
-        if ((Input.touchCount > 1 && Input.GetTouch(1).phase == TouchPhase.Began) || Input.GetMouseButtonDown(1)) 
+        if ((Input.touchCount > 1 && Input.GetTouch(1).phase == TouchPhase.Began) || Input.GetMouseButtonDown(1))
+        {
+            if (Time.time - missileTimeStamp > timeToFireMissile)
             {
-            if (Time.time - missileTimeStamp > timeToFireMissile) {
                 fireMissile();
                 missileTimeStamp = Time.time;
             }
@@ -124,5 +140,6 @@ public class PlayerShoot : MonoBehaviour
         missilePoint[1] = GameObject.Find("/Player/" + GM.planeType.ToString() + "/Missile Positions/position right").transform;
         missileDummies[0] = GameObject.Find("/Player/" + GM.planeType.ToString() + "/Missile Positions/position left/missileModel");
         missileDummies[1] = GameObject.Find("/Player/" + GM.planeType.ToString() + "/Missile Positions/position right/missileModel");
+        
     }
 }
