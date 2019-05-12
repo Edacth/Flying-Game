@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     private float scoreTimer;
     public float scoreInterval;
     private float moveSpeed;
+    [Tooltip("PC Version only.")] public float rotationLimiter;
     private PlayerShoot playerShootScript;
     public GameObject exhaustParticle;
     public GameObject crossHairs;
@@ -89,10 +90,28 @@ public class PlayerController : MonoBehaviour
         if (!dead)
         {
             //Physics/Movement
-            Vector3 rot = new Vector3(adjustedGravity.y * (GM.yAxisFlipped ? -40 : 40), adjustedGravity.x * 30, -adjustedGravity.x * 45);
-            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(rot), rotLerp);
-            rBody.AddForce(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical") * (GM.yAxisFlipped ? -1 : 1), 0) * moveSpeed); //Keyboard
-            rBody.AddForce(transform.forward * moveSpeed); //Gyroscope (Mobile)
+
+            if (!GM.PC) //Android
+            {
+                //Rotate the player based on gyro input
+                Vector3 rot = new Vector3(adjustedGravity.y * (GM.yAxisFlipped ? -40 : 40), adjustedGravity.x * 30, -adjustedGravity.x * 45);
+                //Lerp current rotation to new rotation
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(rot), rotLerp);
+                //Add force in the direction the plane is facing
+                rBody.AddForce(transform.forward * moveSpeed);
+            }
+            else //PC
+            {
+                //Add force in direction of input (WASD)
+                rBody.AddForce(new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical") * (GM.yAxisFlipped ? -1 : 1), 0) * moveSpeed);
+                Vector3 correctedVelocity = rBody.velocity / rotationLimiter;
+                Vector3 rot = new Vector3(correctedVelocity.y * -40, correctedVelocity.x * 30, -correctedVelocity.x * 45);
+                //Lerp current rotation to new rotation
+                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(rot), rotLerp);
+            }
+
+            
+
             transform.position = new Vector3(Mathf.Clamp(transform.position.x, -xBoundary, xBoundary), Mathf.Clamp(transform.position.y, -yBoundary, yBoundary), transform.position.z);
         
             if (Time.time - invincTime > invincDuration)

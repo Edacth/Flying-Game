@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour {
     public float gunAmmo;
     public float missileAmmo;
     public bool debugOptions = false;
+    public bool PC = false;
     public bool yAxisFlipped { get; set; }
     public bool firstPlay { get; set; }
     public float sensitivity;
