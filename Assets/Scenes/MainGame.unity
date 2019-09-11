@@ -228,6 +228,10 @@ Prefab:
       propertyPath: rotationLimiter
       value: 75
       objectReference: {fileID: 0}
+    - target: {fileID: 1890609620112806, guid: d420ec956eb4f3a419dfe179813f0dd4, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d420ec956eb4f3a419dfe179813f0dd4, type: 2}
   m_IsPrefabAsset: 0
