@@ -1749,7 +1749,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: bfc175083437b58499e1cf1d056ce17f, type: 2}
+  - {fileID: 2100000, guid: d2b9ce61c1b6cee429d414b951866cff, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2132,6 +2132,7 @@ MonoBehaviour:
   GM: {fileID: 0}
   menuController: {fileID: 0}
   scoreInterval: 1
+  rotationLimiter: 75
   exhaustParticle: {fileID: 1753034482799924}
   crossHairs: {fileID: 1643525240284698}
   hitbox: {fileID: 0}
